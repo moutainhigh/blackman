@@ -1,0 +1,88 @@
+<div class="wrapper">
+ 	<!-- #if($!{lateTask.name})
+    <div class="hm-title" id="lateTaskDivLink">
+        <p class="t1">$!{lateTask.name}</p>
+        <a href="javascript:void(0)" id="lateTaskLink" data-ProcInstId="$!{lateTaskProcInstId}" data-TaskId="$!{lateTaskId}" class="btn">查看列表</a>
+    </div>
+    #end -->
+    <div class="hm-title" id="lateTaskDivLink">
+        <p class="t1">历史记录</p>
+        <a href="javascript:void(0)" id="lateTaskLink" data-ProcInstId="$!{lateTaskProcInstId}" data-TaskId="$!{lateTaskId}" class="btn">查看列表</a>
+    </div>
+    <div class="hm-box">
+        <ul>
+            <li class="m3">
+                <span class="t1">行政区划</span>
+                <span class="t2"><span id="localCity">北京</span> <b>(系统仅允许申请行政区划为“北京”的名称)</b></span>
+            </li>
+            <li class="m3">
+                <span class="t1">字号</span>
+                <input class="text_in" id="shopName" value="$!{shopName}" data-validate="required:true;chinese:true" placeholder="请填写字号" >
+            </li>
+            <li class="m3 m1">
+                <span class="t1">行业特点</span>
+                <input class="text_in pop_box1_Industry" id="industry_txt" value="$!{industryCharacteristics}" data-validate="required:true;" readonly="readonly" placeholder="选择行业特点" >
+            </li>
+        </ul>
+    </div>
+    <div class="sc-box">
+        <p class="t1">根据您输入的信息生成的名称如下：</p>
+        <p class="t2"><span id="area_see">北京</span><span id="name_see"></span><span id="industry_see"></span>有限公司</p>
+    </div>
+    
+    <div class="btn-box">
+        <a class="check" id="checkNameBtn" href="javascript:void(0)">检查是否可用</a>
+        <a class="chbtn" id="checkNameBtn2" href="javascript:void(0)">检查是否可用</a>
+    </div>
+
+    <!-- 请选择行业特点 弹出框 -->
+    <div class="cd-popup cd-box1-Industry" role="alert"> 
+        <div class="cd-popup-container ch-hm">
+            <div class="bookorder">
+                <div class="box-t">
+                    <p class="title">请选择行业特点</p>
+                    <a href="" class="qxbtn">取消</a>
+                </div>
+                <ul class="chek_bg">
+                    #foreach($bus in $mainBusinessList)
+						<li class="b1" data-code="$!{bus.getCode()}" data-codeName="$!{bus.getCodeName()}" data-uniteCode="$!{bus.getUniteCode()}" data-value="$!{bus.getIndustryText()}" >$!{bus.getIndustryText()}（主营业务：$!{bus.getCodeName()}）</li>
+					#end
+                </ul>
+            </div> 
+        </div>
+        
+        <input id="industryHidden" type="hidden" value="$!{industryCharacteristics}" />
+        <input id="busCodeHidden" type="hidden" value="$!{mainBusinessCode}" />
+        <input id="busUniteCodeHidden" type="hidden" value="$!{mainBusinessUniteCode}" />
+        <input id="organizationTypeHidden" value="有限公司" type="hidden"/>
+        
+    </div> 
+    <!-- 弹出框 -->  
+    
+    <!-- 验证码 弹出框 -->
+    <div class="cd-popup cd-box2CheckNameImgCode" role="alert"> 
+        <div class="cd-popup-container code-boxc">
+            <div class="box">
+                <div class="sure-box">
+                    <div class="code">
+                    	<input type="hidden" id ="token" value="$!{token}" />
+                        <p class="name">请输入验证码</p>
+                        <p class="wc-box">
+                        	<input type="text" class="w-code" id ="checkNameImgCodeInput" placeholder="请输入验证码" />
+		        			<a class="get-code"><img id="checkNameImgCode" src="/common/picvalidate/$!{token}" onclick="$(this).attr('src','/common/picvalidate/$!{token}?'+new Date());" /></a>
+                        </p>
+                    </div>
+                    <div class="s-btn">
+                        <a href="javascript:void(0)" class="s1 qxbtn_checkNameImgCode">取消</a>
+                        <a href="javascript:void(0)" class="s2 okbtn_checkNameImgCode">确定</a>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div> 
+    <!-- 弹出框 --> 
+
+	<div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>

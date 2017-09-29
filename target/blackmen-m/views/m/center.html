@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>个人中心-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link id="common_css" rel="stylesheet" href="/css/style.css">
+    <script src="/js/viewport.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="center-bg">   
+        <div class="user-box">
+            <div class="user-pic"><img src="/images/center/user_pic.png" width="150" height="150"></div>
+            #if($!{loginE})
+            	<div class="user-tel"><p class="tel">$!{loginE.userphone}</p></div>
+            #else
+            	<div class="user-login"><a href="/m/login.html" class="login">登录</a></div>
+            #end
+        </div>
+    </div>
+    <div class="user-info">
+    	#if($!{loginE})
+	        <ul>
+	            <li class="u1"><a href="/m/myorder/index.html?userid=$!{loginE.userid}">我的订单</a></li>
+	            <li class="u2"><a href="/m/myservice/agency.html?userid=$!{loginE.userid}">我的服务</a></li>
+	            <li class="u7"><a href="/m/usercenter/coupon.html">我的优惠券<i class="cou"><b>$!{nums}</b>张</i></a></li>
+	           <!--  <li class="u3"><a href="/m/myservice/free.html?userid=$!{loginE.userid}">我的免费服务</a></li> -->
+	            <li class="u4"><a href="/common/FAQ">常见问题</a></li>
+	            <li class="u5"><a href="/">了解小微</a></li>
+	            <li class="tel"><a href="tel:010-57891402">010-57891402</a></li>
+	        </ul>
+    	#else
+	        <ul>
+	            <li class="u1"><a href="/m/myorder/index.html">我的订单</a></li>
+	            <li class="u2"><a href="/m/myservice/agency.html">我的服务</a></li>
+	            <!-- <li class="u7"><a href="/m/usercenter/coupon.html">我的优惠券<i class="cou"><b>$!{nums}</b>张</i></a></li> -->
+	            <!-- <li class="u3"><a href="/m/myservice/free.html">我的免费服务</a></li> -->
+	            <li class="u4"><a href="/common/FAQ">常见问题</a></li>
+	            <li class="u5"><a href="/">了解小微</a></li>
+	            <li class="tel"><a href="tel:010-57891402">010-57891402</a></li>
+	        </ul>
+    	#end
+    </div>
+
+	<div class="bot-nav">
+            <ul>
+                <li><a id="J_home_tab" class="n1" href="/m/index">首页</a></li>
+                <li><a id="J_myorder_tab" class="n2" href="/m/myorder/index.html">我的订单</a></li>
+                <li><a id="J_center_tab" class="n3-on" href="/m/usercenter/index.html">个人中心</a></li>
+            </ul>
+        </div>
+
+
+</div>
+</body>
+</html>

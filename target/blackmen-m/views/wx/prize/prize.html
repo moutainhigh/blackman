@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>查看奖品-充值卡</title>
+<link rel="stylesheet" type="text/css" href="/css/zp/prize.css">
+<link rel="stylesheet" type="text/css" href="/css/zp/common.css">
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/jQueryRotate.2.2.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+
+</head>
+<body>
+
+	<div class="prize_hd">
+       <img src="/images/zp/prize_1.jpg">
+    </div>
+	<div class="prize_mian">
+	  <h6></h6>
+	  <div class="pre_m_ct pt20 pb10">
+	      <div class="pre_m_ct_nbm">
+	         <span class="nbm_left"><i>￥</i><em>
+	         #if( $!{model.prizeno}==1)5
+	         #elseif( $!{model.prizeno}==4)10
+	         #elseif( $!{model.prizeno}==6)20
+	         #elseif( $!{model.prizeno}==2)50
+	         #end
+	         </em></span>
+	         <span class="nbm_right"><h4>手机充值卡</h4></span>
+	      </div>
+	      <div class="pre_m_ct_ipt">
+		       <form action="" method="get">
+				    <div class="ipt_list"><h5>兑换码：</h5><input type="text" name="points" min="0" max="9" value="$!{model.exchangeno}"/></div>
+				     <div class="ipt_list"><h5>密码：</h5><input type="text" name="password" value="$!{model.password}"> <div>
+
+				</form>
+
+	      </div>
+	  </div>
+	  
+	</div></div>
+	 
+	<div class="prize_ft clearfix">
+		<p>@小微律政</p>
+	</div>
+</script>
+</html>

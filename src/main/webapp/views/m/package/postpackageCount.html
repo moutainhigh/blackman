@@ -1,0 +1,11 @@
+<!-- 商品包 -->
+#if($!{packageCount})
+<div class="check-box" id="packageSellList">
+    <a href="/m/packageSellList/$!{productid}/$!{cityid}/$!{areaid}" class="link">
+    <div class="box">
+        <label class="tz-type">优惠套装</label>
+        <input id="packageCount" class="cval" type="text" readonly="readonly" value="超值优惠共$!{packageCount}款" >
+    </div>
+    </a>
+</div>
+#end

@@ -1,0 +1,89 @@
+<div class="wrapper hmbg">
+    <div class="hm-title">
+        <p class="t1">$!{name}</p>
+    </div>
+
+	#set($govOrgEntity = $EnterpriseUtils.getGovOrgConfig("$!{gov-regOrgCode}"))
+    <div class="hm-show">
+        <ul>
+            <li class="m1">
+                <span class="t1">受理机关：</span>
+                <span class="show">$!{govOrgEntity.getOrgName()}</span>
+            </li>
+            <li class="m1">
+                <span class="t1">工商局地址：</span>
+                <span class="show">$!{govOrgEntity.getOrgAddress()}</span>
+            </li>
+            <li class="m1">
+                <span class="t1">联系电话：</span>
+                <span class="show">$!{govOrgEntity.getLkmanTel()}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="hts-box">
+        <p class="t1">根据您提交的申请信息，需要下载的相关的信息如下：</p>
+    </div>
+    <div class="hm-down">
+        <ul>
+            <li>
+                <p class="ico"><img src="/images/mywf/hm2/word_ico.png"></p>
+                <p class="name">《内资公司设立登记申请书》</p>
+                <a href="" class="down">请去电脑下载</a>
+            </li>
+            <li>
+                <p class="ico"><img src="/images/mywf/hm2/ppt_ico.png"></p>
+                <p class="name">《指定(委托)书》</p>
+                <a href="" class="down">请去电脑下载</a>
+            </li>
+            <li>
+                <p class="ico"><img src="/images/mywf/hm2/ppt_ico.png"></p>
+                <p class="name">《补充信息登记表》</p>
+                <a href="" class="down">请去电脑下载</a>
+            </li>
+            <li>
+                <p class="ico"><img src="/images/mywf/hm2/excel_ico.png"></p>
+                <p class="name">《公司章程》</p>
+                <a href="" class="down">请去电脑下载</a>
+            </li>
+            <li class="zb">
+                <p class="ico"><img src="/images/mywf/hm2/none_ico.png"></p>
+                <p class="name">《内资公司设立登记申请书》</p>
+                <a href="" class="down">(自备)</a>
+            </li>
+            <li class="zb">
+                <p class="ico"><img src="/images/mywf/hm2/none_ico.png"></p>
+                <p class="name">《指定(委托)书》</p>
+                <a href="" class="down">(自备)</a>
+            </li>
+            <li class="zb">
+                <p class="ico"><img src="/images/mywf/hm2/none_ico.png"></p>
+                <p class="name">《股东身份证明》</p>
+                <a href="" class="down">(自备)</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="btn-box">
+        <a class="mbtn1" href="/weixin/mywf/company/detail/$!{procInstId}/$!{taskId}/checkReason?openId=$!{openId}">上一步</a>
+        <a class="mbtn1 setup_nextBtn" href="javascript:void(0)">下一步</a>
+    </div>
+    
+    <div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+
+<script type="text/javascript">
+$(function(){
+	$('.setup_nextBtn').unbind('click').bind('click',function(){
+		LV.wfSignlReceiveTask();
+		LV.enterpriseSubmit();
+		//window.location.href = "/weixin/mywf/company/reg/" + procInstId;
+		window.location.href = "/weixin/mywf/company/detail/"+procInstId+"/"+taskId;
+    	return true;
+	});
+});
+</script>
+

@@ -1,0 +1,188 @@
+<div class="wrapper">
+    <div class="hm-title">
+        <!-- <p class="t1">北京小微律政管理咨询有限公司</p> -->
+        <p class="t1">$!{fullName}$!{name}</p>
+    </div>
+    
+    <div id="submitDataDiv" style="display: none;" >
+      	<!-- 核名工商状态：1，未提交工商 -->
+		<input type="hidden" id="checkNameGovStatus" value="1" data-info="enterprise:main"  />
+		<input type="hidden" id="checkNameStatus" value="2" data-info="enterprise:main"  />
+		<input id="registUserStatus" type="hidden" value="2" placeholder="是否有核名账号" data-validate="required:true;" data-info="enterprise:main" />
+    </div>
+	<input type="hidden" id="mainBusinessCode" value="$!{mainBusinessCode}" data-validate="required:true;" data-info="enterprise:main" />
+	<input type="hidden" id="shopName" value="$!{shopName}" data-info="enterprise:main"  />
+	<input type="hidden" id="industryCharacteristics" value="$!{industryCharacteristics}" data-info="enterprise:main"  />
+	<input type="hidden" id="organizationType" value="有限公司" data-info="enterprise:main" />
+	<input type="hidden" id="regionLocationInName" value="1" data-info="enterprise:main" />
+	<input type="hidden" id="name" value="$!{fullName}" data-info="enterprise:main"  />
+    <!-- <div class="hm-box">
+        <ul>
+            <li class="m3 marr pop_box1">
+                <input class="text_w" type="text" readonly="readonly" placeholder="名称中行政区划所在的位置" >
+            </li>
+        </ul>
+    </div> -->
+    <div class="add-hm">
+        <a href="" trace t-module="selfCheckName_addholder" t-value="$!{shopName}" class="addbtn pop_box2Partner">+ 添加新股东</a>
+        <ul>
+            #foreach($naturalPartner in $!{EnterpriseUtils.getRoleListByEnterpriseAndRoleType("$!{enterpriseId}", 'naturalPartner')})
+           	<li data-isFocus="false">
+           		<label class="name">$!{naturalPartner.get('name')}</label>
+           		<span class="text">$!{naturalPartner.get('idNum')}</span>
+           		<a href="javascript:void(0);" class="edit pop_box2Partner">编辑</a>
+				<div data-info="partnerInfo" data-roleType="naturalPartner" data-relationId="$!{naturalPartner.get('roleRelationId')}">
+					<input id="name" data-flag="nameHidden" type="hidden" value="$!{naturalPartner.get('name')}" data-info="partnerInfo:main"/>
+					<input id="idNum" data-flag="idCardHidden" type="hidden" value="$!{naturalPartner.get('idNum')}" data-info="partnerInfo:main"/>
+				</div>
+			</li>
+            #end
+            
+            #foreach($legalPartner in $!{EnterpriseUtils.getRoleListByEnterpriseAndRoleType("$!{enterpriseId}", 'legalPartner')})
+       		<li data-isFocus="false">
+           		<label class="name">$!{legalPartner.get('name')}</label>
+           		<span class="text">$!{legalPartner.get('businessLicenseNum')}</span>
+           		<a href="javascript:void(0);" class="edit pop_box2Partner">编辑</a>
+				<div data-info="partnerInfo" data-roleType="legalPartner" data-relationId="$!{legalPartner.get('roleRelationId')}">
+					<input id="name" data-flag="companyNameHidden" type="hidden" value="$!{legalPartner.get('name')}" data-info="partnerInfo:main"/>
+					<input id="businessLicenseNum" data-flag="busLicenseNumHidden" type="hidden" value="$!{legalPartner.get('businessLicenseNum')}" data-info="partnerInfo:main"/>
+				</div>
+			</li>
+      		#end
+        </ul>
+    </div>
+    <div class="hts-box">
+        <p class="t1">请输入您的姓名和身份证，我们会帮您注册并向登记机关提交您的核名信息。</p>
+    </div>
+
+    <div class="hm-box" id="hm-box">
+        <ul>
+            <li class="m3">
+                <span class="t1">姓名</span>
+                <input class="text_in" traceb t-module="selfCheckName_addholder_regName" type="text" placeholder="请填写您的姓名" id="registUserName" value="$!{registUserName}" data-validate="required:true;" data-info="enterprise:main">
+            </li>
+            <li class="m3">
+                <span class="t1">身份证</span>
+                <input class="text_in" traceb t-module="selfCheckName_addholder_regCardNo" type="text" placeholder="请填写您的身份证号" id="registUserCerNo" value="$!{registUserCerNo}" data-validate="required:true;identity:true;" data-info="enterprise:main" >
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn" id="submitBtn">提交注册</a>
+        <span class="save-box">暂时不想注册，<a href="javascript:void(0);" id="saveBtn" >保存信息</a></span>
+    </div>
+    
+    <!-- 名称中行政区划所占的位置 弹出框 -->
+    <div class="cd-popup cd-box1" role="alert"> 
+        <div class="cd-popup-container ch-hm">
+            <div class="bookorder">
+                <div class="box-t">
+                    <p class="title">名称中行政区划所占的位置</p>
+                    <a href="" class="qxbtn">取消</a>
+                </div>
+                <ul class="chek_bg">
+                    <li class="b1">北京小微律政信息咨询有限公司</li> 
+                    <li class="b1">小微律政(北京)信息咨询有限公司</li>  
+                    <li class="b1">小微律政信息咨询(北京)有限公司</li>   
+                </ul>
+            </div> 
+        </div>
+    </div> 
+    <!-- 弹出框 -->   
+
+    <!-- 名称中行政区划所占的位置 弹出框 -->
+    <div class="cd-popup cd-box2-partnerInfo" role="alert" id="alertBox"> 
+        <div class="cd-popup-container hm-add">
+            <div class="wrapper">
+           		<div class="hts-box">
+	       			<p class="t1">独资公司只能有一个自然人股东，且该股东只能投资一个自然人独资。请谨慎填写股东后期在设立时不能更改</p>
+	   			</div>
+                <div class="hm-box">
+                	<input type="hidden" id="handleTypeHidden"/>
+                    <ul id="partnerUL">
+                        <li class="m3 marr pop_box3_partnerType">
+                            <input class="text_w see_naturalPartner" type="text" data-role="naturalPartner" readonly="readonly" value="自然人股东(内资)" >
+                            <input class="text_w see_legalPartner" type="hidden" data-role="legalPartner" readonly="readonly" value="单位股东(内资)" >
+                        	<input id="partnerTypeHidden" type="hidden" value="naturalPartner"/>
+                        </li>
+                        <li class="m3 naturalPartnerInput">
+                           <input id="nameTxt" data-validate="required:true;" class="text_w" type="text"  placeholder="请输入姓名" >
+                        </li>
+                        <li class="m3 naturalPartnerInput" >
+                            <input id="idCard" data-validate="required:true;identity:true" class="text_w" type="text"  placeholder="请输入身份证号码" >
+                        </li>
+                        <li class="m3 legalPartnerInput" hidden="true">
+                           <input id="companyNameTxt" data-validate="none" class="text_w" type="text"  placeholder="请输入公司名称" >
+                        </li>
+                        <li class="m3 legalPartnerInput" hidden="true">
+                            <input id="busLicenseNumTxt" data-validate="none" class="text_w" type="text"  placeholder="请输入营业执照号码" >
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="btn-box">
+                    <a class="mbtn del" trace t-module="selfCheckName_addholder_del" t-value="$!{shopName}"  id="delBtn">删除</a>
+                    <a class="mbtn cancel" trace t-module="selfCheckName_addholder_back" t-value="$!{shopName}" id="cancelBtn">返回</a>
+                    <a class="mbtn pop_box4_sav" trace t-module="selfCheckName_addholder_save" t-value="$!{shopName}"   id="savBtn">保存</a>
+                    <input id="partnerId" type="hidden" value=""/>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+    <!-- 弹出框 -->  
+
+
+    <!-- 选择股东结构 弹出框 -->
+    <div class="cd-popup cd-box3-partnerType" role="alert"> 
+        <div class="cd-popup-container ch-hm">
+            <div class="bookorder">
+                <div class="box-t">
+                    <p class="title">选择股东结构</p>
+                    <a href="" class="qxbtn">取消</a>
+                </div>
+               
+                <ul class="chek_bg" id="partnerType">
+					<li class="b1 partnerTypeLi" data-value="20" data-role="naturalPartner" >自然人股东（内资）</li>
+	                <li class="b1 partnerTypeLi" data-value="10" data-role="legalPartner" >单位股东（内资）</li>
+                </ul>
+            </div> 
+        </div>
+    </div> 
+    <!-- 弹出框 -->  
+	#parse("views/common/makephonecode.html")
+    <!-- 选择股东结构 弹出框 -->
+    <div class="cd-popup cd-box4loginWin" role="alert"> 
+        <div class="cd-popup-container mlogin-box">
+            <div class="mlogin">
+                <div class="item">
+                	<input type="hidden" id ="token" value="$!{token}" />
+                    <p>
+                        <input class="w-480" type="text" id="J_mobile" placeholder="请输入新手机号码" name="phoneNum" >
+                    </p>
+                    <p class="in_btn" >
+	                    <input type="text" id ="valicodeinput" placeholder="图形验证码" />
+	                    <img id="valicodeImg" src="/common/picvalidate/$!{token}" onclick="$(this).attr('src','/common/picvalidate/$!{token}?'+new Date());" />
+	                </p>
+                    <p>
+                        <input class="w-480" type="text" id="phoneNumvali" placeholder="请输入手机验证码">
+                        <a href="javascript:void(0)" onclick="sendMessage();" id="se_btn" class="get-code">获取验证码</a>
+                        <a href="javascript:void(0)" style="display: none;" id="in_btn" class="get-code">倒计时<span id="J_re_time">120s</span></a>
+                        <span class="time"></span>
+                    </p>
+                </div>
+                <div class="btn">
+                    <a href="javascript:void(0);" class="qxbtn loginWinQxBtn">取消</a>
+                    <a href="javascript:void(0);" id="loginBtn" >登录</a>
+                </div>
+            </div> 
+        </div>
+    </div> 
+    <!-- 弹出框 --> 
+    
+    <div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+
+</div>

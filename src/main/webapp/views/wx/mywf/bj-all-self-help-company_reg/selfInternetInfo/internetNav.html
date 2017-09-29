@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=3.0,minimum-scale=1.0,  width=device-width" />
+<title>免费网登</title>
+<meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+<meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+<link rel="stylesheet" type="text/css" href="/css/mywf/ztm.css">
+<script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.imgbox.pack.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script> 
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".pic1,.pic2,.pic3").imgbox({
+    	'speedIn'		: 0,
+		'speedOut'		: 0,
+		'zoomOpacity'	: true,
+		'overlayShow'	: true,
+		'alignment'		: 'center'
+    });
+});
+
+var viewport = document.querySelector("meta[name=viewport]");
+var winWidths=$(window).width();
+var densityDpi=640/winWidths;
+	densityDpi= densityDpi>1?300*640*densityDpi/640:densityDpi;
+if(isWeixin()){
+	viewport.setAttribute('content', 'width=640, target-densityDpi='+densityDpi);
+}else{
+	viewport.setAttribute('content', 'width=640, user-scalable=no');
+	window.setTimeout(function(){
+		viewport.setAttribute('content', 'width=640, user-scalable=yes');
+	},1000);
+}
+function isWeixin(){
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		return true;
+	} else {
+		return false;
+	}
+}
+</script>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="transfer">
+        <div class="banner-box">
+            <p class="t1"><img src="/images/zt/transfer/b_ico.png"></p>
+            <p class="t2">移动版暂未开通！</p>
+            <p class="t3">原因竟是程序猿哥哥把产品汪开掉了。<br>不过您可以登录电脑办理。</p>
+        </div>
+        <div class="box1">
+            <p class="s1">第一步</p>
+            <p class="s2">百度搜索小微律政进入网站。</p>
+            <div class="img-box">
+                <a class="pic1" href="/images/zt/transfer/img1.jpg"><img alt="" src="/images/zt/transfer/m_img1.png" /></a>
+            </div>
+            <div class="credit"></div>
+        </div>
+        <div class="box2">
+            <p class="s1">第二步</p>
+            <p class="s2">登录状态下，<br>点击导航栏中我的小微。</p>
+            <div class="img-box">
+                <a class="pic1" href="/images/zt/transfer/img2.jpg"><img alt="" src="/images/zt/transfer/m_img2.png" /></a>
+            </div>
+            <div class="credit"></div>
+        </div>
+        <div class="box3">
+            <p class="s1">第三步</p>
+            <p class="s2">点击左侧全部服务后，再点击处理任务便可以开始注册。</p>
+            <div class="img-box">
+                <a class="pic1" href="/images/zt/transfer/img3.jpg"><img alt="" src="/images/zt/transfer/m_img3.png" /></a>
+            </div>
+            <div class="credit"></div>
+        </div>
+        <div class="bot-box">快打开电脑吧，说不定下一个马云就是你！</div>
+    </div>
+
+    <!-- <div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01057426695">010-57426695</a>
+    </div> -->
+</div>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+<span style="display: none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script>
+</span>
+</body>
+</html>

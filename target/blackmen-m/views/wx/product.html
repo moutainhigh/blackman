@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>$!{pModel.product_name}</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <meta name="x5-fullscreen" content="true">
+	<meta name="full-screen" content="yes">
+    <link id="common_css" rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/box.css">
+    <!-- 登录弹框所用到的样式 -->
+    <link rel="stylesheet" href="/css/common/login_box.css">
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/jquery.tabs.js"></script>
+    <script src="/js/box.js"></script>
+    <script src="/js/iscroll.js"></script>
+	<script src="/js/goodslistdown.js"></script>
+    <script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script> 
+    <script type="text/javascript">
+    $(document).ready(function($){
+        $("#normaltab").tabso({
+            cntSelect:"#normalcon",
+            tabEvent:"click",
+            tabStyle:"normal"
+        });
+
+        $(".type-box li").each(function(){
+            $(this).click(function(){
+                $(".type-box li").addClass("off").removeClass("on");
+                $(this).addClass("on").removeClass("off");
+            })
+        }); 
+
+        $(".tabcon li").each(function(){
+            $(this).click(function(){
+                $(".tabcon li").addClass("off").removeClass("on");
+                $(this).addClass("on").removeClass("off");
+            })
+        }); 
+        
+      //根据后台的参数选中相关内容
+		var cityid = "$!{cityid}";
+		var productid = "$!{productid}";
+		var areaid = "$!{areaid}";
+		
+		if(productid){
+			$("#J_product_div").find("li").each(function(){
+				var pid = $(this).attr("oid");
+				if(productid == pid){
+					$(this).attr("class","on");
+				}else{
+					$(this).attr("class","off");
+				}
+			})
+		}
+		if(areaid){
+			$("#J_area_ul").find("li").each(function(){
+				var pid = $(this).attr("oid");
+				if(areaid == pid){
+					$(this).attr("class","on");
+				}else{
+					$(this).attr("class","off");
+				}
+			})
+		}
+		
+		if(cityid){
+			$("#normaltab").find("li").each(function(){
+				var pid = $(this).attr("oid");
+				if(cityid == pid){
+					$(this).attr("class","current");
+				}else{
+					$(this).attr("class","");
+				}
+			})
+		}
+
+        //切换产品
+        $("#J_product_div").find("li").each(function(){
+        	$(this).click(function(){
+        		var pid = $(this).attr("oid");
+        		 var cid = $("#J_cityid").val();
+                 var aid = $("#J_areaid").val();
+                 var alertname = $(this).text();
+                 
+                 $.ajax({
+
+                     url:"/wxdetail/queryPrice",
+
+                     type:"post",
+
+                     data:{"pid":pid,"cityid":cid,"areaid":aid},
+
+                     success:function(data){
+
+                     	var sellprice = data.sellprice;
+                     	var marketprice = data.marketprice;
+                     	var sellid = data.sellid;
+                     	//异步替换数值
+                     	$("#J_alert_name").text(alertname);//弹窗的名称
+                     	$("#J_alert_pri").text("￥"+sellprice);//弹窗的价格
+                     	$("#J_pid").val(pid);//页面的产品id
+                     	
+                     }
+
+                 });
+        	})
+        })
+        
+          //切换城市
+        $("#normaltab").find("li").each(function(){
+        	$(this).click(function(){
+        		 var cid = $(this).attr("oid");
+        		 var pid = $("#J_pid").val();
+        		 //设置城市id
+        		 $("#J_cityid").val(cid);
+                 
+                 $.ajax({
+
+                     url:"/wxdetail/queryCity",
+
+                     type:"post",
+
+                     data:{"pid":pid,"cityid":cid},
+
+                     success:function(data){
+
+						var arealist = data.area;
+						//清空区域列表
+	                	$("#J_area_ul").html("");
+						var lis = "";
+	                	for(var i=0;i<arealist.length;i++){
+	                		var li = " <li trace  t-module=\"areaselected\" t-value = \""+arealist[i].areaid+"\"   class=\"off\" oid=\""+arealist[i].areaid+"\">"+arealist[i].name+"</li>";
+	                		lis = lis+li;
+	                		
+	                	}
+	                		$("#J_area_ul").append(lis);
+	                		
+	                	//重新绑定区域方法
+	                		rebind();
+	                	
+                     }
+
+                 });
+        	})
+        })
+        
+		//切换区域
+        $("#J_area_ul").find("li").each(function(){
+        	$(this).click(function() {
+				var aid = $(this).attr("oid");
+				var cid = $("#J_cityid").val();
+				var pid = $("#J_pid").val();
+
+				//刷新页面
+				var myurl = "/wxdetail/"+pid+".html?cityid="+cid+"&areaid="+aid;
+				window.location.href = myurl;
+				 
+				
+			})
+        })
+        
+        
+        
+        //产品弹窗的确定按钮
+        $("#J_alert_pro_ok_btn").click(function(){
+        	var pid = $("#J_pid").val();
+        	var cid = $("#J_cityid").val();
+        	var aid = $("#J_areaid").val();
+        	window.location.href = "/wxdetail/"+pid+".html?cityid="+cid+"&areaid="+aid;
+        })
+        
+        /*客户问答*/
+		$("#flow-name").find('li').unbind('click').on(
+				'click',
+				function() {
+					$("#flow-name").find('li').removeClass(
+							'current');
+					$(this).addClass('current');
+
+					var val = $(this).attr("value");
+					var cityId = $('#J_cityid').val();
+					//异步加载客户问答
+					$.ajax({
+						url : "/wxdetail/getQAinfoList",
+						type : "post",
+						dataType : "json",
+						data : {
+							"productId" : "$!{productid}",
+							"QAtype" : val,
+							"cityId" : cityId
+						},
+						success : function(data) {
+							if (data == null || data.length == 0 ) {
+								$("#QA_UL").find('li').remove();
+								$('#QAlist-none').show();
+								return;
+							}
+							
+							$('#QAlist-none').hide();
+							var liHtml = "";
+							$.each(data, function(n, value) {
+								liHtml += '<li>'
+										+ '<p class="que">'
+										+ value.questioncontent
+										+ '</p>'
+										+ '<p class="ans">'
+										+ value.answercontent
+										+ '</p>' + '</li>';
+							});
+
+							$("#QA_UL").find('li').remove();
+							$("#QA_UL").append(liHtml);
+
+						},
+						error : function() {
+							alert("未响应");
+						}
+					});
+				});
+        
+        
+        /*********************客户评价    开始**************************/
+		var oParent = $(this);
+		var aBtn=$('.com-names li a');
+          aBtn.each(function(){
+              aBtn.click(function(){
+               aBtn.removeClass('currents');
+                 $(this).addClass("currents");
+
+             });
+         });
+
+       $(window).scroll(function(){
+          var a=parseInt($(window).scrollTop());
+          if(a<1000){
+              $(".m-com-names").removeClass("mnew-spnavxf")
+          }
+          if(a>1000)
+          {
+          $(".m-com-names").addClass("mnew-spnavxf")
+          }
+       });
+      
+       $("#wrapper-ul").on("click","dl",function(){
+			  if (t1 == null){
+					t1 = new Date().getTime();
+				}else{
+					var t2 = new Date().getTime();
+					if(t2 - t1 < 500){
+						t1 = t2;
+						return;
+					}else{
+						t1 = t2;
+					}
+				} 
+				$(this).find('.cont_pf').stop().slideToggle();
+				var a=$(this).find('.md_btn p');
+				   // a.stop();
+				   // console.log(a);
+				   if(a.attr('class') == 'btn_jt_down'){
+				      a.attr('class','btn_jt');
+				   }else{
+				    a.attr('class','btn_jt_down');
+				   }
+		});
+
+		// 中部menu
+		$(window)
+				.scroll(
+						function() {
+							var top = $(document).scrollTop();
+							var menu = $("#menu");
+							var items = $(".md-hover");
+
+							var curId = "";
+							items.each(function() {
+								var m = $(this);
+								var itemsTop = m.offset().top;
+								if (top > itemsTop - 100) {
+									curId = "#" + m.attr("id");
+								} else {
+									return false;
+								}
+							});
+							var curLink = menu
+									.find(".currents");
+							if (curId
+									&& curLink.attr("href") != curId) {
+								curLink.removeClass("currents");
+								menu.find(
+										"[href=" + curId + "]")
+										.addClass("currents");
+							}
+
+						});
+		//显示星星分数1
+		$(".show-number li p").each(function(index, element) {
+			var num = $(this).attr("tip");
+			var www = num * 2 * 13;//
+			$(this).css("width", www);
+
+		});
+		//显示星星分数2
+		$(".show-numbers li p").each(function(index, element) {
+			var num = $(this).attr("tip");
+			var www = num * 2 * 10;//
+			$(this).css("width", www);
+
+		});
+		//显示星星分数3
+		$(".show-numbert li p").each(function(index, element) {
+			var num = $(this).attr("tip");
+			var www = num * 2 * 8;//
+			$(this).css("width", www);
+
+		});
+
+		$('.tit_spn_h2').click(function() {
+			$(this).next().slideToggle();
+		})
+
+		$('.tit_spn_ul li').click(function() {
+			$('.tit_spn_h2').html($(this).html());
+			$(this).parent().slideUp();
+		})
+		
+		
+
+		$("#pingfenScope").find('li').on('click',function() {
+					var scope = $(this).attr('data-value');
+					loadCusEvaluation(scope);
+		});
+		
+		//获取各个评分的评价总条数
+		getAllCountByEvaluationScope();
+		//加载数据
+		loadCusEvaluation("all");
+		/*********************客户评价     结束**************************/
+		 
+    });
+    
+    
+    /*分页加载*/
+	function loadPageCusEvaluation(pageIndex){
+		if(typeof(cusEvalParamValue) == "undefined"){//查询条件
+			return;
+		}else{
+			$.ajax({
+				url:"/common/getPageListByPage/"+pageIndex+"?"+cusEvalParamValue,
+				type:"post",
+				dataType:"html",
+				async:false,
+				success:function(data){
+		    		$("#wrapper-ul").append(data);
+		    		
+		    		reInitEvent();
+				},
+				error:function(){}
+			})
+		}
+	}
+	
+	
+	function loadCusEvaluation(scope){
+		//异步加载客户问答
+	    $.ajax({
+	    	url:"/common/getPageListCusEvalByPrdtId",
+	    	type:"post",
+	    	dataType:"html",
+	    	async:false,
+	    	data:{"productId":"$!{productid}","scope":scope},
+	    	success:function(data){
+	    		$('#wrapper-ul').children().remove();
+	    		$("#wrapper-ul").append(data);
+	    		
+	    		reInitEvent();
+	    	},
+	    	error:function(){
+	    		alert("未响应");
+	    	}
+	    });
+	}
+	
+	/*客户评价-重新初始化相关元素事件*/
+	function reInitEvent(){
+		//显示分数
+		$(".show-numbers li p").each(function(index, element) {
+		  var num=$(this).attr("tip");
+		  var www=num*2*10;
+		  $(this).css("width",www);
+		  $(this).parent(".star-Shows").siblings("h4").text(num);
+		});
+		
+		//显示分数2
+		$(".show-numbert li p").each(function(index, element) {
+		  var num=$(this).attr("tip");
+		  var www=num*2*8;
+		  $(this).css("width",www);
+		  $(this).parent(".star-Showt").siblings("h4").text(num);
+		});
+				
+	}
+    
+    /*各类评分总记录数*/
+	function getAllCountByEvaluationScope(){
+		var scope = "";
+		$('#pingfenScope').find('li').each(function(i){
+			scope += $(this).attr("data-value") + "|";
+		});
+		$.ajax({
+			url:"/common/getAllCountByEvaluationScope",
+			type:"post",
+			dataType:"json",
+			data:{"scope":scope,"productid":"$!{productid}"},
+			success:function(data){
+				$('#pingfenScope').find('li').each(function(j){
+					var para = $(this).attr("data-count");
+					var num = data[para];
+					var html = $(this).html() + "("+num+")";
+					$(this).html(html);
+				});
+			},
+			error:function(){}
+		});
+	}
+    
+    //重新绑定切换区域方法
+    function rebind(){
+    	//切换区域
+        $("#J_area_ul").find("li").each(function(){
+        	
+        	$(this).click(function() {
+				var aid = $(this).attr("oid");
+				var cid = $("#J_cityid").val();
+				var pid = $("#J_pid").val();
+
+				//刷新页面
+				var myurl = "/wxdetail/"+pid+".html?cityid="+cid+"&areaid="+aid;
+				window.location.href = myurl;
+				 
+				
+			})
+        });
+        
+        $(".tabcon li").each(function(){
+            $(this).click(function(){
+                $(".tabcon li").addClass("off").removeClass("on");
+                $(this).addClass("on").removeClass("off");
+            })
+        }); 
+    }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="product bott-box">
+        <div class="pbanner"  #foreach($m in $!img)style="background:url('/common/imgurl/$!{m}') no-repeat center;background-size:640px 370px;"#end>
+        
+            <div class="banner-box">
+                <p class="t1">$!{pModel.product_name}</p>
+                <p class="t2">$!{info.tips}</p>
+            </div>
+        </div>
+        <div class="price-info">
+            <div class="price-b1">
+                <p class="p1">￥<span id="J_top_pri">$!{model.sell_overprice}</span></p>
+                <p class="p2"    id="J_top_mark_pri">￥$!{model.sell_markprice}</p>
+            </div>
+           <!--  <div class="tag">
+                <div class="arrow"><em></em><span></span></div>
+               	 ${info.detail}
+            </div> -->
+        </div>
+        <!-- 领券 -->
+        #if($packets)
+	        <div class="check-box getcou">
+	            <div class="box show_coupon">
+	                <label class="type">领券</label>
+	                <p class="coutype">
+		                #foreach($p in $packets)
+	                    	<span>$!{p.unitShortName}</span>
+	                    #end
+	                </p>
+	            </div>
+	        </div>
+        #end
+        <div class="check-box">
+            
+            <p class="box pop_box2">
+                <label class="type">已选区域</label>
+                <span class="cval" id="J_sel_area" type="text" readonly="readonly" value="$!{cityname}$!{areaname}" placeholder="请选择区域">$!{cityname}$!{areaname}</span>
+            </p>
+            <p class="box pop_box1">
+                <label class="type">已选类型</label>
+                 <span class="cval" type="text" value="$!{pModel.product_name}" placeholder="请选择类型">$!{pModel.product_name}</span>
+            </p>
+        </div>
+        
+        <!-- 商品包Start -->
+        #if($!{packageCount})
+        <div id="packageSellList">
+	        <div class="check-box">
+	            <a href="/wx/packageSellList/$!{productid}/$!{cityid}/$!{areaid}" class="link">
+	            <div class="box">
+	                <label class="tz-type">优惠套装</label>
+	                <input class="cval" type="text" readonly="readonly" value="超值优惠共$!{packageCount}款" >
+	            </div>
+	            </a>
+	        </div>
+        </div>
+        #else
+        <div id="packageSellList"></div>
+        #end
+        <!-- 商品包end -->
+
+		#if($!{goodEval})
+			<!-- 点评-->
+			<div class="m_main" id="content">
+				<div class="m_evaluate">
+					<h2><span id="countAllScope">$!{countAllScope}</span>条点评</h2>
+					<span class="spn1"><b>$DataFormat.phoneFormatHide($!{goodEval.phone})</b><b>$DataFormat.dateFormat($!{goodEval.datetime})</b></span>
+
+					<span class="spn2">
+						<ul class="show-number f-clear">
+							<li>
+								<div class="star-Show">
+									<p tip="$DataFormat.doubleFormatInt($!{goodEval.zhpf})"></p>
+								</div> <span></span>
+							</li>
+						</ul>
+						<h4>$DataFormat.doubleFormatInt($!{goodEval.zhpf})</h4>
+					</span>
+					<ul class="m_eva_ul f-clear">
+						<li>服务态度好</li>
+						<li>办事效率高</li>
+						<li>专业程度高</li>
+						<li>主动热情</li>
+					</ul>
+					<span class="spn3 f-clear">
+						<p>$!{goodEval.content}</p>
+					</span> <span class="spn4"> <a href="#btn3" id="moreEvalBtn">查看全部评价>></a>
+					</span>
+				</div>
+			</div>
+			<!-- 点评结束-->
+			#end
+		
+
+
+        <div class="title-box">
+            <p class="tit md-hover" id="btn1">服务流程</p>
+        </div>
+        <div class="book-flow">
+            <ul>
+                <li class="fole-on">点击“立刻购买”</li>
+                <li class="fole-on">提交订单</li>
+                <li class="fole-on">服务人员与您取得联系</li>
+                <li class="fole-on">等待服务</li>
+                <li class="fole-on">服务结束</li>
+            </ul>
+        </div>
+
+        <div class="title-box">
+            <p class="tit">服务内容</p>
+        </div>
+        <div class="pro-con">
+           <!--  <ul>
+                <li>名称核准服务1次</li>
+                <li>新版营业执照</li>
+                <li>五枚印章（公章、法人章、财务专用章、发票章、合同专用章）</li>
+                <li>精美礼盒</li>
+            </ul>
+            <p class="pro-tag">
+                服务时间：20个工作日
+            </p> -->
+            $!{info.serContent_text}
+        </div>
+        
+		<!-- 吸顶条-->
+		<div class="m-com-names" id="menu">
+			<ul class="com-names">
+				<li><a href="#btn1" class="currents">服务介绍 </a></li>
+				<li><a href="#btn2">客户问答</a></li>
+				<li><a href="#btn3">评价($!{countAllScope})</a></li>
+
+			</ul>
+		</div>
+		<!-- 吸顶条-->
+		<div class="title-box">
+				<p class="tit md-hover" id="btn2">客户问答</p>
+			</div>
+			<!-- 问题切换tab -->
+			<div class="common-box">
+				<ul class="com-name" id="flow-name">
+					<li value="1" class="current"><a>常见问题</a></li>
+					<li value="2"><a>服务相关</a></li>
+					<li value="3"><a>办理时长</a></li>
+					<li value="4"><a>支付及发票</a></li>
+				</ul>
+
+				<div class="com-con">
+					<div class="sublist">
+						<div class="que-box">
+							<ul id="QA_UL">
+								#foreach($m in $!faqlist)
+								<li>
+									<p class="que">$!m.questioncontent</p>
+									<p class="ans">$!m.answercontent</p>
+								</li> #end
+							</ul>
+							#if ($faqlist && $!faqlist.size()>0)
+							<div id="QAlist-none" style="display: none" class="ts-show">
+							   暂时还没有相关问答哟！
+							</div>
+							#else
+							<div id="QAlist-none" class="ts-show">
+							   暂时还没有相关问答哟！
+							</div>
+							#end
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		
+ 		<!-- #if ($faqlist && $!faqlist.size()>0)  
+        <div class="title-box">
+            <p class="tit md-hover" id="btn2">常见问题</p>
+        </div>
+        <div class="que-box">
+            <ul>
+                
+                #foreach($m in $!faqlist)
+					<li>
+						<p class="que">$!m.questions</p>
+						<p class="ans">$!m.answer</p>
+					</li> 
+				#end
+            </ul>
+        </div>
+        #end -->
+        
+        
+        <!--  服务评价-->
+         <div class="title-box">
+            <p class="tit md-hover" id="btn3">服务评价</p>
+            <div class="tit_spn" >
+            	<h2 class="tit_spn_h2">全部评价($!{countAllScope})</h2>
+                <ul class="tit_spn_ul" id="pingfenScope">
+                 <li data-value="all" data-count="pingfenCountall">全部评价</li>
+                  <li data-value="5~" data-count="pingfenCount5~">5分</li>
+                  <li data-value="4~5" data-count="pingfenCount4~5">4~5分</li>
+                  <li data-value="3~4" data-count="pingfenCount3~4">3~4分</li>
+                  <li class="bdnone" data-value="1~3" data-count="pingfenCount1~3">1~3分</li>
+                </ul>
+            </div>
+         </div>
+         
+         <div class="md-tab-conts">
+			<div class="tab-conts-h show pingjiaShowDiv" id="wrapper">
+				<ul id="wrapper-ul">
+					
+				</ul>
+				<div id="pullUp">
+	              <span class="pullUpLabel">上拉加载更多...</span>
+	           </div>
+			</div>
+		</div>
+
+        <div class="pro-btn">
+            <ul>
+                <li class="m3">
+                    <a href="tel:010-57891402"  trace t-module="product_wx_phoneBtn" t-value="$!{productid}" class="t3"><span>电话咨询</span></a>
+                    <a href="javascript:void(0);" id="payBtn" class="t2">立即购买</a>
+                </li>
+            </ul>
+            <script>
+            	$("#payBtn").click(function(){
+            		var sellid=$("#J_sellid").val();
+            		window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx76ec5c98f567d0e1&redirect_uri=http%3A%2F%2Fm.lvzheng.com%2Fwx%2Fmyorder%2FbuyNow%3Fsellid%3D"+sellid+"&response_type=code&scope=snsapi_base&state=123&connect_redirect=1#wechat_redirect";
+            		$("#payBtn").unbind("click");
+            	})
+            </script>
+        </div>
+        	<input type="hidden" id="J_openid" value="$!{openId}" />
+			<input type="hidden" id="J_pcode"   value="$!{productcode}"/>
+	        <input type="hidden" id="J_pid"     value="$!{productid}"/>
+            <input type="hidden" id="J_cityid"  value="$!{cityid}"/>
+            <input type="hidden" id="J_areaid"  value="$!{areaid}"/>
+            <input type="hidden" id="J_sellid"  value="$!{model.sell_id}"/>
+        
+        <div class="cd-popup cd-box2" role="alert"> 
+            <div class="cd-popup-container ch-area">
+
+                <div class="boxname">
+                    <div class="box-t">
+                        <p class="btn1">请选择注册区域</p>
+                        <p class="btn2 qxbtn">取消</p>
+                    </div>
+
+                    <div class="area-box">  
+                        <ul class="tabbtn" id="normaltab">
+                            #foreach($m in $!city)
+                                 	#if ($velocityCount == 1 )
+                                 	<li class="current" oid="$!{m.areaid}"><a>$!{m.name}</a></li>
+                                 	#else
+                                 	<li oid="$!{m.areaid}"><a>$!{m.name}</a></li>
+                                 	#end
+                            #end
+                                 
+                        </ul>
+                        <div class="tabcon" id="normalcon">
+                            <div class="sublist">
+                                <ul id="J_area_ul">
+                                     #foreach($m in $!area)
+                                 	  <li trace  t-module="areaselected" t-value = "$!{m.areaid}" class="off" oid="$!{m.areaid}">$!{m.name}</li>
+                                 	#end
+                                </ul>
+                            </div>
+                        </div>
+                    </div>  
+                </div>        
+
+            </div>
+        </div> 
+
+        <div class="cd-popup cd-box1" role="alert"> 
+            <div class="cd-popup-container ch-area">
+
+     
+                <div class="boxname">
+                    <div class="box-t">
+                        <p class="btn1">请选择类型</p>
+                        <p class="btn2 qxbtn">取消</p>
+                    </div>
+
+                    <div class="type-box">
+                        <p class="name"><a id="J_alert_name">$!{pModel.product_name}</a></p>
+                        <p class="name"><span id="J_alert_pri">￥$!{model.sell_overprice}</span></p>
+                        <ul id="J_product_div">
+                             #foreach($m in $!list)
+                                 	 <li trace  t-module="trace_product_id" t-value = "$!{m.product_id}"  class="off" oid="$!{m.product_id}">$!{m.product_name}</li>
+                             #end
+                        </ul>                
+                        <a id="J_alert_pro_ok_btn" class="btn">确定</a>
+                    </div> 
+                </div>        
+            </div>
+        </div> 
+
+		<!-- 领券弹层 -->
+        <div class="cd-popup cd-box3" role="alert"> 
+            <div class="cd-popup-container ch-area">
+                <div class="boxname">
+                    <div class="box-t">
+                        <p class="btn1">领取优惠券</p>
+                        <p class="btn2 qxbtn">取消</p>
+                    </div>
+                    <div class="getcoubox">
+                        <p class="title available_title">可领取优惠券</p>
+                        <ul id="available_coupons">
+                           
+                        </ul>  
+                        <p class="title hold_tital">可用优惠券<span>以下是您账户里可用于该商品的优惠券</span></p>
+                        <ul id="hold_coupons">  
+                            
+                        </ul>
+                        <p class="get-ts">您已领取过此券〜</p>
+                    </div>
+                </div>        
+            </div>
+        </div> 
+
+
+    </div>
+
+</div>
+
+#parse("views/common/makephonecode.html")
+#parse("views/common/login_float.html")
+</body>
+<!-- 登录和优惠券领取相关的JS    JS引用后置，在页面最后加载 -->
+<script type="text/javascript" src="/js/coupon/wxpreferential.js"></script>
+<script type="text/javascript" src="/js/common/wx_login_float.js"></script>
+<span style="display: none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script> 
+</span>
+</html>

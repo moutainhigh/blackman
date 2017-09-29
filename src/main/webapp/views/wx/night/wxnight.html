@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>小微律政-国内领先的O2O自营法律服务提供商</title>
+<meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+<meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+
+<link href="/css/night/mnight.css" type="text/css"  rel="stylesheet"/>
+<link href="/css/night/box.css" type="text/css"  rel="stylesheet"/>
+<script type="text/javascript" src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://static.lvzheng.com/blackM/js/viewport.js"></script> 
+<script type="text/javascript" src="http://static.lvzheng.com/blackM/js/box.js"></script>
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="night-box">
+        <div class="banner"></div>
+        #if($timeFlag == 1)
+        <div class="main-box1">
+            <div class="cou-box">
+                <p class="name"><img src="/images/night/name1.png"></p>
+                <div class="cou-list">
+                    <ul>
+                    
+                    #foreach($packet in $packets)
+                
+                
+	                	<a data-pid="$!{packet.id}" class="link pop_box1 #if($packet.userFetch == 0) gofetch #end" href="javascript:void(0);">
+		                    <li class="#if($packet.userFetch == 1) geton #else on  #end">
+		                        <p class="price"><span>￥</span>$!{packet.quota}</p>
+		                        <p class="type">满减劵</p>
+		                        <p class="text">$!{packet.unitName}可用<br>领取成功仅当天有效</p>
+		                        <p class="get">#if($packet.fetched == 1) 已领取 #else 立即领取 #end</p>
+		                    </li>
+	                    </a>
+	                #end
+                        <!-- <a class="link pop_box1" href="javascript:void(0);">
+                        <li class="on">
+                            <p class="price"><span>￥</span>30</p>
+                            <p class="type">套餐专用劵</p>
+                            <p class="text">满30.01减30可用<br>领取成功仅当天有效</p>
+                            <p class="get">立即领取</p>
+                        </li>
+                        </a> -->
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="get-succ">
+                <p class="name">恭喜你，领取成功!</p>
+                <p class="text">您的优惠劵放入您的账户里，将于今<br>日23:59分失效，请尽快使用哦～</p>
+            </div>
+
+        </div>
+		#end
+        <div class="main-box2">
+            <div class="cy-box">
+                <p class="name"><img src="/images/night/name2.png"></p>
+                <div class="cy-list">
+                    <ul>
+                        <!-- <li>
+                            <p class="list-name"><label>1</label>创业无忧套餐</p>
+                            <div class="list-con">
+                                <p class="t1">公司注册＋代理地址＋银行开户＋税务报道＋代理记账＝</p>
+                                <p class="t2"><span>￥</span>6688</p>
+                                <a class="buy-btn" href="">立即购买</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="list-name"><label>2</label>轻松开工套餐</p>
+                            <div class="list-con">
+                                <p class="t1">公司注册＋代理地址＋银行开户＋税务报道＝</p>
+                                <p class="t2"><span>￥</span>4788</p>
+                                <a class="buy-btn" href="">立即购买</a>
+                            </div>
+                            <div class="list-con">
+                                <p class="t1">公司注册＋银行开户＋税务报道＋代理记账＝</p>
+                                <p class="t2"><span>￥</span>3098</p>
+                                <a class="buy-btn" href="">立即购买</a>
+                            </div>
+                        </li> -->
+	                       <li>
+	                        <p class="list-name"><label>1</label>创业特惠套餐</p>
+	                        <div class="list-con">
+	                            <p class="t1">公司注册＋注册地址＋内资小规模记账（1年）＝</p>
+	                            <p class="t2"><span>￥</span>6088</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/38229817543169.html">立即购买</a>
+	                        </div>
+	                        <div class="list-con">
+	                            <p class="t1">公司注册＋注册地址＝</p>
+	                            <p class="t2"><span>￥</span>4188</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/38229817543169.html">立即购买</a>
+	                        </div>
+	                        <div class="list-con">
+	                            <p class="t1">公司注册＋内资小规模记账（1年）＝</p>
+	                            <p class="t2"><span>￥</span>2498</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/38229817543169.html">立即购买</a>
+	                        </div>
+	                    </li>
+	                    <li>
+	                        <p class="list-name"><label>2</label>投资注册套餐</p>
+	                        <div class="list-con">
+	                            <p class="t1">投资类注册＋注册地址＝</p>
+	                            <p class="t2"><span>￥</span>68888</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/39592978067713.html">立即购买</a>
+	                        </div>
+	                        <div class="list-con">
+	                            <p class="t1">投资类注册＝</p>
+	                            <p class="t2"><span>￥</span>51888</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/39592959262465.html">立即购买</a>
+	                        </div>
+	                    </li>
+	                    <li>
+	                        <p class="list-name"><label>3</label>地址变更套餐</p>
+	                        <div class="list-con">
+	                            <p class="t1">同区地址变更＋注册地址＝</p>
+	                            <p class="t2"><span>￥</span>4398</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/40026203471361.html">立即购买</a>
+	                        </div>
+	                        <div class="list-con">
+	                            <p class="t1">跨区地址变更＋注册地址＝</p>
+	                            <p class="t2"><span>￥</span>4798</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/40026214478081.html">立即购买</a>
+	                        </div>
+	                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-box3">
+            <div class="sp-box">
+                <p class="name"><img src="/images/night/name3.png"></p>
+                <div class="cy-list">
+                    <ul>
+                         <li>
+	                        <p class="list-name1">影视许可注册套餐</p>
+	                        <div class="list-con">
+	                            <p class="t1">广播电视节目经营制作许可证＋公司注册＋注册地址＝</p>
+	                            <p class="t2"><span>￥</span>15288</p>
+	                            <a class="buy-btn" href="http://m.lvzheng.com/wxdetail/40026325086209.html">立即购买</a>
+	                        </div>
+	                    </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+
+        <div class="main-box4">
+            <div class="box">
+                <div class="short-box">
+                    <p class="name"><img src="/images/night/name4.png"></p>
+                    <div class="short-list">
+                        <ul>
+                            <li>
+	                            <div class="pic">
+	                                <img src="/images/night/sp1.png">
+	                                <p class="price"><span>￥</span>800元</p>
+	                            </div>
+	                            <a href="http://m.lvzheng.com/wxdetail/38230926529537.html" class="buy">立即购买</a>
+	                        </li>
+	                        <li>
+	                            <div class="pic">
+	                                <img src="/images/night/sp2.png">
+	                                <p class="price"><span>￥</span>700元</p>
+	                            </div>
+	                            <a href="http://m.lvzheng.com/wxdetail/38253259489537.html" class="buy">立即购买</a>
+	                        </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="short-box">
+                    <p class="name"><img src="/images/night/name5.png"></p>
+                    <div class="short-list">
+                        <ul>
+                            <li>
+	                            <div class="pic">
+	                                <img src="/images/night/sp3.png">
+	                                <p class="price"><span>￥</span>1元</p>
+	                            </div>
+	                            <a href="http://m.lvzheng.com/wxdetail/39186221829377.html" class="buy">立即购买</a>
+	                        </li>
+	                        <li>
+	                            <div class="pic">
+	                                <img src="/images/night/sp4.png">
+	                                <p class="price"><span>￥</span>1000元</p>
+	                            </div>
+	                            <a href="http://m.lvzheng.com/wxdetail/39253461021441.html" class="buy">立即购买</a>
+	                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> 
+<input type="hidden" id="J_packetId" value="$!{packetId}">
+<div class="cd-popup cd-box2" role="alert"> 
+    <div class="cd-popup-container getceng-box">
+        <div class="get-box">
+            <a href="">
+                <img src="/images/night/ceng.png">  
+            </a>
+        </div>
+        <a href="#" class="cd-popup-close img-replace">关闭</a>           
+    </div>
+</div> 
+
+</body>
+<script>
+
+
+
+$(".gofetch").click(function(){
+	var packetId = $(this).attr("data-pid");
+	var thisE = $(this);
+	$.ajax({
+		url:"/wx/preferential/fetch",
+		data:{"packetId":packetId},
+		type:"post",
+		dataType:"json",
+		complete:function(data){
+			if(data.readyState == 4 && data.status == 200){
+				var responeDataJSON = $.parseJSON(data.responseText);
+				
+				if (responeDataJSON.code == 1) {
+					thisE.removeClass("gofetch");
+					//换样式
+					thisE.children().removeClass("on").addClass("geton");
+					thisE.find(".get").text("已领取");
+					$(".get-succ").addClass("succ-show")
+			        setTimeout(function(){
+			            $(".get-succ").removeClass("succ-show");
+			        },2000);
+				} else if (responeDataJSON.code == 2) {
+					thisE.removeClass("gofetch");
+					//换样式
+					thisE.children().removeClass("on").addClass("geton");
+					thisE.find(".get").text("已领取");
+					$(".get-succ").addClass("succ-show")
+			        setTimeout(function(){
+			            $(".get-succ").removeClass("succ-show");
+			        },2000);
+					alert("领取成功");
+				} else if (responeDataJSON.code == -101) {
+					alert("该红包不存在！");
+				} else if (responeDataJSON.code == -102) {
+					alert("该红包状态错误！");
+				} else if (responeDataJSON.code == -103) {
+					alert("该红包已过期！");
+				} else if (responeDataJSON.code == -104) {
+					alert("该红包无库存！")
+				} else if (responeDataJSON.code == -105) {
+					alert("未到可领取时间!");
+				} else if (responeDataJSON.code == -106) {
+					alert("该红包未配置优惠单元！");
+				} else if (responeDataJSON.code == -999) {
+					window.location = "/wx/login.html?flag=1&reach_url="+window.location.href+"?packetId="+packetId;
+				} else {
+					alert("系统异常!");
+				}
+				
+			}
+		}
+	})
+});
+
+
+$(function(){
+	var J_packetId = $("#J_packetId").val();
+	if(J_packetId){
+		$.ajax({
+    		url:"/wx/preferential/fetch",
+    		data:{"packetId":J_packetId},
+    		type:"post",
+    		dataType:"json",
+    		complete:function(data){
+    			if(data.readyState == 4 && data.status == 200){
+					var responeDataJSON = $.parseJSON(data.responseText);
+					if(responeDataJSON.success){
+						window.location = "/wx/preferential/active";
+					}else{
+						if(!!responeDataJSON.login){
+							window.location = (responeDataJSON.login);
+						}
+						if(!!responeDataJSON.msg){
+							alert(responeDataJSON.msg);
+						}
+					}
+    			}
+    		}
+    	})
+	}
+})
+
+</script>
+</html>

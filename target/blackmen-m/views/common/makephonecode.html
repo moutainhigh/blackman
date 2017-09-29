@@ -1,0 +1,98 @@
+<script type="text/javascript">
+
+var InterValObj; //timer变量，控制时间  
+var count = 120; //间隔函数，1秒执行  
+var curCount;//当前剩余秒数  
+
+function sendMessage() {
+    curCount = count;  
+    var jbPhone =  document.getElementById("J_mobile").value; 
+    if(undefined == $("#valicodeinput") || $("#valicodeinput").val() ==""){
+		alert("请输入图形验证码!");
+		return false;
+	}
+    var valicod = $("#valicodeinput").val();
+    
+    
+    if (jbPhone != "") { 
+    	if(!validatemobile(jbPhone)){
+    		alert("请输入正确电话号码！");
+    		return false;
+    	}
+    	
+    	    window.clearInterval(InterValObj);// 停止计时器  
+            // 设置button效果，开始计时  
+            $("#J_re_time").html(curCount + "s");  
+            //$("#in_btn").attr("class","t_in_btn1");
+            InterValObj = window.setInterval(SetRemainTime, 1000); // 启动计时器，1秒执行一次  
+
+            // 向后台发送处理数据  
+             $.ajax({  
+                type: "POST", // 用POST方式传输  
+                dataType: "json", // 数据格式:JSON  
+                url: "/common/sendPhoneCode", // 目标地址  
+                data: "phoneNum=" + jbPhone+"&validatecode="+valicod+"&tokenstr="+$("#token").val(),
+                success:function(data){
+                	if(data.flag == "8"){
+                		alert("图形验证码不能为空！");
+                		window.clearInterval(InterValObj);// 停止计时器  
+               	       	//把剩余秒数改成重新发送
+               	        $("#se_btn").show();
+               	     	$("#in_btn").hide();
+                		return false;
+                	}
+                	if(data.flag == "9"){
+                		alert("输入图形验证码不正确!");
+                		window.clearInterval(InterValObj);// 停止计时器  
+               	       	//把剩余秒数改成重新发送
+               	        $("#se_btn").show();
+               	     	$("#in_btn").hide();
+                		return false;
+                	}
+                	if(data.flag == "-1"){
+                		alert("验证码发送失败!请重新发送");
+                		window.clearInterval(InterValObj);// 停止计时器  
+               	       	//把剩余秒数改成重新发送
+               	        $("#se_btn").show();
+               	     	$("#in_btn").hide();
+                		return false;
+                	}
+                	if(data.flag == "2"){
+                		alert("已发送语言验证码,请注意查收!");
+                	}
+                }
+            });   
+    }
+}  
+
+//timer处理函数  
+function SetRemainTime() {  
+    if (curCount == 0) {                  
+        window.clearInterval(InterValObj);// 停止计时器  
+       //把剩余秒数改成重新发送
+        $("#in_btn").hide();
+        $("#se_btn").show();
+        $("#se_btn").text("重新发送");//隐藏这个
+//		$("#re_btn").css("display","");	   //显示这个
+    }else { 
+    	 $("#in_btn").show();
+        curCount--;  
+        $("#J_re_time").html(curCount + "s"); 
+    }  
+}  
+
+function validatemobile(phonenumber)
+{
+	
+	var isMobile=/^(?:13\d|15\d|18\d|17\d)\d{5}(\d{3}|\*{3})$/; //手机号码验证规则
+	var isPhone=/^((0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;   //座机验证规则
+	
+	if(! isMobile.test(phonenumber) ){ //如果用户输入的值不同时满足手机号和座机号的正则
+	    return false;         //返回一个错误，不向下执行
+	}else{
+		return true;
+	}
+	
+	
+}
+</script>

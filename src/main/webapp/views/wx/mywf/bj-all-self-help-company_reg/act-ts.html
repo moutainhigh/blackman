@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>我的资料-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+	<link rel="stylesheet" href="/css/mywf/style.css">
+	<link rel="stylesheet" href="/css/mywf/box.css">
+    <script src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://static.lvzheng.com/blackM/js/box.js"></script>
+    <script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+</head>
+<body>
+<div class="wrapper hmbg">
+    <div class="ts-show">
+        后面的结果得去电脑上查看哦！
+    </div>
+    <div class="btn-box">
+        <a class="chbtn" id="ts_returnBtn">返回</a>
+    </div>
+	<div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$(function(){
+	$('#ts_returnBtn').unbind('click').bind('click',
+			function(){
+				//列表页
+		    	window.location.href = "/wx/myservice/free.html?openId=$!{openId}";
+		    	return true;
+			});
+});
+
+
+</script>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+</body>
+</html>

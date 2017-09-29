@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>免费约号</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" href="/css/mywf/style.css">
+    <link rel="stylesheet" href="/css/mywf/box.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/box.js"></script>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div class="wrapper hmbg">
+	#set($AppointMap = $WXComponentExtUtils.getAppointNoResult("$!{procInstId}"))
+	#if(${AppointMap.get("enterpriseSynStatus")} == "2")
+		<div class="acc-fail">
+	        <p class="fail-text">您的账户或是密码存在问题<br>系统为检测出该帐号<br>请您再次检查后重新输入</p>
+	    </div>
+	    <div class="btn-box">
+	        <a class="chbtn pop_box1 reappointNoBtn" href="javascript:void(0)">重新约号</a>
+	    </div>
+	#elseif(${AppointMap.get("enterpriseSynStatus")} == "3")
+	    <div class="acc-fail">
+	        <p class="fail-text">未找到相关企业信息</p>
+	    </div>
+	    <div class="btn-box">
+	        <a class="chbtn pop_box1 reappointNoBtn" href="javascript:void(0)">重新约号</a>
+	    </div>
+	#elseif(${AppointMap.get("enterpriseSynStatus")} == "10" && ${AppointMap.get("gov-appointStatus")} == "20")
+		<!-- <div class="hm-title">
+        <p class="t1">$!{name}</p>
+	    </div> -->
+	    <div class="ts-succ">
+	        <p class="succ">恭喜您，预约成功</p>
+	    </div>
+	    <div class="hm-info">
+	        <p class="list"><label>预约时间：</label><span class="text red">$!{AppointMap.get("gov-appDate")}</span></p>
+	        <p class="list"><label>预约号码：</label><span class="text">$!{AppointMap.get("gov-appNo")}</span></p>
+	        <p class="list"><label>受理机关：</label><span class="text">$!{AppointMap.get("gov-regOrg")}</span></p>
+	        <p class="list"><label>预约手机号：</label><span class="text">$!{AppointMap.get("mobilePhoneNo")}</span></p>
+	        <p class="list"><label>注册号：</label><span class="text">$!{AppointMap.get("checkedNameCode")}</span></p>
+	    </div>
+	    <div class="ts-box">
+	        <p class="ts-text">
+	        * 预约号与您通过网上登记服务系统申报的企业注册号关联，是您到登记注册大厅提交登记材料的唯一凭证，请您妥善保存。
+	        </p>
+	    </div>
+	
+	    <div class="btn-box">
+	        <a class="chbtn appointBack" href="javascript:void(0)">返回</a>
+	    </div>
+	#elseif(${AppointMap.get("enterpriseSynStatus")} == "10" && ${AppointMap.get("gov-appointStatus")} == "4")
+	    <div class="acc-fail">
+	        <p class="fail-text">这段时间的号码已经被抢光啦，请重新预约</p>
+	    </div>
+	    <div class="btn-box">
+	        <a class="chbtn pop_box1 reappointNoBtn" href="javascript:void(0)">重新约号</a>
+	    </div>
+	#else
+		<!--  <div class="hm-title">
+	        <p class="t1">$!{name}</p>
+	    </div> -->
+	    <div class="ts-yyz">
+	        <p class="yyz">小象正在预约中...</p>
+	        <p class="yyz-text">由于工商系统每天会有固定的放票时间，<br>最早今天最晚明天就能帮您预约成功请耐心等待<br>小微会以短信和微信的方式通知您预约时间。</p>
+	    </div>
+	    <div class="btn-box">
+	        <a class="chbtn appointBack" href="javascript:void(0)">返回</a>
+	    </div>
+	#end
+
+
+
+    <!-- 验证码 弹出框 -->
+    <!-- <div class="cd-popup cd-box1" role="alert"> 
+        <div class="cd-popup-container code-boxc">
+            <div class="box">
+                <div class="sure-box">
+                    <div class="code">
+                        <p class="wc-box">
+                            <input type="text" class="w-code" placeholder="请输入验证码">   
+                            <a class="get-code"><img src="/images/mywf/hm2/code.png"></a>
+                        </p>
+                        <p class="wc-box">
+                            <input type="text" class="w-code" placeholder="请输入手机号">   
+                        </p>
+                        <p class="wc-box">
+                            <input type="text" class="w-code" placeholder="请输入验证码">   
+                            <a class="get-pcode">获取验证码</a>
+                        </p>
+                    </div>
+                    <div class="s-btn">
+                        <a href="javascript:void(0)" class="s1 qxbtn">取消</a>
+                        <a href="javascript:void(0)" class="s2">确定</a>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div>  -->
+    <!-- 弹出框 --> 
+</div>
+<!-- 微信分享 -->
+#parse("views/wx/mywf/common/wx-share-appointno.html")
+</body>
+
+<script type="text/javascript">
+$('.appointBack').unbind('click').bind('click',function(){//预约中--返回任务列表
+	window.location.href = "/wx/myservice/free.html?openId=$!{openId}";
+	return true;
+});
+ 
+
+$('.reappointNoBtn').unbind('click').bind('click',function(){//预约失败--重新预约
+	window.location.href = "/weixin/appointNo/index?procInstId=$!{procInstId}"
+});
+
+</script>
+
+</html>

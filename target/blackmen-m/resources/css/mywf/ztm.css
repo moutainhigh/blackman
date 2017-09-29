@@ -1,0 +1,60 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+
+/* 清理浮动 */
+.f-clear:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.f-clear {zoom:1;}/* for IE6 IE7 */
+.r_t1{margin-top:15px }
+.r_t2{margin-top:15px;border-top: 1px solid #d5d5d5 }
+.p_t1{padding-top:20px }
+
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+.wrapper{width: 640px; background: #f1f5f8; min-height: 1000px; margin:0 auto;}
+.bott_box{padding-bottom: 120px;}
+.clear{clear: both}
+#br_n{border-right: none;}
+
+
+.transfer{background-color: #fff;min-height: 1000px;}
+.transfer .banner-box{width: 640px;height: 245px;background: url('/images/mywf/zt/transfer/bannerbg.png')  no-repeat center;position: relative;}
+.transfer .banner-box .t1{width: 150px;height: 150px;position: absolute;top:50px;left: 30px}
+.transfer .banner-box .t2{font-size: 36px;height: 40px;line-height: 40px;color: #fff;position: absolute;top:50px;left: 210px}
+.transfer .banner-box .t3{font-size: 24px;line-height: 35px;color: #fff;position: absolute;top:110px;left: 210px}
+
+.transfer .box1{position: relative;width: 640px;height: 240px}
+.transfer .box1 .s1{font-size: 28px;color: #26b0f7;position: absolute;top: 50px;left: 50px}
+.transfer .box1 .s2{font-size: 24px; line-height: 35px; color: #000; width: 190px; position: absolute;top: 95px;left: 50px}
+.transfer .box1 .img-box{position: absolute;top: 50px;left: 270px}
+
+.transfer .box2{position: relative;width: 640px;height: 240px;background: #e6f6fd}
+.transfer .box2 .s1{font-size: 28px;color: #26b0f7;position: absolute;top: 50px;left: 340px}
+.transfer .box2 .s2{font-size: 24px; line-height: 35px; color: #000; width: 270px; position: absolute;top: 95px;left: 340px}
+.transfer .box2 .img-box{position: absolute;top: 50px;left: 40px}
+
+.transfer .box3{position: relative;width: 640px;height: 240px}
+.transfer .box3 .s1{font-size: 28px;color: #26b0f7;position: absolute;top: 50px;left: 50px}
+.transfer .box3 .s2{font-size: 24px; line-height: 35px; color: #000; width: 250px; position: absolute;top: 95px;left: 50px}
+.transfer .box3 .img-box{position: absolute;top: 50px;left: 300px}
+.transfer .bot-box{width: 640px; text-align: center; height: 60px; line-height: 60px;font-size: 24px; color: #fff; background: #ff5555; }
+
+#imgbox-overlay {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url('/images/mywf/zt/transfer/b90.png') repeat;display: none;z-index: 80;}
+.imgbox-wrap {position: absolute;top: 0;left: 0;background: #FFF;display: none;z-index: 90;}
+
+
+/*中转页*/
+.zzm{background-color: #e7eef4; padding: 25px 20px 5px; min-height: 800px;}
+.zzm .box1{position: relative;width: 600px;height: 305px;margin-bottom: 25px}
+.zzm .box1 .bar{position: absolute;bottom: 0px;left: 0px; height: 80px; padding: 0 30px; width: 544px; background: url('/images/mywf/zt/zz/zbar.png') repeat-x;}
+.zzm .box1 .bar .s1{width: 130px;height: 80px;line-height: 80px;font-size: 28px;color: #fffc00;text-align: center;float: left;}
+.zzm .box1 .bar .s2{width: 410px;float: left; padding: 5px 0; line-height: 35px;font-size: 24px;color: #fffc00}
+
+.zzm .box1 .bar1{position: absolute;bottom: 0px;left: 0px; height: 60px; padding: 0 30px; width: 544px; background: url('/images/mywf/zt/zz/zbar.png') repeat-x;}
+.zzm .box1 .bar1 .s1{width: 130px;height: 60px;line-height: 60px;font-size: 28px;color: #fffc00;text-align: center;float: left;}
+.zzm .box1 .bar1 .s2{width: 410px;float: left; padding: 5px 0; line-height: 50px;font-size: 24px;color: #fffc00}
+.zzm a.zzbtn{width: 600px;height: 70px;line-height: 70px;text-align: center;display: inline-block;background: #3a99d8;border-radius: 6px;font-size:30px;color: #fff; margin-bottom: 30px; }

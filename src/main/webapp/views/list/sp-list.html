@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>代理记账-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link id="common_css" rel="stylesheet" href="http://static.lvzheng.com/blackM/css/style.css">
+    <link rel="stylesheet" href="/css/box.css">
+    <script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+    <script type="text/javascript" src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/jquery.tabs.js"></script>
+    <script src="http://static.lvzheng.com/blackM/js/box.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function($){
+        $(".spname").tabso({
+            cntSelect:".spcon",
+            tabEvent:"click",
+            tabStyle:"normal"
+        });
+
+        $(window).resize(function(){
+            $('.csp-list').css('height',($(window).height() - 1));
+        }).resize();
+
+    });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sp-box">
+
+
+            <div class="csp-list">  
+                <ul class="spname" >
+                #foreach($vo in $volist)
+                #if($modelcode == $vo.menu_code2)
+                 <li class="current">
+                 #else
+                 <li>
+                 #end
+                 <a href="$!{vo.path}?openId=$!{openid}">$!{vo.menu_name2}</a>
+                 </li>
+                  #end  
+
+                </ul>
+                <div class="spcon">
+                    <div class="sublist">
+                        <ul>
+                        #foreach($p in $prolist)
+                            <li>
+                                
+	                            <a href="$!{p.path}">
+	                            #if($!{p.flag}==0)<!-- //不使用标记 -->
+	                            <p class="list"><span class="name">$!{p.spname}</span>
+	                            #else
+	                            #if($!{p.ptype}==1)<!-- //红字 -->
+	                            <p class="list"><span class="name red">$!{p.spname}</span>
+	                            #else
+	                            <p class="list"><span class="name">$!{p.spname}</span>
+	                            #end
+	                            #end
+	                           <!--  <span class="price">￥$!{listtool.getMinprice($!{product.product_id})}</span> -->
+	                            </p>
+                            	</a>
+                            </li>
+                         #end   
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+     
+
+
+    </div>
+
+</div>
+</body>
+</html>

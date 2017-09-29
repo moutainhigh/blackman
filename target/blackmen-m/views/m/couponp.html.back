@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>虚拟地址M页--国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" type="text/css" href="/css/coupon.css">
+    <link href="/css/box.css" type="text/css"  rel="stylesheet"/>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/box.js"></script> 
+ 	<script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script> 
+ 	
+<script>
+
+	/* function openwin(url) {
+	    var a = document.createElement("a");
+	    a.setAttribute("href", url);
+	    a.setAttribute("target", "_blank");
+	    a.setAttribute("id", "openwin");
+	    document.body.appendChild(a);
+	    a.click();
+	} */
+$(function(){
+	$(".gofetch").click(function(){
+		var packetId = $(this).attr("data-pid");
+		var thisE = $(this);
+		$.ajax({
+			url:"/m/preferential/fetch",
+			data:{"packetId":packetId},
+			type:"post",
+			dataType:"json",
+			complete:function(data){
+				if(data.readyState == 4 && data.status == 200){
+					var responeDataJSON = $.parseJSON(data.responseText);
+					if(responeDataJSON.success){
+						thisE.addClass("pop_box1").removeClass("gofetch");
+						//换样式
+						thisE.children().removeClass("on").addClass("off");
+						thisE.find(".get").text("已领取");
+					}else{
+						if(!!responeDataJSON.login){
+							var url = responeDataJSON.login;
+							window.location.href = url;
+						}
+						if(!!responeDataJSON.msg){
+							$(".get-ts").addClass("cts-show");
+							setTimeout(function(){
+								$(".get-ts").removeClass("cts-show");
+							},1000);
+						}
+					}
+				}
+			}
+		})
+	});
+});
+//自动提交
+$(function(){
+	var J_packetId = $("#J_packetId").val();
+	if(J_packetId){
+		$.ajax({
+    		url:"/m/preferential/fetch",
+    		data:{"packetId":J_packetId},
+    		type:"post",
+    		dataType:"json",
+    		complete:function(data){
+    			if(data.readyState == 4 && data.status == 200){
+					var responeDataJSON = $.parseJSON(data.responseText);
+					if(responeDataJSON.success){
+						window.location = "http://m.lvzheng.com/m/coupon/list";
+					}else{
+						if(!!responeDataJSON.login){
+							window.location.href = (responeDataJSON.login);
+						}
+						if(!!responeDataJSON.msg){
+							$(".get-ts").addClass("cts-show");
+							setTimeout(function(){
+								$(".get-ts").removeClass("cts-show");
+							},1000);
+						}
+					}
+    			}
+    		}
+    	})
+	}
+});
+</script>
+</head>
+<body>
+<div class="wrapper">
+<input type="hidden" id="J_packetId" value="$!{packetId}">
+    <div class="mcoupon">
+        <div class="coupon-box">
+            <ul class="coupon">
+            	#foreach($packet in $packets)
+                <a data-pid="$!{packet.packetId}" class="link #if($packet.fetched == 1) pop_share #else gofetch #end">
+                <li class="#if($packet.fetched == 0) on #else off #end">
+                    <p class="price"><span>￥</span>$!{packet.quota}</p>
+                    <p class="type">
+                        <span class="name">$!{packet.packetName}</span>
+                        <span class="demand">$!{packet.unitName}</span>
+                        <span class="time">$!{packet.effect}~$!{packet.invalid}</span>
+                    </p>
+                    #if($packet.fetched == 0)
+                    <p class="get">立即领取</p>
+                    #else
+                    <p class="get">已领取</p>
+                    #end
+                </li>
+                </a>
+                #end
+            </ul>
+        </div>
+
+        <div class="cou-sp">
+            <div class="title-box">
+                <p class="title">推荐商品</p>
+            </div>
+            <ul class="tj">
+                <li>
+                    <p class="tag ico1">
+                        <span class="t1">公司<br>注册</span>
+                        <span class="plus">+</span>
+                        <span class="t2">代理<br>地址</span>
+                    </p>
+                    <p class="price">¥3988</p>
+                    <a href="http://m.lvzheng.com/mdetail/38677678317569.html" class="btn">点击抢购</a>
+                </li>
+                <li>
+                    <p class="tag ico2">
+                        <span class="t1">公司<br>注册</span>
+                        <span class="plus">+</span>
+                        <span class="t2">代理<br>记账</span>
+                    </p>
+                    <p class="price">¥2298</p>
+                    <a href="http://m.lvzheng.com/mdetail/38832591890689.html" class="btn">点击抢购</a>
+                </li>
+            </ul>
+        </div>
+
+        <p class="get-ts">您已领取过此券〜</p>
+    </div>
+
+
+    <!-- 地址详情 弹出框 -->
+    <div class="cd-popup cd-share" role="alert"> 
+        <div class="cd-popup-container coushow">
+            <div class="cou-box">
+                <img src="/images/coupon/tsbg.png">
+            </div> 
+        </div>
+    </div> 
+    <!-- 弹出框 -->  
+
+
+</div>
+</body>
+</html>

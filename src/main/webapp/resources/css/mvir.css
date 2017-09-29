@@ -1,0 +1,101 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+input{outline: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*虚拟地址m页*/
+.mvir {width: 640px; min-height: 1000px; padding-bottom: 110px;  margin: 0 auto;background: #f1f5f8}
+.mvir .vbox1{padding: 40px 20px;background: #fff;min-height: 160px;overflow: hidden;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd}
+.mvir .vbox1 .pic{width: 160px;height: 160px;float: left;margin-right: 20px}
+.mvir .vbox1 .pic img{width: 160px;height: 160px;}
+.mvir .vbox1 .info{width: 420px;min-height: 160px;overflow: hidden;float: left;}
+.mvir .vbox1 .info p.name{font-size: 32px;min-height: 40px;line-height: 40px;color: #000;padding: 5px 0}
+.mvir .vbox1 .info p.text{font-size: 24px;height: 30px;line-height: 30px;color: #000;padding: 5px 0}
+.mvir .vbox1 .info p.price{height: 50px;line-height: 50px;padding: 10px 0;}
+.mvir .vbox1 .info p.price span.xj{font-size: 48px;color: #ff4444;height: 50px;line-height: 50px;display: inline-block;}
+.mvir .vbox1 .info p.price span.yj{font-size: 26px;color: #999999;height: 50px;line-height: 50px;display: inline-block;text-decoration: line-through;padding-left: 20px}
+
+.mvir .vbox2{background: #fff;min-height: 70px;  overflow: hidden; border-top: 1px solid #ddd;border-bottom: 1px solid #ddd}
+.mvir .vbox2 table{width: 100%;border-collapse: collapse;border: none;}
+.mvir .vbox2 table th{height: 90px;width: 170px;}
+.mvir .vbox2 table th span.ico1{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico1.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico2{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico2.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico3{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico3.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico4{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico4.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico5{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico5.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico6{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico6.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico7{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico7.png') no-repeat center left 30px;}
+.mvir .vbox2 table th span.ico8{display: inline-block; width: 170px; text-align: left;font-size: 26px;color: #333;padding-left: 70px;font-weight: normal;background: url('../images/mvir/vlist_ico8.png') no-repeat center left 30px;}
+
+.mvir .vbox2 table tr{border-bottom: 1px solid #e5e5e5}
+.mvir .vbox2 table td{ height: 90px;text-align: right;font-size: 24px;color: #666;padding-right: 30px;width: 370px}
+.mvir .vbox2 table td a.check{display: inline-block; color: #666; min-width: 300px; padding-right: 40px; cursor: pointer; background: url('../images/mvir/vlist_arr.png') no-repeat center right;}
+.mvir .mtop{margin-top: 20px}
+.mvir .vbox2 table th span.tz-name{display: inline-block;width: 125px;height: 43px;line-height: 43px; font-size: 26px; font-weight: normal; text-align: center;border: 1px solid #ff4444;color: #ff4444;float: left;margin-left: 30px}
+.mvir .vbox2 table td a.check span.mj{display: inline-block; min-width: 130px;height: 30px;line-height: 30px;text-align: center;background: #ff4444;color: #fff;font-size: 24px;margin: 0 5px;padding: 0 3px;}
+
+.mvir .vbox3{background: #fff;min-height: 70px; overflow: hidden; border-top: 1px solid #ddd;border-bottom: 1px solid #ddd}
+.mvir .vbox3 .title-box{padding: 20px;height: 30px;border-bottom: 1px solid #e5e5e5}
+.mvir .vbox3 .title-box .title{font-size: 26px; color: #333; height: 30px; line-height: 30px; padding-left: 15px;border-left: 7px solid #7cd7ee}
+.mvir .vbox3 .text-box{padding: 20px 30px;min-height: 100px;}
+.mvir .vbox3 .text-box .text{font-size: 26px;color: #666;line-height: 45px;display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;max-height: 135px; }
+.mvir .vbox3 .text-box a.more{display: block; font-size: 24px;color: #3087c7; height: 30px;line-height: 30px; width: 180px; text-align: center; margin: 0 auto;padding: 30px 0 20px}
+.mvir a.back{display: block; font-size: 36px; color: #fff; background: #20b6ee; border-radius: 6px; width: 560px; height: 80px;line-height: 80px; text-align: center; margin: 30px auto 20px; }
+.mvir .vbox3 .pic-box{padding: 20px 0}
+.mvir .vbox3 .pic-text{padding:20px 40px;}
+
+.mvir .dtbox{min-height: 1000px}
+.mvir .dtbox .pic-box{padding-bottom: 30px;width: 640px;height: 780px;}
+.mvir .dtbox .pic-box img{width: 640px;height: 780px}
+
+.pro-btn{position: fixed;bottom: -3px;z-index: 99}
+.pro-btn ul li{overflow: hidden;height: 95px;line-height: 95px; border-bottom: 1px solid #e5e5e5;  font-size: 24px;}
+.pro-btn ul li.m3 a{float: left;display: block;}
+.pro-btn ul li.m3 a.t2{width: 260px;  font-size: 28px; color: #ffffff;  display: block; background: #ff5a5a;text-align: center;cursor: pointer;}
+.pro-btn ul li.m3 a.t2:hover{background: #FC3434}
+.pro-btn ul li.m3 a.t3{width: 380px;  font-size: 28px; color: #ffffff; display: block; background: #303132;cursor: pointer;}
+.pro-btn ul li.m3 a.t3:hover{background: #030406}
+.pro-btn ul li.m3 a.t3 span.tel{ display: block; padding-left: 50px; width: 270px;margin: 0 auto; background: url("../images/mvir/tel_ico.png") no-repeat left center;}
+
+
+.mvir .mvir-title{height: 70px;padding: 9px 0;width: 640px;background: #fff url('../images/mvir/vlist_arr.png') no-repeat center right 20px; position: fixed;z-index: 9999;}
+.mvir .ztnav{height:34px;line-height:34px;width:590px; float: left; padding: 18px 20px 18px 0;  box-sizing:border-box;z-index:1;opacity:1;top:0;-webkit-transition:.3s all;transition:.3s all}
+.mvir .ztnav .slider_wrap.line{overflow:hidden;overflow-x:scroll;width:590px;-webkit-overflow-scrolling:touch;}
+.mvir .ztnav .slider_wrap.line .item_cell{display:inline-block; min-width: 125px; margin: 0px 10px;overflow:hidden;position:relative;}
+.mvir .ztnav .slider_wrap.box{overflow:hidden;width:100%}
+.mvir .ztnav .slider_wrap::-webkit-scrollbar{display:none}
+.mvir .ztnav .wx_items{white-space:nowrap}
+.mvir .ztnav .wx_items a{color:#000;font-size: 28px; white-space:nowrap;display:block; text-align:center;cursor:pointer}
+.mvir .ztnav .wx_items .current a{color:#18b4ed;}
+
+.mvir .mbanner{width: 640px;height: 260px;background: url('http://static.lvzheng.com/blackman/banner/midautumn.jpg')}
+.mvir .mvirbox .list{width: 560px; min-height: 360px;padding: 20px 30px;border: 1px solid #c5d3d9;border-radius: 5px;margin: 19px auto;position: relative;}
+.mvir .mvirbox .list:hover{border: 1px solid #a9c7db;box-shadow: 0 0 6px #b8d0e1;}
+.mvir .mvirbox .list .name{font-size: 28px;color: #000;height: 50px;line-height: 50px}
+.mvir .mvirbox .list .act{font-size: 18px;color: #fe0c0c;height: 40px;line-height: 40px}
+.mvir .mvirbox .list .fw-box{font-size: 18px;color: #666666;min-height: 30px;line-height: 30px;padding: 5px 0;overflow: hidden;}
+.mvir .mvirbox .list .fw-box label{display: inline-block;min-width: 50px;float: left;}
+.mvir .mvirbox .list .fw-box .tagbox{width: 420px;float: left;}
+.mvir .mvirbox .list .fw-box .tagbox p.tag{display: inline-block; float: left; min-width: 50px;text-align: center;height: 24px;line-height: 24px;font-size: 18px;color: #fff;margin: 2px;position: relative;}
+.mvir .mvirbox .list .fw-box .tagbox p.tag i.left{display: inline-block;width: 5px;height: 24px; background: url(../images/mvir/fwtag.png) no-repeat center left;float: left;}
+.mvir .mvirbox .list .fw-box .tagbox p.tag span{display: inline-block;min-width: 50px;background: #FF9600;float: left;}
+.mvir .mvirbox .list .fw-box .tagbox p.tag i.right{display: inline-block;width: 5px;height: 24px; background: url(../images/mvir/fwtag.png) no-repeat center right;float: left;}
+
+.mvir .mvirbox .list .listpic{width: 560px;height: 170px;padding: 10px 0}
+.mvir .mvirbox .list .price-box{height: 32px;line-height: 32px;padding: 5px 0}
+.mvir .mvirbox .list .price-box span.yj{height: 40px;line-height: 40px; float: right; font-size: 18px;color: #999999;display: inline-block;text-decoration: line-through;margin: 0 5px}
+.mvir .mvirbox .list .price-box span.xj{height: 40px;line-height: 40px; float: right; font-size: 32px;color: #ff4b4b;display: inline-block;margin: 0 5px}
+.mvir .mvirbox .list .price-box a.btn{ display: inline-block; float: right; margin: 0 5px; width: 110px; text-align: center; height: 40px; line-height: 40px; font-size: 14px;color: #fe0c0c; border: 1px solid #fe0c0c;border-radius: 5px }
+.mvir .mvirbox .list .price-box a.btn:hover{background: #e93b3b;color: #fff}
+.mvir .mvirbox .list .detailbtn{width: 120px;height: 30px;line-height: 30px;font-size: 20px;color: #408ACB;position: absolute;bottom: 20px;left: 30px}
+

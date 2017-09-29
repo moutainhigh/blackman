@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>太平洋保险担保商标，不通过全额退款--国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" type="text/css" href="/css/ldy/sb_land.css">
+    <link href="/css/box.css" type="text/css"  rel="stylesheet"/>
+    <script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+    <script type="text/javascript" src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://static.lvzheng.com/blackM/js/box.js"></script> 
+    <script src="/js/jquery.tabs.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function($){
+	    $(".hot-tab").tabso({
+	        cntSelect:".hot-con",
+	        tabEvent:"click",
+	        tabStyle:"normal"
+	    });
+
+		$(window).scroll(function(){
+			var b=parseInt($(window).scrollTop());
+			if(b<800){
+				$(".backtop").removeClass("backtop-xf")
+			}
+			if(b>800){
+				$(".backtop").addClass("backtop-xf")
+			}
+		});
+
+        // 返回顶部
+		$("#returnTop").click(function () {
+			var speed=200;//滑动的速度
+			$('body,html').animate({ scrollTop: 0 }, speed);
+			return false;
+		}); 
+
+        // 提示隐藏显示
+        $('.show').click(function(){
+            $(".show-box").show();
+        }); 
+        $("body").bind("click",function(evt){ 
+            if($(evt.target).parents(".db").length==0) { 
+                $('.show-box').hide(); 
+            } 
+        }); 
+
+        $('.show1').click(function(){
+            $(".show-box1").show();
+        }); 
+        $('.show2').click(function(){
+            $(".show-box2").show();
+        });  
+        $('.show3').click(function(){
+            $(".show-box3").show();
+        }); 
+        $("body").bind("click",function(evt){ 
+            if($(evt.target).parents(".detail-box").length==0) { 
+                $('.show-box1').hide(); 
+                $('.show-box2').hide(); 
+                $('.show-box3').hide(); 
+            } 
+        });  
+
+        // 问答展开
+        $('.list').click(function(){
+            $(this).children('.ans').slideToggle().parents('.list').siblings('.list').children('.ans').hide();
+        })  
+
+		initZXbtn();
+        $('.cd-box1-zx-tel').on('click', function(event){
+        	if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-box1-zx-tel') ) {
+        		event.preventDefault();
+        		$(this).removeClass('is-visible');
+        		$(".cd-box1").removeClass('is-visible');
+        	}
+        });
+        
+        $(".cx_free_btn").on('click',function(event){
+      	  var msg = $("#sb_content").val();
+      	  if (msg == null || msg == '') {
+      		  alert("请输入商标名称！");
+      		  return;
+      	  }
+      	  $(".cd-box1").addClass("is-visible");
+        });
+	});
+
+    function initZXbtn(){
+    	
+    	
+    	
+    	$('.cx_b_btn').unbind('click').on('click',function(){
+    		$(this).unbind('click');
+    		var msg = $("#sb_content").val();
+    		if (msg == null || msg == "") {
+    			alert("请输入商标名称！");
+    			initZXbtn();//重新绑定事件
+    			return;
+    		}
+    		var teltext = $(this).parent().find(".cx_b_phone").val();
+    		if(teltext == ''){
+    			alert('请输入手机号码！');
+    			initZXbtn();//重新绑定事件
+    			return;
+    		}
+    		
+    		var myreg = /^((1[0-9]{2})+\d{8})$/; 
+    		if(!myreg.test(teltext)){
+    			alert("手机号码格式错误");
+    			initZXbtn();//重新绑定事件
+    			return;
+    		}
+    		
+    		sendMsgDingDing(teltext,msg);
+    		
+    	});
+    }
+
+
+
+    //发送钉钉消息
+    function sendMsgDingDing(tel,msg){
+    $.ajax({
+    	url:"/m/ldy/sendDingDingMsg",
+    	type:"post",
+    	dataType:"json",
+    	data:{'phone':tel,'type':2,'msg':msg},
+    	success:function(data){
+    		if(data.ret == 'false'){
+    			$('.zxRetName').html("您的网络可能出现了问题！");
+    			$('.zxRetText').html("请您重新提交一次哦~");
+    		}
+    		$('.cd-box1-zx-tel').addClass('is-visible');
+    		
+    		//免费电话咨询
+    	    initZXbtn();
+    	},
+    	error:function(){
+    		alert('未响应');
+    		//免费电话咨询
+    	    initZXbtn();
+    	}
+    });
+    }
+
+
+
+
+    function openwindow(url,name,iWidth,iHeight)
+    {
+    var url; //转向网页的地址;
+    var name; //网页名称，可为空;
+    var iWidth; //弹出窗口的宽度;
+    var iHeight; //弹出窗口的高度;
+    //window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+    var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
+    var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
+    window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+    }
+	</script>
+
+
+</head>
+<body>
+<div class="wrapper">
+
+	<div class="mland-box">
+	    <div class="banner"></div>
+
+	    <div class="main-box">
+            <div class="md-box">
+                <a href="#md1" class="md1">免费商标查询</a>
+                <a href="#md2" class="md2">价格及内容</a>
+                <a href="#md3" class="md3">服务优势</a>
+                <a href="#md4" class="md4">注册流程</a>
+                <a href="#md5" class="md5">所需材料</a>
+                <a href="#md6" class="md6">热门问答</a>
+            </div>
+
+            <div class="sea-box" id="md1">
+                <div class="search">
+                    <span class="sea-item">
+                        <input type="text" id="sb_content" placeholder="请输入商标名称，如小微律政...">
+                    </span>
+                    <a class="btn cx_free_btn" href="javascript:void(0);">免费商标查询</a>
+                </div>
+                <p class="result">今日已有<span>2984</span>人获取查询结果，立刻查询，避免抢注！</p>
+            </div>
+
+            <div class="cp-box">
+                <div class="sbox" id="md2">
+                    <div class="namebox">
+                        <p class="name">商标担保无忧，三种方式任你选择</p>
+                    </div>
+                    <div class="sb-box">
+                        <div class="list">
+                            <p class="title t1">普通<br>商标注册</p>
+                            <p class="text"><br>3个工作日提交<br>次日可提供申请号（申请证明）</p>
+                            <p class="price"><span>￥</span>800</p>
+                            <p class="price-info">（含600元官费）</p>
+                            <p class="detail-box"><a class="detail show1">查看详情</a></p>
+                        </div>
+                        <div class="show-box1">
+                            <span class="show-arr1"></span>
+                            <p class="sdname">服务内容</p>
+                            <ul class="sdtext">
+                                <li>专业商标顾问为您免费检索商标</li>
+                                <li>为您提供免费意见，提高注册通过率</li>
+                                <li>全程一对一服务，进度实时通知</li>
+                                <li>下发商标受理通知书</li>
+                                <li>注册成功即可获得商标证书（无担保注册）</li>
+                            </ul>
+                        </div>
+
+                        <div class="list">
+                            <p class="title t2">商标担保<br>商标注册</p>
+                            <p class="text">2个工作日提交<br>次日可提供申请号（申请证明）<br><span>不成功退官费</span></p>
+                            <p class="db">太平洋保险担保 <a class="show">查看赔付条件</a></p>
+                            <p class="price"><span>￥</span>1000</p>
+                            <p class="price-info">（含600元官费）</p>
+                            <p class="detail-box"><a class="detail show2">查看详情</a></p>
+                        </div>
+                        <div class="show-box2">
+                            <span class="show-arr1"></span>
+                            <p class="sdname">服务内容</p>
+                            <ul class="sdtext">
+                                <li>专业商标顾问为您免费检索商标</li>
+                                <li>为您提供免费意见，提高注册通过率</li>
+                                <li>全程一对一服务，进度实时通知</li>
+                                <li>下发商标受理通知书</li>
+                                <li>注册成功即可获得商标证书（不成功退官费600元）</li>
+                            </ul>
+                        </div>
+
+                        <div class="show-box">
+                            <span class="show-arr"></span>
+                            <p class="sdname">服务内容</p>
+                            <ul class="sdtext">
+                                <li>购买了小微律政商标担保服务。</li>
+                                <li>商标局进行实质审核后，商标局下发驳回通知书。驳回理由是因为“有相同或近似商标注册在先”。</li>
+                                <li>注册在先的相同或近似商标申请日期正处于所购买的商标安全时间范围内。即，申请商标注册之日起，前6个月内，例如，2015年12月31日申请注册的商标，按照商标安全赔付所对应的日期为：2015年6月1日。</li>
+                                <li>所有驳回均以商标代理方正式收到国家下发的商标驳回通知书为准。</li>
+                                <li>如在商标申请过程中，因商标申请人进行变更的，请及时提交商标变更手续。赔付将会在变更手续提交后进行。 </li>
+                                <li>如在商标申请过程中，商标申请人进行商标转让的，理赔继续赔付给原商标申请人。</li>
+                                <li>以上条件全部满足时，赔付600元官费</li>
+                            </ul>
+                        </div>
+
+                        <div class="list">
+                            <p class="title t3">极速无忧<br>商标注册<span class="tag"></span></p>
+                            <p class="text">1个工作日提交<br>次日可提供申请号（申请证明）<br><span>不成功全额退款（1480元）</span></p>
+                            <p class="db">太平洋保险担保<span>无条件</span>担保退费</p>
+                            <p class="price"><span>￥</span>1480</p>
+                            <p class="price-info">（含600元官费）</p>
+                            <p class="detail-box"><a class="detail show3">查看详情</a></p>
+                        </div>
+                        <div class="show-box3">
+                            <span class="show-arr1"></span>
+                            <p class="sdname">服务内容</p>
+                            <ul class="sdtext">
+                                <li>专业商标顾问为您免费检索商标</li>
+                                <li>为您提供免费意见，提高注册通过率</li>
+                                <li>全程一对一服务，进度实时通知</li>
+                                <li>下发商标受理通知书</li>
+                                <li>注册成功即可获得商标证书（不成功全额退款)</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="sbox" id="md3">
+                    <div class="namebox">
+                        <p class="name">六大优势，包你注册无忧</p>
+                    </div>
+                    <div class="adv-box">
+                        <div class="list">
+                            <p class="aname ico1">专业顾问免费商标查询</p>
+                            <p class="atext">专业顾问根据您公司具体的经营范围制定最佳的保护方案，给您的品牌全方位保护。</p>
+                        </div>
+                        <div class="list">
+                            <p class="aname ico5">查询结果全方位保障，无滞后</p>
+                            <p class="atext">小微使用专业商标检索工具对商标进行初步检索，再根据多年从业经验给出专业建议，提升注册成功率。小微的注册成功率达85%以上。</p>
+                        </div>
+                        <div class="list">
+                            <p class="aname ico3">快速提交，避免抢注</p>
+                            <p class="atext">所有商标提交后次日均可提供申请号（申请证明）极速无忧注册享有优先提交权</p>
+                        </div>
+                        <div class="list">
+                            <p class="aname ico2">一对一服务，进度可控</p>
+                            <p class="atext">小微自营团队5年以上专业经验，不外接服务商，实行一对一服务模式，保证为您服务的人员都是最可靠最专业的。</p>
+                        </div>
+                        <div class="list">
+                            <p class="aname ico4">太平洋保险担保注册</p>
+                            <p class="atext">注册方式三种任你选择，太平洋为您的商标保驾护航。极速无忧商标注册不通过全额退款。</p>
+                        </div>
+                        <div class="list">
+                            <p class="aname ico6">合同发票</p>
+                            <p class="atext">小微可提供纸质合同，确保您的利益，所有服务均可开具发票</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sbox" id="md4">
+                    <div class="namebox">
+                        <p class="name">注册流程</p>
+                    </div>
+                    <div class="apply-box">
+                        <div class="apply-pic">
+                            <img src="/images/msbland/flow_pic.png">
+                        </div>
+                        <div class="flow-xw">
+                            <span class="xw">小微律政：</span>
+                            <span class="xw-time">只需要13个月左右 </span>
+                            <span class="other">/ 其他代理机构：</span>
+                            <span class="other-time">多达20个月左右</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sbox" id="md5">
+                    <div class="namebox">
+                        <p class="name">您需要准备的</p>
+                    </div>
+                    <div class="apply-box">
+                        <div class="apply-pic">
+                            <p class="aname">公司名义申请</p>
+                            <img src="/images/msbland/gs_apply.png">
+                        </div>
+                        <div class="apply-pic">
+                            <p class="aname">个人名义申请</p>
+                            <img src="/images/msbland/gr_apply.png">
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="sbox" id="md6">
+                    <div class="namebox">
+                        <p class="name">热门问答</p>
+                    </div>
+                    <div class="conbox">
+                        <ul class="hot-tab">
+                            <li class="current"><a>商标注册</a></li>
+                        </ul>
+                        <div class="hot-con">
+                            <div class="sublist">
+                                <div class="list">
+                                    <p class="hname">商标担保注册，能100%注册成功吗？</p>
+                                    <p class="ans"><span class="ts-arr"></span>
+                                    不一定。商标注册查询存在3个月的盲查期，所以任何机构都不可能100%注册成功，但小微律政凭借自身在商标圈的多年经验，通过前期的查询分析，注册成功率可达85%。</p>
+                                </div>
+                                <div class="list">
+                                    <p class="hname">购买商标无忧注册，注册不成功怎么办?</p>
+                                    <p class="ans"><span class="ts-arr"></span>凡在我司购买了商标担保注册的用户，注册不成功，均可按照赔付条件进行赔付。</p>
+                                </div>
+                                <div class="list">
+                                    <p class="hname">商标注册有效期？</p>
+                                    <p class="ans"><span class="ts-arr"></span>商标注册的有效期为10年，自核准之日起，中途不再产生任何费用。</p>
+                                </div>
+                                <div class="list">
+                                    <p class="hname">是否开具发票？发票是什么类型？</p>
+                                    <p class="ans"><span class="ts-arr"></span>开具发票，发票类型是增值税普通发票。</p>
+                                </div>
+                                <div class="list">
+                                    <p class="hname">1个工作日指的是当天么？</p>
+                                    <p class="ans"><span class="ts-arr"></span>1个工作日指客户申报材料回传完整且符合要求，从次日算起。2个工作日同理。</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+
+            </div>
+
+	    </div>
+
+		<div class="bot-box">
+            <a href="http://m.lvzheng.com/mdetail/41504687953153.html?cityid=999&areaid=99" class="buybtn">立即购买</a>
+			<a href="tel:01080697544" class="zxbtn">电话咨询</a>
+			
+		</div>
+		
+		<div class="backtop" id="returnTop"></div>
+
+        <!-- 查询 弹出框 -->
+        <div class="cd-popup cd-box1" role="alert"> 
+            <div class="cd-popup-container" id="sb-search">
+                <p class="sbtitle">商标免费查询 <span>专业商标顾问人工查询，结果分析更精准</span></p>
+                <div class="submit">
+                    <p class="name">今日已有<span>789</span>人通过小微查询了商标，请您尽快查询避免抢注</p>
+                    <!-- <p class="item"><input type="text" class="tel" placeholder="请输入商标名称，如小微律政"></p> -->
+                    <p class="item"><input type="text" class="tel cx_b_phone" placeholder="请输入手机号，用于接收查询结果"></p>
+                    <a href="javascript:void(0);" class="seabtn pop_box2 cx_b_btn">立即查询</a>
+                </div> 
+                <a href="#" class="cd-popup-close img-replace">关闭</a>
+            </div>
+            
+        </div> 
+        <!-- 弹出框 -->
+
+        <!-- 提交电话 弹出框 -->
+        <div class="cd-popup cd-box1-zx-tel" role="alert"> 
+            <div class="cd-popup-container" id="submit-box">
+                <div class="submit">
+                    <p class="name">您的电话已提交成功！</p>
+                    <p class="text">稍后我们的服务人员将会给您致电解答您的疑问，感谢您的信任！</p>
+                </div> 
+                <a href="#" class="cd-popup-close img-replace">关闭</a>
+            </div>
+            
+        </div> 
+        <!-- 弹出框 -->
+
+	</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<div class="wrapper hmbg">
+    <div class="hm-title">
+        <p class="t1">$!{name}</p>
+    </div>
+
+    <div class="hm-show">
+        <ul>
+            <li class="m3">
+                <span class="t1">业务类型：</span>
+                <span class="show">设立登记</span>
+            </li>
+            <li class="m3">
+                <span class="t1">审查机关：</span>
+                <span class="show">$!{gov-regOrg}</span>
+            </li>
+        </ul>
+    </div>
+
+    #if($!{setupStatus} == "1")
+    #set($govOrgEntity = $EnterpriseUtils.getGovOrgConfig("$!{gov-regOrgCode}"))
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag1">$!{gov-busiState}</span></p>
+        <!-- <p class="list"><label>审批意见：</label><span class="text">您填写的基础数据已经审核通过，您现在可以进行预约，确定交件时间，按预约时间，带齐材料，到<a>$!{gov-appAddr}</a>取号，等待受理。</span></p> -->
+    	<p class="list"><label>审批意见：</label><span class="text">您填写的基础数据已经审核通过，您现在可以进行预约，确定交件时间，按预约时间，带齐材料，到<a>$!{govOrgEntity.getOrgAddress()}</a>取号，等待受理。</span></p>
+    </div>
+
+    <div class="btn-box">
+        <a href="javascript:void(0)" class="chbtn internetOKnext">下一步</a><!-- 前往下载材料页 -->
+    </div>
+    #elseif($!{setupStatus} == "4")
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag2">$!{gov-busiState}</span></p>
+        <p class="list"><label>审批意见：</label><span class="text">$!{gov-regOrg}</span></p>
+        <p class="list"><span class="text a-text"><a>登录小微律政官网进行修改</a></span></p>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn">返回</a><!-- 返回列表页 -->
+    </div>
+    #else
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag">已提交待审核</span></p>
+        <p class="list"><label>审查时间：</label><span class="text">3~5个工作日</span></p>
+        <p class="list"><label>通知方式：</label><span class="text">短信、微信</span></p>
+        <p class="list"><label>查询方式：</label><span class="text">手机端"个人中心"-"我的服务" <br> 电脑端"用户中心"-"全部服务" </span></p>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn">返回</a><!-- 返回列表页 -->
+    </div>
+    #end
+    
+   
+    <div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+
+<script type="text/javascript">
+$(".chbtn").click(function(){
+	//window.location.href = "/weixin/mywf/business/companyRegTask?openId="+openId;
+	window.location.href = "/wx/myservice/free.html?openId=" + openId;
+	return true;
+});
+
+$('.internetOKnext').unbind('click').bind('click',function(){
+	LV.enterpriseSubmit();
+	window.location.href = "/weixin/mywf/company/detail/"+procInstId+"/"+taskId+"?openId="+openId;
+});
+</script>
+      

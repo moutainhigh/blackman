@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>免费核名</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" href="/css/mywf/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script> 
+    
+</head>
+<body>
+<div class="wrapper">
+    <div class="hm-box">
+        <div class="sbts-box">
+            <p class="t1">您的名称初步审查未通过</p>
+            <div class="sb-info">
+                <p class="sb-name"><span>$!{fullName}</span>初审未通过</p>
+                <p class="que">有如下问题：</p>                                                         
+                <p class="que">同行业-查重列表（查重）：</p>
+                #foreach( $info in $!{cc})
+					<p class="que-name"><span>$info.entName</span></p><br>
+				#end 
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn" href="/weixin/mywf/index?openId=$!{openId}">返回重查</a>
+    </div>
+
+	<div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01057891402">010-57891402</a>
+    </div>
+</div>
+<span style="display: none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script>
+</span>
+</body>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+</html>

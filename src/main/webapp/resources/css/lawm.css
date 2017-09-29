@@ -1,0 +1,53 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+
+/* 清理浮动 */
+.f-clear:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+.bott_box{padding-bottom: 100px;}
+.clear{clear: both}
+#br_n{border-right: none;}
+
+/*注册公司专题 M页面*/
+.wrapper{width: 640px; background: #FAFBFD; min-height: 1000px; margin:0 auto;}
+
+.lawm-box{background: #FAFBFD;padding-bottom: 165px}
+.bannerm-box{width: 640px; height: 395px; margin: 0 auto; background: #8273f3 url('http://static.lvzheng.com/blackM/images/lawm/lawm_banner.jpg')  no-repeat center; position: relative;}
+.bannerm-box a.btn-tag{display: block;width: 270px;height: 70px;text-align: center;line-height: 70px; font-size: 30px; color: #fff; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_btn.png')  no-repeat center;position: absolute;top: 285px;left: 110px}
+
+.lawm-main{width: 600px;  min-height: 1000px; margin: 0 auto;}
+.lawm-main .lawm-box1{width: 600px;height: 418px; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_box1.jpg')  no-repeat center;position: relative;}
+.lawm-main .lawm-box1 p.text1{font-size: 32px;color: #ff2c2c;height: 40px;line-height: 40px;padding: 15px 20px;position: absolute;top: 95px;left: 90px}
+.lawm-main .lawm-box1 p.text2{font-size: 40px;color: #00a97f;height: 50px;line-height: 50px;padding: 15px 20px;position: absolute;top: 220px;left: 10px}
+
+.lawm-main .lawm-box2{width: 600px;height: 418px; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_box2.jpg')  no-repeat center;position: relative;}
+.lawm-main .lawm-box2 p.text1{font-size: 32px;color: #ff2c2c;height: 40px;line-height: 40px;padding: 15px 20px;position: absolute;top: 90px;left: 90px}
+.lawm-main .lawm-box2 p.text2{font-size: 40px;color: #00a97f;height: 50px;line-height: 50px;padding: 15px 10px;position: absolute;top: 215px;left: 180px}
+
+.lawm-main .lawm-box3{width: 600px;height: 418px; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_box3.jpg')  no-repeat center;position: relative;}
+.lawm-main .lawm-box3 p.text1{font-size: 32px;color: #ff2c2c;height: 40px;line-height: 40px;padding: 15px 20px;position: absolute;top: 110px;left: 110px}
+.lawm-main .lawm-box3 p.text2{font-size: 40px;color: #00a97f;height: 50px;line-height: 50px;padding: 15px 20px;position: absolute;top: 235px;left: 10px}
+
+.lawm-main .lawm-box4{width: 600px;height: 418px; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_box4.jpg')  no-repeat center;position: relative;}
+.lawm-main .lawm-box4 p.text1{font-size: 32px;color: #ff2c2c;height: 40px;line-height: 40px;padding: 15px 20px;position: absolute;top: 100px;left: 40px}
+.lawm-main .lawm-box4 p.text2{font-size: 40px;color: #00a97f;height: 50px;line-height: 50px;padding: 15px 10px;position: absolute;top: 240px;left: 180px}
+
+
+.lawm-main .lawm-box5{width: 600px;height: 418px; background: url('http://static.lvzheng.com/blackM/images/lawm/lawm_box5.jpg')  no-repeat center;position: relative;}
+.lawm-main .lawm-box5 p.text1{font-size: 32px;color: #ff2c2c;min-height: 50px;line-height: 50px;padding: 15px 20px;position: absolute;top: 40px;left: 50px}
+.lawm-main .lawm-box5 p.text1 span{color: #00a97f}
+
+.botm-ad{height: 100px;width: 100%;background: #eff6fd}
+.botm-ad .adm-text{width: 600px; text-align: center; margin: 0 auto ; padding-bottom: 80px;font-size: 36px;height: 100px;line-height: 100px;color: #61aae7;background: url('http://static.lvzheng.com/blackM/images/law/kt.png')  no-repeat center bottom;}
+
+.mbot-btn{height: 70px;line-height: 70px; padding: 10px 0; width: 640px; background: #192934;display: none;}
+.mbot-btn a.btn-box{ display: block; width: 380px;margin: 0 auto;color: #f3f5ff;font-size: 30px;text-align: center;background: #e91414;border-radius: 5px;cursor: pointer;}
+.mbot-btn a.btn-box:hover{background: #b60e0e}
+.mbot-btnxf {position: fixed;bottom: 0px;z-index: 9000;display: block;}

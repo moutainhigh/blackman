@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>虚拟地址M页--国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" type="text/css" href="/css/virm.css">
+    <link href="/css/box.css" type="text/css"  rel="stylesheet"/>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/box.js"></script> 
+    <script>
+    $(function(){
+        $('[name="n-select"]').click(function(e){
+            $('[name="n-select"]').find('ul').hide();
+            $(this).find('ul').show();
+            e.stopPropagation();
+        });
+        $('[name="n-select"] li').hover(function(e){
+            $(this).toggleClass('on');
+            e.stopPropagation();
+        });
+        $('[name="n-select"] li').click(function(e){
+            var val = $(this).text();
+            var dataVal = $(this).attr("data-value");
+            $(this).parents('[name="n-select"]').find('input').val(val);
+            $('[name="n-select"] ul').hide();
+            e.stopPropagation();
+        });
+        $(document).click(function(){
+            $('[name="n-select"] ul').hide();
+        });
+        
+      //open popup
+    	$('.pop_box1').on('click', function(event){
+    		event.preventDefault();
+    		var J_tag_item = $(this).find(".J_tag_item").html();
+    		var sellername = $(this).find(".t1").text();
+    		var sellid = $(this).find(".t0").text();
+    		var yj_line = $(this).find(".yj").text();
+    		var fh_line = $(this).find(".fh").text();
+    		$("#J_pop_tag").html(J_tag_item);
+    		$("#J_pop_name").text(sellername);
+    		$("#J_pop_price").find(".yj").text(yj_line);
+    		$("#J_pop_price").find(".fh").text(fh_line);
+    		//var href = "/m/myorder/ordersubmit?sellid="+sellid;
+    		//$("#vbtnA").attr("href",href);
+    		$(".cd-box1").attr("sellid",sellid);
+    		$('.cd-box1').addClass('is-visible');
+    		//
+    	});
+      $("#vbtnA").on("click",function(e){
+    	  $(this).unbind();
+    	  var sellid = $(".cd-box1").attr("sellid");
+    	  window.location.href = "/m/myorder/ordersubmit?sellid="+sellid; 
+      });
+    })
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- <div class="w-text">
+        <div class="n-select w-220" name="n-select">
+            <input class="n-val" type="text" placeholder="行业" readonly>
+            <ul>
+                <li data-value="1">不限</li>
+                <li data-value="2">信息咨询</li>
+                <li data-value="3">科技</li>
+                <li data-value="4">信息技术</li>
+                <li data-value="5">商贸</li>
+                <li data-value="6">国际贸易</li>
+                <li data-value="7">商贸咨询</li>
+                <li data-value="8">文化传媒</li>
+                <li data-value="9">餐饮管理</li>
+                <li data-value="10">广告</li>
+            </ul>
+        </div>
+        <div class="n-select w-220" name="n-select">
+            <input class="n-val" type="text" placeholder="价格" readonly>
+            <ul>
+                <a href="$!{url}$!{pricequeryurl}0"><li data-value="0"><font color="black">价格不限</font></li></a>
+                <a href="$!{url}$!{pricequeryurl}3000-4000"><li data-value="3000-4000"><font color="black">3000-4000元/年</font></li></a>
+                <a href="$!{url}$!{pricequeryurl}4000-5000"><li data-value="4000-5000"><font color="black">4000-5000元/年</font></li></a>
+                <a href="$!{url}$!{pricequeryurl}5000-6000"><li data-value="5000-6000"><font color="black">5000-6000元/年</font></li></a>
+                <a href="$!{url}$!{pricequeryurl}6000"><li data-value="6000"><font color="black">6000元/年以上</font></li></a>
+            </ul>
+        </div>
+        <div class="n-select w-220" name="n-select">
+            <input class="n-val" type="text" placeholder="区域" readonly>
+            <ul>
+                <a href="$!{url}$!{localurl}0">  <li data-value="0">  <font color="black">区域不限 </font></li></a>
+                <a href="$!{url}$!{localurl}101"><li data-value="101"><font color="black">朝阳区  </font></li></a>
+                <a href="$!{url}$!{localurl}102"><li data-value="102"><font color="black">海淀区  </font></li></a>
+                <a href="$!{url}$!{localurl}103"><li data-value="103"><font color="black">东城区  </font></li></a>
+                <a href="$!{url}$!{localurl}104"><li data-value="104"><font color="black">西城区  </font></li></a>
+                <a href="$!{url}$!{localurl}105"><li data-value="105"><font color="black">丰台区  </font></li></a>
+                <a href="$!{url}$!{localurl}106"><li data-value="106"><font color="black">石景山区</font></li></a>
+            </ul>
+        </div>
+    </div> -->
+
+    <div class="vir-main">
+
+			 
+			
+			#foreach($m in $!productlist)
+			
+				<div class="box pop_box1">
+		            <div class="pic"><img style="width: 200px;height: 133px" src="/common/imgurl/$!{m.imgurl}"></div>
+		            <div class="text">
+		             	<p class="t0" style="display: none;">$!{m.sellerid}</p>
+		                <p class="t1">$!{m.sellername}</p>
+		                <p class="t2">$!{m.sell_address}</p>
+		                <p class="t3"><span class="fh">￥$!{m.sellerprice}</span><span class="yj">￥$!{m.marketprice}</span></p>
+                         <div class="J_tag_item" style="display: none;">
+                            <ul>
+                            	#foreach($tt in $m.titlelist)
+                                <li>$!{tt.titlename}</li>
+                                #end
+                            </ul>
+                        </div>
+		            </div>
+		        </div> 
+		    #end
+
+    </div>
+
+    <!-- 地址详情 弹出框 -->
+    <div class="cd-popup cd-box1" role="alert"> 
+        <div class="cd-popup-container virshow">
+            <div class="virt-box">
+                <div class="box-t">
+                    <p class="title">地址详情</p>
+                    <a href="" class="qxbtn">关闭</a>
+                </div>
+                <div class="vircon">
+                    <div class="vbox1">
+                        <p class="name" id="J_pop_name">霄云路集中办公区住所</p>
+                        <p class="price" id="J_pop_price"><span class="yj">￥6000</span><span class="fh">￥</span></p>
+                    </div>
+                    <div class="vtag" id="J_pop_tag">
+                        <ul>
+                            <li>内资公司</li>
+                            <li>含国税报到</li>
+                            <li>注册资本500万以下</li>
+                            <li>注册资本500万以下</li>
+                            <li>小规模代理记账</li>
+                            <li>税控机可自理</li>
+                        </ul>
+                    </div>
+                    <a href="tel:010-57891402" class="vbtn1">电话咨询</a>
+					<a id="vbtnA" class="vbtn2">立即购买</a>
+                </div>
+            </div> 
+        </div>
+    </div> 
+    <!-- 弹出框 -->  
+
+
+</div>
+<span style="display: none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script> 
+</span>
+</body>
+</html>

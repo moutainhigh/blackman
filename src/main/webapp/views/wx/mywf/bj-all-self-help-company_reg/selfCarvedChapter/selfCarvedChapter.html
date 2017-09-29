@@ -1,0 +1,59 @@
+
+<div class="wrapper hmbg">
+    <div class="hm-title">
+        <p class="t1">北京小微律政管理咨询有限公司</p>
+    </div>
+
+    <div class="zx-box">
+        <p class="zx-text">
+            小微可以为您提供<br>安全有效的刻章服务<br>咨询电话：<a href="tel:01080697544">010-80697544</a>
+        </p>
+    </div>
+    <div class="hts-box">
+        <p class="t1">印章刻制所需材料</p>
+    </div>
+    <div class="hm-down">
+        <ul>
+            <li>
+                <p class="ico"><img src="/images/mywf/hm2/word_ico.png"></p>
+                <p class="name">《刻章委托书》</p>
+                <!-- <a href="" class="down-ico">19.28k</a> -->
+                <a href="" class="down">请去电脑下载</a>
+            </li>
+            <li class="zb">
+                <p class="ico"><img src="/images/mywf/hm2/none_ico.png"></p>
+                <p class="name">《营业执照副本原件》</p>
+                <a href="" class="down">(自备)</a>
+            </li>
+            <li class="zb">
+                <p class="ico"><img src="/images/mywf/hm2/none_ico.png"></p>
+                <p class="name">《法定代表人身份证复印件》</p>
+                <a href="" class="down">(自备)</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn regCompleteBtn" href="javascript:void(0)">注册完成</a>
+    </div>
+
+    <div class="ts-box">
+        <p class="ts-text">
+        *后续的税务报到业务您可以在电脑上操作后续业务
+        </p>
+    </div>
+    
+    <div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>
+
+<script type="text/javascript">
+$('.regCompleteBtn').click(function(){
+	LV.wfSignlReceiveTask();
+	LV.enterpriseSubmit();
+	window.location.href = "/weixin/mywf/company/detail/"+procInstId+"/"+taskId;
+	return true;
+});
+
+</script>

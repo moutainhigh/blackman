@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>免费约号</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" href="/css/mywf/style.css">
+    <link rel="stylesheet" href="/css/mywf/box.css">
+    <link href="/css/mobiscroll_date.css" rel="stylesheet" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/box.js"></script>
+    <script src="/js/viewport.js"></script>
+	<script src="/js/mywf/enterprise.js"></script>
+	<script src="/js/mywf/gov.js"></script>
+	<script src="/js/common/jx.validate.js"></script>
+    <script src="/js/mobiscroll_date.js" charset="gb2312"></script> 
+    <script src="/js/mobiscroll.js"></script> 
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script>
+    <script type="text/javascript">
+    $(function () {
+        var currYear = (new Date()).getFullYear();  
+        var opt={};
+        opt.date = {preset : 'date'};
+        opt.datetime = {preset : 'datetime'};
+        opt.time = {preset : 'time'};
+        opt.default = {
+            theme: 'android-ics light', //皮肤样式
+            
+            mode: 'scroller', //日期选择模式
+            dateFormat: 'yyyy-mm-dd',
+            lang: 'zh',
+            showNow: false,
+            nowText: "今天",
+            startYear: currYear - 50, //开始年份
+            endYear: currYear + 10 //结束年份
+        };
+
+        $("#govAppointStartDate,#govAppointEndDate").mobiscroll($.extend(opt['date'], opt['default']));
+
+    });
+    </script>
+
+</head>
+<body>
+<div class="wrapper hmbg">
+    <div class="hts-box">
+        <p class="t1  text-blue">远离拥挤，成功率超2倍以上，支持朝阳、海淀、石景山网上预约，预约工商从此不再困难</p>
+    </div>
+
+    <div class="hm-box appointUserInfo">
+        <ul>
+            <li class="m3">
+                <span class="t1">公司名称</span>
+                <input class="text_in" type="text" id="enterpriseName" value="$!{enterpriseName}" traceb t-module="appointment_company_name" placeholder="请填写您的公司名称" data-validate="required:true;chinese:true">
+            </li>
+            <li class="m3">
+                <span class="t1">工商帐号</span>
+                <input class="text_in" type="text" id="appointAccount" value="$!{appointAccount}" traceb t-module="appointment_account"  placeholder="请填写您的工商帐号" data-validate="required:true;">
+            </li>
+            <li class="m3">
+                <span class="t1">工商密码</span>
+                <input class="text_in" type="password" id="appointPassword" traceb t-module="appointment_password" placeholder="请填写您的工商密码" data-validate="required:true;">
+            </li>
+        </ul>
+    </div>
+
+    <div class="hts-box">
+        <p class="t1  text-blue">选择您想要预约的时间</p>
+    </div>
+
+    <div class="date-box appointTimeScope">
+        <p class="begin">
+            <span class="name">最早可预约</span>
+            <span class="time"><input type="text" name="begin_time" id="govAppointStartDate" readonly class="input" placeholder="请选择开始时间" data-validate="required:true;"/></span>
+        </p>
+        <p class="end">
+            <span class="name">最晚可预约</span>
+            <span class="time"><input type="text" name="end_time" id="govAppointEndDate" readonly class="input" placeholder="请选择结束时间" data-validate="required:true;"/></span>
+        </p>
+    </div>
+
+    <div class="w-text-box appointPhoneNo">
+        <input type="text" value="$!{userphone}" id="mobilePhoneNo" class="w-text" placeholder="请输入预约手机号" data-validate="required:true;mobilePhone:true">
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn alertValiBoxBtn" href="javascript:void(0)">一键预约</a>
+    </div>
+
+#parse("views/common/makephonecode.html")
+	<!-- 验证码 弹出框 -->
+    <div class="cd-popup appointNoBox" role="alert"> 
+        <div class="cd-popup-container mlogin-box">
+            <div class="mlogin">
+                <div class="item">
+                	<input type="hidden" id ="token" value="$!{token}" />
+                    <p>
+                        <input class="w-480" type="text" id="J_mobile" value="$!{userphone}" placeholder="请输入手机号码" name="phoneNum" >
+                    </p>
+                    <p class="in_btn" >
+	                    <input type="text" id ="valicodeinput" placeholder="图形验证码" />
+	                    <img id="valicodeImg" src="/common/picvalidate/$!{token}" onclick="$(this).attr('src','/common/picvalidate/$!{token}?'+new Date());" />
+	                </p>
+                    <p>
+                        <input class="w-480" type="text" id="phoneNumvali" placeholder="请输入手机验证码">
+                        <a href="javascript:void(0)" onclick="sendMessage();" id="se_btn" class="get-code">获取验证码</a>
+                        <a href="javascript:void(0)" style="display: none;" id="in_btn" class="get-code">倒计时<span id="J_re_time">120s</span></a>
+                        <span class="time"></span>
+                    </p>
+                </div>
+                <div class="btn">
+                    <a href="javascript:void(0);" class="qxbtn appointNoQxBtn">取消</a>
+                    <a href="javascript:void(0);" class="appointNoBtn" >开始预约</a>
+                </div>
+            </div> 
+        </div>
+    </div>     
+    <!-- 弹出框 -->
+</div>
+<!-- 微信分享 -->
+#parse("views/wx/mywf/common/wx-share-appointno.html")
+
+<script type="text/javascript">
+//预约--取消
+$('.appointNoQxBtn').unbind('click').on('click',function(){
+	$('.appointNoBox').removeClass("is-visible");
+	$('.appointNoBtn').unbind('click').on('click',function(){
+		$('.appointNoBtn').unbind('click');//防止二次点击
+		startAppointNo();
+	});
+});
+
+
+//一键预约
+$('.alertValiBoxBtn').unbind('click').on('click',function(){
+	//验证
+	var validateArray = new Array();
+	validateArray.push($('.appointUserInfo'));
+	validateArray.push($('.appointTimeScope'));
+	validateArray.push($('.appointPhoneNo'));
+	if(!JX.validateArray(validateArray)){//验证不通过
+		return;
+	}
+	
+	
+	//验证预约时间
+	var startDateStr = $("#govAppointStartDate").val();
+	var endDateStr = $("#govAppointEndDate").val();
+	if(!appointDateVali(startDateStr,endDateStr)){
+		return;
+	}
+	
+	lv_clickLog("moudle=appointment_btn&data_action=click");
+	
+	initAppointNoBox();
+	//startAppointNo();//测试使用
+});
+
+//开始预约
+$('.appointNoBtn').unbind('click').on('click',function(){
+	$('.appointNoBtn').unbind('click');//防止二次点击
+	startAppointNo();
+});
+//初始化预约弹出框内容
+function initAppointNoBox(){
+	$('.appointNoBox').addClass("is-visible");
+	window.clearInterval(InterValObj);// 停止计时器  
+	//把剩余秒数改成重新发送
+    $("#se_btn").show();
+    $("#in_btn").hide();
+	//清空数据
+	$("#J_mobile").val("");
+	$("#valicodeinput").val("");
+	$("#phoneNumvali").val("");
+	$("#valicodeImg").click();//重新获取图形验证码
+	
+	//手机号赋值
+	var phone =$("#mobilePhoneNo").val();
+	$("#J_mobile").val(phone);
+}
+
+
+function startAppointNo(){
+	//用户操作
+	var userFlag = userEventFun();
+	if(!userFlag){
+		$('.appointNoBtn').unbind('click').on('click',function(){//重新绑定事件
+			$('.appointNoBtn').unbind('click');//防止二次点击
+			startAppointNo();
+		});
+		
+		return false;
+	}
+	
+	var appointAccount = $("#appointAccount").val();
+	var appointPassword = $("#appointPassword").val();
+	var mobilePhoneNo = $("#J_mobile").val();
+	var enterpriseName = $("#enterpriseName").val();
+	var govAppointStartDate = $("#govAppointStartDate").val();
+	var govAppointEndDate = $("#govAppointEndDate").val();
+	
+	//开启预约流程
+	$.ajax({
+		async : false,
+        dataType: "json", // 数据格式:JSON  
+		url : '/weixin/appointNo/startAppointNo',
+		data : {'appointAccount':appointAccount, 'appointPassword': appointPassword,
+			'mobilePhoneNo':mobilePhoneNo,'enterpriseName':enterpriseName,
+			'govAppointStartDate':govAppointStartDate,'govAppointEndDate':govAppointEndDate,	
+			'openId':"$!{openId}",
+		},
+		dataType:"json",
+		type : 'POST',
+		success : function(data){
+			window.location.href = "/weixin/appointNo/pageReg?toPage=wx/appointNo/appointResult&procInstId=$!{procInstId}";
+			return true;
+		},
+		error : function(){
+			alert("未响应");
+			$('.appointNoBtn').unbind('click').on('click',function(){//重新绑定事件
+				$('.appointNoBtn').unbind('click');//防止二次点击
+				startAppointNo();
+			});
+			return false;
+		}
+	});
+}
+
+
+//验证手机验证码并保存用户
+function userEventFun(){
+	var reval = false;
+	var phoneNum = $("#J_mobile").val();
+	var mobilePhoneNo = $("#mobilePhoneNo").val();
+	var code = $("#phoneNumvali").val();
+	var token = $("#token").val();
+	var valicod = $("#valicodeinput").val();
+	 
+/* 	jQuery.ajax({
+		url:'/wx/loginAction',
+		type:"post",
+		data : {"userphone":phoneNum,"usercode":code,"token":token,"validatecode":valicod,"openId":"$!{openId}"},
+		dataType:"json",
+		async : false,
+		success:function(data,textStatus){
+			if(data.ret == "success"){
+
+			}else if(data.ret == "404"){
+				alert("404!");
+			}else{
+				alert(data.msg);
+			}
+		 },
+		error:function(XMLHttpRequest,textStatus,errorThrown){}
+	}); */
+	
+	$.ajax({
+		async : false,
+        dataType: "json", // 数据格式:JSON  
+		url : '/weixin/appointNo/addUser',
+		data : { 'openId': "$!{openId}",
+			"userphone":phoneNum,"usercode":code,"token":token,"validatecode":valicod},
+		dataType:"json",
+		type : 'POST',
+		success : function(data){
+			if(data.ret == "success"){
+	    		reval = true;
+	    		return true;
+			}else if(data.ret == "fail"){
+				alert(data.msg);
+	    		reval = false;
+	    		return true;
+			}
+		}
+	});
+	
+	$(".appointNoBox").removeClass("is-visible");
+	return reval;
+};
+
+function appointDateVali(startDateStr , endDateStr){
+	var currDate=new Date();
+	var currDay = currDate.getDate();
+	var currWeekDay = currDate.getDay() + 1;
+	var currMonth = currDate.getMonth() + 1;
+	var currYear = currDate.getFullYear();
+	
+	var startDateArr = startDateStr.split('-');
+	var endDateArr = endDateStr.split('-');
+	
+	//年份选择错误
+	if(startDateArr[0] != currYear){
+		alert("最早预约日期年份错误，只能选择当前年份！");
+		return false;
+	}
+	
+	//月份选择错误
+	if(startDateArr[1] > currMonth){
+		alert("最早预约日期月份错误，不能超过当前月份！");
+		return false;
+	}
+	 
+	//日期选择错误
+	if(startDateArr[2] < currDay){
+		alert("最早预约日期错误，必须大于等于当前日！");
+		return false;
+	}
+	
+	var newEndDate = addDate(new Date(startDateStr.replace(/-/g,"/")),2);
+	if(endDateStr < newEndDate){
+		alert("最迟预约日期错误，必须在最早预约日期之后两天！");
+		return false;
+	}
+	
+	return true;
+	
+}
+
+
+function addDate(date,days){ 
+	var d=new Date(date); 
+	d.setDate(d.getDate()+days); 
+	var month=d.getMonth()+1; 
+	var day = d.getDate(); 
+	if(month<10){ 
+	month = "0"+month; 
+	} 
+	if(day<10){ 
+	day = "0"+day; 
+	} 
+	var val = d.getFullYear()+"-"+month+"-"+day; 
+	return val; 
+}
+</script>
+
+</body>
+</html>

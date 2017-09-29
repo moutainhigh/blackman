@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+<title>我的订单-国内领先的O2O自营法律服务提供商</title>
+<meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+<meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+<link id="common_css" rel="stylesheet" href="http://static.lvzheng.com/blackM/css/style.css">
+<link rel="stylesheet" href="/css/box.css">
+<script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+<script type="text/javascript" src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/js/common/util.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	//点击 取消订单
+	$('.pop_box1').on('click', function(event){
+		event.preventDefault();
+		$('.cd-box1').addClass('is-visible');
+		$("#cd-box1").attr("payid",$(this).attr("payid"));  //设置payid
+	});
+	//点击 取消
+	$('.cd-box1').on('click', function(event){
+		if($(event.target).is('.qxbtn')) {
+			event.preventDefault();
+			$(this).removeClass('is-visible');
+		}
+	});
+	//点击 确定
+	$(".btnOk").on('click', function(){
+		var payid = $("#cd-box1").attr("payid");
+		if(isNotEmpty(payid)){
+			$.ajax({
+				type:"post",
+				url :'/m/myorder/cancelpayOrder/'+payid,
+				data:{"userid":"$!{userLoginEntity.userid}"},
+				success:function(data){
+					if(data.ret == "ok"){
+		 				 window.location.reload(); //刷新页面
+					}else{
+						alert(data.msg);
+					}
+				},
+				error:function(){
+					alert("操作失败,请刷新页面重试!");
+				}
+			})
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div class="wrapper bott-box">
+    <div class="m-order">
+        <ul class="order">
+        	#foreach($payorderMap in $!{payorderMapList})
+            <li>
+                <div class="box1">
+                    <p class="order">订单 $!{payorderMap.payid}
+                    	#if($!{payorderMap.paystate} == 0)
+                    	<span class="tag">待支付</span>
+                    	#elseif($!{payorderMap.paystate} == 1)
+                    	<span class="tag1">已支付</span>
+                    	#elseif($!{payorderMap.paystate} == 9)
+                    	<span class="tag2">已取消</span>
+                    	#end
+                    </p>
+                    <p class="time">$!{payorderMap.addtimeValue}</p>
+                </div>
+                
+                #set($foo = 1 )
+                #foreach($orderMap in $!{payorderMap.get($!{payorderMap.payid})})
+                	#if($!{orderMap.packageFlag} == "true")
+		                <div class="tc-box">
+		                	#if($!{foo} == 1)
+		                		<div align="right" style="border-bottom: 1px solid #dbdfe2;">商品包总价&nbsp;:&nbsp;<span style="color: red;font-size: 30px;">￥$!{orderMap.packagePrice}</span>&nbsp;</div>
+		                	#end
+		                	#set($foo = $foo + 1 )
+			                <div class="box2">
+			                    <div class="name">
+			                        <p class="p1">$!{orderMap.productName}</p>
+			                        <p class="p2">$!{orderMap.cityname} $!{orderMap.aeasname}</p>
+			                    </div>
+			                    <div class="price">
+			                        <p class="p1" style="color: gray;">￥$!{orderMap.sell_overprice}</p>
+			                        <p class="p2">x1</p>
+			                    </div>
+			                </div>
+			                
+			                
+			                <div class="box3">
+			                	<p class="tc-name">$!{orderMap.packageName}</p>
+			                	#if($!{payorderMap.paystate} == 1)
+			                    <a href="/m/myservice/lookService/$!{orderMap.orderid}" class="gray">查看服务</a>
+			                	#end
+			                </div>
+		                </div>
+                	#else
+		                <div class="box2">
+		                    <div class="name">
+		                        <p class="p1">$!{orderMap.productName}</p>
+		                        <p class="p2">$!{orderMap.cityname} $!{orderMap.aeasname}</p>
+		                    </div>
+		                    <div class="price">
+		                        <p class="p1">￥$!{orderMap.paycount}</p>
+		                        <p class="p2">x1</p>
+		                    </div>
+		                </div>
+                	
+		               	#if($!{payorderMap.paystate} == 1)
+		                <div class="box3">
+		                    <a href="/m/myservice/lookService/$!{orderMap.orderid}" class="gray">查看服务</a>
+		                </div>
+		                #end
+                	#end
+                #end
+                
+                #if($!{payorderMap.paystate} == 0)
+                <div class="box3">
+                    <a class="gray pop_box1" payid="$!{payorderMap.payid}">取消订单</a>
+                   <a class="red" href="http://m.lvzheng.com/m/myorder/goToZhiFu/$!{payorderMap.payid}">去支付</a>
+                    <!-- <a class="red" href="http://pay.lvzheng.com/zfbmoble/$!{payorderMap.payid}">去支付</a> -->
+                </div>
+               	#elseif($!{payorderMap.paystate} == 9)
+                <div class="box3">
+                    <a href="/m/myorder/againOrder/$!{userLoginEntity.userid}/$!{payorderMap.payid}" class="gray">重新下单</a>
+                </div>
+               	#end
+            </li>
+        	#end
+        </ul>
+        
+         <div class="bot-nav">
+            <ul>
+                <li><a id="J_home_tab" class="n1" href="/m/index">首页</a></li>
+                <li><a id="J_zixun_tab" class="n4" href="http://m.lvzheng.com/zhishi/zixunzhan/">资讯站</a></li>
+                <li><a id="J_myorder_tab" class="n2-on" href="/m/myorder/index.html">我的订单</a></li>
+                <li><a id="J_center_tab" class="n3" href="/m/usercenter/index.html">个人中心</a></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+    <div class="cd-popup cd-box1" role="alert" id="cd-box1"> 
+        <div class="cd-popup-container ch-area">
+            <div class="box">
+                <div class="sure-box">
+                    <div class="s-box1">
+                        <p class="tit">确定要取消订单吗？</p>        
+                    </div>
+                    <div class="s-btn">
+                        <a href="javascript:void(0)" class="s1 qxbtn">取消</a>
+                        <a href="javascript:void(0)" class="s2 btnOk">确定</a>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+</body>
+</html>

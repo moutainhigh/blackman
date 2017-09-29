@@ -1,0 +1,128 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+input{outline: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*落地 M页面*/
+.mland-box{width: 640px; margin: 0 auto; min-height: 1500px; overflow: hidden;background: #f2f2f2;padding-bottom: 110px;}
+.mland-box .banner{width: 640px;height: 375px;background: url('/images/msbland/banner.jpg')  no-repeat center;}
+
+.md-box{width: 600px;padding: 30px 20px;min-height: 150px;overflow: hidden;background: #fff;border-bottom: 1px solid #e4e4e4;margin-bottom: 20px}
+.md-box a{display: block;float: left;width: 160px;text-align: center;font-size:20px;color: #333;height: 30px;line-height: 30px;padding-top: 110px;margin: 20px}
+.md-box a.md1{background:  url('/images/msbland/n_ico1.png')  no-repeat center top; }
+.md-box a.md2{background:  url('/images/msbland/n_ico2.png')  no-repeat center top; }
+.md-box a.md3{background:  url('/images/msbland/n_ico3.png')  no-repeat center top; }
+.md-box a.md4{background:  url('/images/msbland/n_ico4.png')  no-repeat center top; }
+.md-box a.md5{background:  url('/images/msbland/n_ico5.png')  no-repeat center top; }
+.md-box a.md6{background:  url('/images/msbland/n_ico6.png')  no-repeat center top; }
+
+.mland-box .main-box{width: 640px; min-height: 1000px;}
+.main-box .sea-box{padding: 15px 20px; min-height: 160px; background: #fff;border: 1px solid #afd5f5;margin-bottom: 20px}
+.main-box .search{padding: 10px 0;height: 94px;line-height: 94px;width: 600px;margin: 0 auto}
+.main-box .search span.sea-item{ width: 360px; height: 90px;line-height: 90px; display: block; float: left; padding: 0 19px; background: #f5fcfe; border: 2px solid #0ab7f0; border-radius: 4px 0 0 4px;position: relative;}
+.main-box .search span.sea-item input{width: 360px;height: 50px;line-height: 50px; padding: 20px 0; vertical-align: top;border: none;font-size: 22px;color: #666;background: #f5fcfe}
+.main-box .search a.btn{width: 190px;height: 94px;text-align: center;line-height: 94px;display: block;float: left;background: #0ab7f0;font-size: 24px;color: #fff;border-radius: 0 4px 4px 0;}
+.main-box p.result{font-size: 24px;color: #222;height: 30px;line-height: 30px;padding: 5px 0}
+.main-box p.result span{color: #f70f0f}
+
+
+.main-box .cp-box{width: 640px;min-height: 800px;position: relative;}
+.main-box .cp-box .sbox{min-height: 180px;background: #fff;margin-bottom: 20px;}
+.main-box .cp-box .sbox .namebox{padding: 10px 0;min-height: 40px;border-bottom: 1px solid #e5e5e5}
+.main-box .cp-box .sbox p.name{font-size: 24px;color: #000;font-weight: bold;height: 40px;line-height: 40px;padding-left: 30px;border-left: 9px solid #0ab7f0}
+.main-box .cp-box .sbox .sb-box{padding: 30px 20px;min-height: 300px;}
+.main-box .cp-box .sbox .sb-box .list{width: 600px;height: 155px;margin-bottom: 20px;background: #f7f7f7;border-radius: 5px;position: relative;}
+
+.main-box .cp-box .sbox .sb-box .list .title{font-size: 24px; font-weight: bold; color: #fff;height: 95px; padding: 30px 0; line-height: 30px; width: 150px;text-align: center; border-radius: 4px 0 0 4px;}
+.main-box .cp-box .sbox .sb-box .list .t1{background: #7ab1c2 url('/images/msbland/titlebg1.png')  no-repeat center right;}
+.main-box .cp-box .sbox .sb-box .list .t2{background: #eeb621 url('/images/msbland/titlebg2.png')  no-repeat center right;}
+.main-box .cp-box .sbox .sb-box .list .t3{background: #0eb090 url('/images/msbland/titlebg3.png')  no-repeat center right;position: relative;}
+.main-box .cp-box .sbox .sb-box .list .t3 span.tag{display: block;position: absolute;left: 0;top: 0;width: 65px;height: 65px;background: url('/images/msbland/tj_ico.png')  no-repeat center}
+
+.main-box .cp-box .sbox .sb-box .list .text{font-size: 18px;line-height: 26px;text-align: center; width: 260px; position: absolute;top: 30px;left: 165px;}
+.main-box .cp-box .sbox .sb-box .list .text span{color: #f40a0a;}
+.main-box .cp-box .sbox .sb-box .list .db{font-size: 18px;color: #999; width: 260px;text-align: center;position: absolute;top: 115px;left: 165px}
+.main-box .cp-box .sbox .sb-box .list .db a.show{color: #178bdd;text-decoration: underline;cursor: pointer;}
+.main-box .cp-box .sbox .sb-box .list .db span{color: #178bdd;cursor: pointer;}
+.main-box .cp-box .sbox .sb-box .list .price{font-size: 30px;color: #f40a0a;font-weight: bold; width: 150px;text-align: center;position: absolute;top: 45px;left: 430px}
+.main-box .cp-box .sbox .sb-box .list .price span{font-size: 14px}
+.main-box .cp-box .sbox .sb-box .list .price-info{font-size: 18px;color: #666; width: 150px;text-align: center;position: absolute;top: 85px;left: 430px}
+
+.main-box .cp-box .sbox .sb-box .list a.detail{display: block; font-size: 18px;color: #fff; cursor: pointer; width: 80px; height: 25px;border-bottom: 1px dashed #fff; text-align: center;position: absolute;top: 95px;left: 30px}
+.main-box .cp-box .sbox .sb-box .list a.detail:hover{color: #1487d7;border-bottom: 1px dashed #1487d7;}
+
+.main-box .cp-box .sbox .sb-box .show-box{position: absolute; top:410px; left: 30px; display: none; z-index: 9999; width: 550px;min-height: 150px;padding: 8px 13px; border: 1px solid #ecbc88; border-radius: 4px;background: #fffdef;font-size: 14px;color: #666;}
+.main-box .cp-box .sbox .sb-box .show-box1{position: absolute; top:220px; left: 30px; display: none; z-index: 9999; width: 550px;min-height: 150px;padding: 8px 13px; border: 1px solid #ecbc88; border-radius: 4px;background: #fffdef;font-size: 14px;color: #666;}
+.main-box .cp-box .sbox .sb-box .show-box2{position: absolute; top:400px; left: 30px; display: none; z-index: 9999; width: 550px;min-height: 150px;padding: 8px 13px; border: 1px solid #ecbc88; border-radius: 4px;background: #fffdef;font-size: 14px;color: #666;}
+.main-box .cp-box .sbox .sb-box .show-box3{position: absolute; top:580px; left: 30px; display: none; z-index: 9999; width: 550px;min-height: 150px;padding: 8px 13px; border: 1px solid #ecbc88; border-radius: 4px;background: #fffdef;font-size: 14px;color: #666;}
+.main-box .cp-box .sbox .sb-box .show-arr{display: block; width: 27px;height: 13px;background: url('/images/msbland/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50%;margin-left:50px;}
+.main-box .cp-box .sbox .sb-box .show-arr1{display: block; width: 27px;height: 13px;background: url('/images/msbland/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50px;}
+.main-box .cp-box .sbox .sb-box .sdname{font-size: 24px;color: #000;height: 30px;line-height: 30px;text-align: center;padding: 5px 0;background: url('/images/msbland/sdnamebg.png')  no-repeat center;}
+.main-box .cp-box .sbox .sb-box .sdtext{overflow: hidden;}
+.main-box .cp-box .sbox .sb-box .sdtext li{min-height: 30px;line-height: 30px;font-size: 20px;color: #666; margin: 6px 0;  padding-left: 15px;background: url('/images/msbland/dot.png')  no-repeat left top -6px;}
+
+.main-box .cp-box .sbox .apply-box{width: 640px; min-height: 200px; padding: 20px 0;}
+.main-box .cp-box .sbox .apply-box .apply-pic{width: 640px;padding: 10px 0;}
+.main-box .cp-box .sbox .apply-box .apply-pic .aname{font-size: 28px;color: #000;height: 40px;line-height: 40px; padding-bottom: 10px; width: 640px; text-align: center;}
+.main-box .cp-box .sbox .apply-box .flow-xw{width: 600px;height: 45px;line-height: 45px; margin: 20px auto; background: #f5f5f5;font-size: 20px;text-align: center;}
+.main-box .cp-box .sbox .apply-box .flow-xw span.xw{color: #000}
+.main-box .cp-box .sbox .apply-box .flow-xw span.xw-time{color: #fc0d1b}
+.main-box .cp-box .sbox .apply-box .flow-xw span.other{color: #999999}
+.main-box .cp-box .sbox .apply-box .flow-xw span.other-time{color: #999999;text-decoration: line-through;}
+
+.main-box .cp-box .sbox .adv-box{width: 610px; min-height: 200px; padding: 20px 15px;overflow: hidden;}
+.main-box .cp-box .sbox .adv-box .list{width: 260px;height: 200px;float: left;margin: 10px; padding: 20px 11px; border: 1px solid #eee;border-radius: 8px}
+.main-box .cp-box .sbox .adv-box .list:hover{border: 1px solid #0AB7F0}
+.main-box .cp-box .sbox .adv-box .list .aname{font-size: 20px;color: #000;height: 25px;line-height: 25px;text-align: center;font-weight: bold;padding: 80px 0 10px;}
+.main-box .cp-box .sbox .adv-box .list .atext{font-size: 16px;color: #999; line-height: 22px;text-align: left;}
+.main-box .cp-box .sbox .adv-box .list .ico1{background: url('/images/msbland/adv_ico1.png')  no-repeat center top;}
+.main-box .cp-box .sbox .adv-box .list .ico2{background: url('/images/msbland/adv_ico2.png')  no-repeat center top;}
+.main-box .cp-box .sbox .adv-box .list .ico3{background: url('/images/msbland/adv_ico3.png')  no-repeat center top;}
+.main-box .cp-box .sbox .adv-box .list .ico4{background: url('/images/msbland/adv_ico4.png')  no-repeat center top;}
+.main-box .cp-box .sbox .adv-box .list .ico5{background: url('/images/msbland/adv_ico5.png')  no-repeat center top;}
+.main-box .cp-box .sbox .adv-box .list .ico6{background: url('/images/msbland/adv_ico6.png')  no-repeat center top;}
+
+.conbox{padding: 10px 30px}
+.conbox .hot-tab {width: 580px; height: 60px; border-bottom: 1px solid #52a7e2;margin-top: 15px}
+.conbox .hot-tab li a {display:block; height: 60px;line-height: 60px; width:180px;text-align:center;font-size:28px; color: #666; float: left; cursor:pointer;}
+.conbox .hot-tab li.current a {background:#52a7e2;color:#fff;font-weight: 800;border-radius: 3px}
+.conbox .hot-con{padding: 10px 0;min-height: 200px;width: 580px; text-align: left; padding-bottom: 110px}
+.conbox .hot-con .sublist .list .hname{font-size: 26px;color: #222;min-height: 40px;line-height: 40px; margin: 8px 0; cursor: pointer; padding: 5px 0 5px 20px;background: url('/images/msbland/dot.png')  no-repeat left top 4px;}
+.conbox .hot-con .sublist .list:hover .hname{color: #52a7e2}
+.conbox .hot-con .sublist .list .ans{padding: 15px; width: 570px; border: 1px solid #ecbc88; position: relative; border-radius: 6px;display: none;background: #fffdef;font-size: 24px;color: #666;}
+.conbox .hot-con .sublist .list .ts-arr{width: 27px;height: 13px;background: url('/images/msbland/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50px}
+
+/*弹层*/
+#sb-search{margin-top: 300px;width: 540px;min-height: 200px;background: #fdfbe9}
+#sb-search .sbtitle{height: 65px;line-height: 65px; padding: 0 20px; font-size: 28px;color: #fff;background: #7790ab url('/images/sbland/ctitlebg.png')  no-repeat center bottom;border-radius: 5px 5px 0 0 }
+#sb-search .sbtitle span{font-size: 16px;}
+#sb-search .submit{padding: 20px 0}
+#sb-search .submit p.name{font-size: 18px;height: 40px;line-height: 40px;color: #666;text-align: center;}
+#sb-search .submit p.name span{color: #f81212}
+#sb-search .submit .item {width: 370px;margin: 10px auto}
+#sb-search .submit .item input.tel{width: 348px; padding: 0 10px; height: 68px;line-height: 68px;font-size: 22px;color: #999;border: 1px solid #e1e1e1;border-radius: 5px;}
+#sb-search .submit a.seabtn{width: 370px;text-align: center;height: 70px;line-height: 70px;background: #0ab7f0;display: block;margin: 10px auto;font-size: 30px;color: #fff;border-radius: 5px}
+
+/*提交成功弹层*/
+#submit-box{margin-top: 300px;width: 520px;min-height: 100px;padding: 60px 0;background: #fff}
+#submit-box .submit{width: 360px;padding-left: 75px;margin: 0 auto;background: url('/images/msbland/c_ico.png')  no-repeat center left;}
+#submit-box .submit p.name{font-size: 24px;height: 40px;line-height: 40px;color: #000}
+#submit-box .submit p.text{font-size: 18px;min-height: 30px;line-height: 30px;color: #666}
+
+.mland-box .bot-box{width: 640px;height: 70px; padding: 20px 0; background: #303030;text-align: center;position: fixed;bottom: 0px;z-index: 9000;display: block;}
+.mland-box .bot-box a.zxbtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #0ab7f0;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+.mland-box .bot-box a.buybtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #ffba00;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+
+.mland-box .backtop{width: 100px;height: 100px; background: url('/images/msbland/backtop.png')  no-repeat center;display: none;}
+.mland-box .backtop-xf {position: fixed;bottom: 200px; margin-left: 530px; z-index: 9000;display: block;}
+

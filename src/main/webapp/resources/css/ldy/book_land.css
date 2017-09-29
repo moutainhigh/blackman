@@ -1,0 +1,111 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*落地 M页面*/
+.mbook-box{width: 640px; margin: 0 auto; min-height: 1500px; overflow: hidden;background: #f2f2f2;padding-bottom: 110px;}
+.mbook-box .banner{width: 640px;height: 540px;background: url('/images/mbook/banner.jpg')  no-repeat center;}
+
+.md-box{width: 600px;padding: 20px;min-height: 150px; background: #fff; overflow: hidden; border-bottom: 1px solid #dfdfdf; margin-bottom: 20px}
+.md-box a{display: block;float: left;width: 160px;text-align: center;font-size:20px;color: #333;height: 30px;line-height: 30px;padding-top: 110px;margin: 20px}
+.md-box a.md1{background:  url('/images/mbook/n_ico1.png')  no-repeat center top; }
+.md-box a.md2{background:  url('/images/mbook/n_ico2.png')  no-repeat center top; }
+.md-box a.md3{background:  url('/images/mbook/n_ico3.png')  no-repeat center top; }
+.md-box a.md4{background:  url('/images/mbook/n_ico4.png')  no-repeat center top; }
+.md-box a.md5{background:  url('/images/mbook/n_ico5.png')  no-repeat center top; }
+.md-box a.md6{background:  url('/images/mbook/n_ico6.png')  no-repeat center top; }
+
+.mbook-box .main-box{width: 640px; min-height: 1000px;}
+
+.mbook-box .bserbox{width: 640px;height: 640px;background: #f7f7f7 url('/images/mbook/bserbg.png')  no-repeat center bottom;position: relative;margin-bottom: 20px; border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf; background: #fff }
+.mbook-box .bserbox .name{width: 430px;height: 50px;background: url('/images/mbook/sername.png')  no-repeat center;position: absolute;top: 20px;left: 30px;}
+.mbook-box .bserbox .fwbox ul{overflow: hidden;width: 520px;min-height: 100px;padding-left: 60px}
+.mbook-box .bserbox .jcfw {position: absolute;top: 110px;left: 30px}
+.mbook-box .bserbox .jcfw .tag{position: absolute;width: 36px;text-align: center;height: 120px;padding: 5px; margin-top: 5px; line-height: 25px;font-size: 22px; font-weight: bold; color: #fff;background: url('/images/mbook/stag1.png')  no-repeat center;}
+.mbook-box .bserbox .jcfw ul li{float: left;min-width: 50px;text-align: center;padding: 0 20px; background: #ecf1f8; font-size: 24px;color: #000; height: 46px;line-height: 46px;border: 2px solid #d4dfef;border-radius: 8px;margin: 5px 8px}
+.mbook-box .bserbox .jcfw ul li label{display: inline-block;padding-right: 5px;}
+.mbook-box .bserbox .zsfw {position: absolute;top: 440px;left: 30px}
+.mbook-box .bserbox .zsfw .tag{position: absolute;width: 36px;text-align: center;height: 120px;padding: 5px; margin-top: 5px; line-height: 25px;font-size: 22px; font-weight: bold; color: #fff;background: url('/images/mbook/stag2.png')  no-repeat center;}
+.mbook-box .bserbox .zsfw ul li{float: left;min-width: 50px;text-align: center;padding: 0 20px; background: #ecf1f8; font-size: 24px;color: #8e6338; height: 46px;line-height: 46px;border: 2px solid #d4dfef;border-radius: 8px;margin: 5px 8px}
+.mbook-box .bserbox .zsfw ul li label{display: inline-block;padding-right: 5px;color: #e60f47}
+
+.mbook-box .serflow{width: 640px;height: 565px;margin-bottom: 20px; border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf; background: #fff;background: url('/images/mbook/serflow.jpg')  no-repeat center; }
+
+.mbook-box .zbbox{width: 640px;height: 450px;margin-bottom: 20px; border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf; background: #fff; position: relative;background: url('/images/mbook/zbbg.jpg')  no-repeat center;}
+.mbook-box .zbbox .text-box{width: 530px;min-height: 130px;position: absolute;left: 30px;top: 140px;}
+.mbook-box .zbbox .text-box .text{font-size: 24px;color: #415d86;min-height: 30px;line-height: 30px; width: 530px; padding-left: 30px;margin-bottom: 30px;background: url('/images/mbook/listdot.png')  no-repeat top left;}
+
+.mbook-box .feebox{width: 640px;height: 560px;margin-bottom: 20px; border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf; background: #fff; position: relative;background: url('/images/mbook/feebg.jpg')  no-repeat center;}
+.mbook-box .feebox .text{font-size: 24px;color: #425e85;height: 30px;line-height: 30px;position: absolute;top: 130px;left: 70px}
+.mbook-box .feebox .n1{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #fff;position: absolute;top: 195px;left: 200px;}
+.mbook-box .feebox .p1{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #3f6190;position: absolute;top: 195px;left: 400px;}
+.mbook-box .feebox .n2{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #fff;position: absolute;top: 260px;left: 170px;}
+.mbook-box .feebox .p2{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #3f6190;position: absolute;top: 260px;left: 390px;}
+.mbook-box .feebox .n3{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #fff;position: absolute;top: 325px;left: 165px;}
+.mbook-box .feebox .p3{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #3f6190;position: absolute;top: 325px;left: 380px;}
+.mbook-box .feebox .n4{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #fff;position: absolute;top: 390px;left: 160px;}
+.mbook-box .feebox .p4{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #3f6190;position: absolute;top: 390px;left: 370px;}
+.mbook-box .feebox .n5{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #fff;position: absolute;top: 450px;left: 150px;}
+.mbook-box .feebox .p5{height: 48px; line-height: 48px; width: 200px;text-align: center; font-size: 26px;color: #3f6190;position: absolute;top: 450px;left: 360px;}
+
+.mbook-box .needbox{width: 640px;height: 630px;margin-bottom: 20px; border-top: 1px solid #dfdfdf;border-bottom: 1px solid #dfdfdf; background: #fff; position: relative;background: url('/images/mbook/needbg.jpg')  no-repeat center;}
+.mbook-box .needbox p{font-size: 18px;color: #fff;height: 50px;line-height: 25px;width: 180px;text-align: center;}
+.mbook-box .needbox p.t1{position: absolute;top: 290px;left: 30px}
+.mbook-box .needbox p.t2{position: absolute;top: 290px;left: 220px}
+.mbook-box .needbox p.t3{position: absolute;top: 290px;left: 430px}
+.mbook-box .needbox p.t4{position: absolute;top: 520px;left: 130px}
+.mbook-box .needbox p.t5{position: absolute;top: 520px;left: 340px}
+
+.mbook-box .bzbox{width: 640px;height: 120px;background: url('/images/mbook/serbz.jpg')  no-repeat center;}
+
+
+.main-box .cp-box{width: 640px;min-height: 200px;}
+.main-box .cp-box .sbox{min-height: 180px;padding: 15px 20px 20px 90px;background: #fff;position: relative;margin-bottom: 15px;overflow: hidden;}
+.main-box .cp-box .sbox p.num{font-size: 18px;width: 55px; height: 92px;line-height: 80px; font-size: 36px;color: #fff; text-align: center; background: url('/images/mbook/numbg.png')  no-repeat center;position: absolute;top: -5px;left: 15px}
+.main-box .cp-box .sbox p.name{font-size: 28px;color: #ee1a1a;font-weight: bold;height: 30px;line-height: 30px;padding: 5px 0}
+.main-box .cp-box .sbox p.text{font-size: 24px;color: #333;min-height: 35px;line-height: 35px;padding: 10px 0 20px}
+.main-box .cp-box .sbox p.text span{color: #f41f04}
+.main-box .cp-box .sbox p.list{width: 500px; height: 60px; text-align: center; margin-top: -1px; font-size: 24px;color: #ee363a; padding: 30px 10px;line-height: 30px;border: 1px solid #ff2b2b;float: left;}
+.main-box .cp-box .sbox p.list span{display: inline-block;font-size: 20px}
+.main-box .cp-box .sbox .cp-pic{text-align: center;padding: 20px 0}
+
+.main-box .fw-box{width: 640px;min-height: 200px;}
+.main-box .fw-box .fbox{min-height: 180px;background: #fff;margin-top: 15px}
+.main-box .fw-box .fbox .titlebox{height: 40px;line-height: 40px;padding: 10px 0;border-bottom: 1px solid #e5e5e5}
+.main-box .fw-box .fbox .titlebox p.title{padding-left: 20px;border-left: 8px solid #ff433d;font-size: 28px;color: #000;font-weight: bold;}
+.main-box .fw-box .fbox .conbox{padding: 20px;text-align: center;overflow: hidden;}
+.main-box .fw-box .fbox .conbox p.name{font-size: 26px;color: #f1231c;height: 40px;line-height: 40px;font-weight: bold;background: url('/images/mbook/star.png')  no-repeat center;}
+.main-box .fw-box .fbox .conbox p.info{font-size: 24px;color: #000;height: 30px;line-height: 30px}
+.main-box .fw-box .fbox .conbox p.text{font-size: 24px;color: #666;min-height: 30px;line-height: 30px;padding: 20px 0;text-align: left;}
+.main-box .fw-box .fbox .conbox .fw-pic{padding: 20px 0;position: relative;}
+.getzz{display: block; width:131px;height: 131px;background: url('/images/mbook/get.gif')  no-repeat center; position: absolute;top: 232px;left: 58px;}
+.main-box .fw-box .fbox .conbox p.remark{font-size: 20px;color: #ec373a;height: 30px;line-height: 30px;padding: 10px 0}
+
+
+
+
+.mbook-box .bot-box{width: 640px;height: 70px; padding: 20px 0; background: #303030;text-align: center;position: fixed;bottom: 0px;z-index: 9000;display: block;}
+.mbook-box .bot-box a.zxbtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #2ca6d3;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+.mbook-box .bot-box a.buybtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #ff2d2d;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+
+.mbook-box .backtop{width: 100px;height: 100px; background: url('/images/mbook/backtop.png')  no-repeat center;display: none;}
+.mbook-box .backtop-xf {position: fixed;bottom: 200px; margin-left: 530px; z-index: 9000;display: block;}
+
+.conbox .hot-tab {width: 580px; height: 60px; border-bottom: 1px solid #fac1c1;margin-top: 15px}
+.conbox .hot-tab li a {display:block; height: 60px;line-height: 60px; width:180px;text-align:center;font-size:28px; color: #666; float: left; cursor:pointer;}
+.conbox .hot-tab li.current a {background:#ff7468;color:#fff;font-weight: 800;border-radius: 3px}
+.conbox .hot-con{padding: 10px 0;min-height: 200px;width: 580px; text-align: left; padding-bottom: 110px}
+.conbox .hot-con .sublist .list .hname{font-size: 26px;color: #222;min-height: 40px;line-height: 40px; margin: 8px 0; cursor: pointer; padding: 5px 0 5px 20px;background: url('/images/mbook/dot.png')  no-repeat left top 4px;}
+.conbox .hot-con .sublist .list:hover .hname{color: #ee3332}
+.conbox .hot-con .sublist .list .ans{padding: 15px; width: 570px; border: 1px solid #ecbc88; position: relative; border-radius: 6px;display: none;background: #fffdef;font-size: 24px;color: #666;}
+.conbox .hot-con .sublist .list .ts-arr{width: 27px;height: 13px;background: url('/images/mbook/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50px}

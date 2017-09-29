@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+<title>我的订单-国内领先的O2O自营法律服务提供商</title>
+<meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+<meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+<link id="common_css" rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/box.css">
+<script src="/js/viewport.js"></script>
+<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/box.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="tz-box">
+    	#set($foo = 1 )
+    	#foreach($packageSellE in $!{packageSellList})
+        <div class="tbox tb">
+            <div class="title">
+                <p class="name">$!{packageSellE.package_name}</p>
+                <div class="tc-info">
+                    <p class="price">$!{packageSellE.sell_overprice}元</p>
+                    #set($lijian =  $!{packageSellE.sell_markprice} - $!{packageSellE.sell_overprice} )
+                    <p class="yh-tag">立省$!{lijian}元</p>
+                </div>
+                <a  class="xarr clickmore" id="temp$!{foo}"></a>
+            </div>
+            <div class="list">
+                <ul>
+                	#set($foo2 = 1 )
+					#foreach($sellMap in $!{sellProductMap.get("$!{packageSellE.packagesell_id}")})
+                    <li class="zc">$!{sellMap.cate_name}</li>
+                    #if($!{sellProductMap.get("$!{packageSellE.packagesell_id}").size()} > $foo2 )
+                    <li class="plus">+</li>
+                    #end
+                    #set($foo2 = $foo2 + 1 )
+					#end
+                </ul>
+            </div>
+            
+            <div class="list-detail">
+            #foreach($sellMap in $!{sellProductMap.get("$!{packageSellE.packagesell_id}")})
+            	<a href="/mdetail/$!{sellMap.product_id}.html">
+                <div class="sp-box">
+                    <div class="sp-list">
+                        <p class="zc">$!{sellMap.cate_name}</p>
+                        <p class="info">
+                            <span class="name">$!{sellMap.sell_product_name}</span>
+                            <span class="text">$!{sellMap.tips}</span>
+                        </p>
+                    </div>
+                </div>
+            	</a>
+			#end
+                <div class="buy-box">
+                    <div class="tcj-box">
+                        <label class="tcj">套餐价：<span>￥$!{packageSellE.sell_overprice}</span></label>
+                        <span class="yh-tag">立省$lijian元</span>
+                    </div>
+                    <p class="yj-box">原价：<span>￥$!{packageSellE.sell_markprice}<span></p>
+                    <a href="/m/buyPackage/$!{packageSellE.packagesell_id}" class="buy-btn">立即购买</a>
+                </div>
+            </div>
+		</div>
+		#set($foo = $foo + 1 )
+    	#end
+    </div>
+
+</div>
+<script type="text/javascript">
+jQuery (function ($){
+	//切换DIV显示隐藏事件
+    $(".clickmore").on("click",function (){
+    	$(this).toggleClass("sarr");
+    	$(this).prev(".tc-info").toggle();
+    	$(this).parents(".tbox").find(".list").toggle();
+    	$(this).parents(".tbox").find(".list-detail").toggle();
+    });
+    //初始化第一个展示
+	$("#temp1").click();
+});
+</script>
+</body>
+</html>

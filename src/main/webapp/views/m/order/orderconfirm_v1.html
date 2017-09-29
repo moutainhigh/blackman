@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>确认订单-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link id="common_css" rel="stylesheet" href="http://static.lvzheng.com/blackM/css/style.css">
+    <link rel="stylesheet" href="/css/box.css">
+    <script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+    <script type="text/javascript" src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js"></script>
+    <script src="http://static.lvzheng.com/blackM/js/box.js"></script>
+    <script>
+    $(function(){
+        $('[name="firm-select"]').click(function(e){
+            $('[name="firm-select"]').find('ul').hide();
+            $(this).find('ul').show();
+            e.stopPropagation();
+        });
+        $('[name="firm-select"] li').hover(function(e){
+            $(this).toggleClass('on');
+            e.stopPropagation();
+        });
+        $('[name="firm-select"] li').click(function(e){
+            var val = $(this).text();
+            var dataVal = $(this).attr("data-value");
+            var id = $(this).attr("data-id");
+            $(this).parents('[name="firm-select"]').find('input').val(val);
+            $(this).parents('[name="firm-select"]').find('input').attr("data-value",dataVal);
+            $(this).parents('[name="firm-select"]').find('input').attr("data-id",id);
+            
+            $('[name="firm-select"] ul').hide();
+            e.stopPropagation();
+            
+            //计算价格
+            sumprice();
+        });
+        $(document).click(function(){
+            $('[name="firm-select"] ul').hide();
+        });
+        
+        
+        //进入页面默认所有优惠券选中第一个
+        $(".J_cou_ul").find("li").each(function(index,element){
+        	//console.log(index);
+        	if(index==0){
+        		element.click();
+        	}
+        })
+        
+        
+        //计算价格
+        sumprice();
+        
+    });
+    
+    //计算价格+ 设值
+    function sumprice(){
+    	//优惠券总计
+    	var yhq_sum = 0;
+    	//订单总金额
+    	var order_sum = 0;
+    	$(".n-val").each(function(){
+    		var yhq_  = $(this).attr("data-value");
+    		if(yhq_){
+    			yhq_sum += parseFloat(yhq_);
+    		}
+    		
+    	});
+    	
+    	
+    	var packageFlag = false;	
+    	$(".list").each(function(){
+    		if($(this).attr("package_flag") == "false"){
+        		var order_  = $(this).find(".p4").text().substr(1,$(this).find(".p4").text().length-1);
+        		order_sum += parseInt(order_);	
+    		}else{
+    			packageFlag = true;
+    			return false;
+    		}
+    	});
+    	
+    	if(packageFlag){
+    		order_sum = $("#tcprice").attr("val");
+    	}
+    	
+    	$("#J_order_sum").text("￥"+order_sum);
+    	$("#J_yhq_sum").text("-￥"+yhq_sum.toFixed(2));
+    	var money = parseFloat(parseInt(order_sum)-parseFloat(yhq_sum)).toFixed(2);
+    	if (Number(money) < 0)
+    		money = 0;
+    	$("#J_sum").text("￥"+money);
+    	$("#J_order_sum_btn").val(order_sum);
+    	$("#J_sum_btn").val(money);
+    	
+    }
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="firm-box">
+        <div class="pro-list">
+        	#if($!{orderlist})
+	            <div class="name-box">
+	                <p class="name">您共购买$!{orderlist.size()}件商品</p>
+	            </div>
+	            #foreach($order in $orderlist)
+	            <div class="sell_product_list">
+	            <input type="hidden" class="sell_id" value="$!{order.orderid}"/>
+		            <div class="list" package_flag="false">
+		                <p class="p1">$!{order.servername}</p>
+		                <p class="p2">$!{order.localstr}</p>
+		                <p class="p3">x1</p>
+		                <p class="p4">￥$!{order.paycount}</p>
+		            </div>
+		            <div class="firm-list">
+		                <div class="firm-select" name="firm-select">
+		                #if($order.couponList.size() > 0)
+	                   #set($ticket =$order.couponList.get(0))
+		                    <input class="n-val coupon_selected" type="text" data-value="$!{ticket.realQuota}" data-id="$!{ticket.id}" orderid="$!{order.orderid}" value="选择优惠券" readonly>
+		                    <ul class="J_cou_ul">
+		                        #foreach($c in $order.couponList)
+			                        
+			                        <li data-value="$!{c.realQuota}" data-id="$!{c.id}">$!{c.getTitleNameString()}</li>
+		                        #end
+		                    </ul>
+		               #else
+	                    	<input class="n-val" type="text" value="无可用优惠券" readonly data-value="" data-id=""/>
+	                   #end
+		                </div>
+		            </div>
+		            <div class="list-line"></div>
+	            
+	            </div>
+	            #end
+        	#end
+        	
+        	<!-- 商品包特殊处理 -->
+        	#if($!{packageOrderMap})
+        	<input type="hidden" id="packageSellid" name="packageSellid" value="$!{packageOrderMap.packagesell_id}" />
+            <div class="name-box">
+                <p class="name">您共购买$!{packageOrderMap.get("$!{packageOrderMap.packagesell_id}").size()}件商品</p>
+            </div>
+	       	<div class="tcbg">
+               <div class="tc1">
+                   <p class="name">$!{packageOrderMap.package_name}</p>
+                   <p class="tcprice" id="tcprice" val="$!{packageOrderMap.sell_overprice}">￥$!{packageOrderMap.sell_overprice}</p>
+               </div>
+               #foreach($sellE in $!{packageOrderMap.get("$!{packageOrderMap.packagesell_id}")})
+               <div class="list" package_flag="true">
+                   <p class="p1">$!{sellE.sell_product_name}</p>
+                   <p class="p2">$!{sellE.cityname}$!{sellE.aeasname}</p>
+                   <p class="p3">x1</p>
+                   <p class="p4">￥$!{sellE.sell_overprice}</p>
+               </div>	
+               #end
+               <!-- <div class="firm-list">
+                   <div class="firm-select" name="firm-select">
+                       <input class="n-val" type="text" value="50元优惠券" readonly>
+                       <ul>
+                           <li data-value="1">50元优惠券</li>
+                           <li data-value="2">100元优惠券</li>
+                           <li data-value="1">50元优惠券</li>
+                           <li data-value="2">100元优惠券</li>
+                       </ul>
+                   </div>
+               </div> --> 
+	        </div>
+        	#end
+            
+            
+            
+        </div>
+
+        <div class="firm-btn">
+            <div class="total">
+                <p class="text1">应付金额：<span id="J_sum">￥1096</span></p>
+                <p class="text2">总额：<span id="J_order_sum">￥1196</span> 优惠：<span id="J_yhq_sum">－￥100</span></p>
+                <input id="J_order_sum_btn" value="" type="hidden">
+                <input id="J_sum_btn" value="" type="hidden">
+                <input id="J_payid" value="$!{payid}" type="hidden"/>
+                
+            </div>
+            #if($!{orderlist})
+            	<a class="pay-box" id="J_topay" >去支付<span class="ptag">$!{orderlist.size()}</span></a>
+            #end
+            
+            #if($!{packageOrderMap})
+            	<a class="pay-box" id="J_topay" >去支付<span class="ptag">$!{packageOrderMap.get("$!{packageOrderMap.packagesell_id}").size()}</span></a>
+            #end
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+   $(function(){
+	   var click = 0;
+	   $("#J_topay").click(function(){
+		   if (click != 0){
+			   return;
+		   }
+		   click = 1;
+		   var sellids = "";
+		   var sellcoupons = "";
+		   var packageSellid =　$("#packageSellid").val();  //商品包定价条目ID
+		   $(".sell_product_list").each(function(){
+			   var sell_id = $(this).find(".sell_id").val();
+			   var coupon_id = $(this).find(".coupon_selected").attr("data-id");
+			   sellids = sellids + sell_id + ",";
+			   
+			   if (coupon_id != null && coupon_id != "") {
+				   sellcoupons =  sellcoupons + sell_id + "_" +coupon_id + ",";
+			   }
+		   });
+		   sellids = sellids.replace(/,$/,'');
+		   sellcoupons = sellcoupons.replace(/,$/,'');
+
+		   var url = "/m/myorder/ordersubmit1";
+		   var param = {"sellid":sellids,"sellcoupons":sellcoupons,"packageSellid":packageSellid};
+		   
+		   $.ajax({
+				url : url,
+				data : param,
+				type : "post",
+				dataType : "json",
+				complete : function(data) {
+					click = 0;
+					if (data.readyState == 4 && data.status == 200) {
+						var resjson = $.parseJSON(data.responseText);
+						if (resjson.code > 0) {
+							var payid = resjson.code;
+							if (resjson.zero != null && resjson.zero == 1) {
+								window.location.href = "/m/zerosuccess?payid="+payid;
+							} else {
+								window.location.href = "/m/myorder/goToZhiFu/"+payid;
+							}
+						} else {
+							alert("支付失败!");
+						}
+					} 
+				}
+		   });
+		});
+   })
+</script>
+
+</body>
+</html>

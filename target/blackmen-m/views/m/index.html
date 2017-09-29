@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>小微律政-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- 活动页面需要样式 -->
+    <link rel="stylesheet" href="/css/day/box.css">
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/box.js"></script> 
+    <script>
+   /*  $(function(){
+        $(window).scroll(function(){
+            var a=parseInt($(window).scrollTop());
+            if(a<330){
+                $(".bot-nav").removeClass("wx-navxf")
+            }
+            if(a>330){
+                $(".bot-nav").addClass("wx-navxf")
+            }
+        });
+    }) */
+    $(function(){
+    	//选中tab
+    	var seltab = "$!{seltab}";
+    	
+		if("home" == seltab){
+			$("#J_home_tab").addClass("n1-on");
+			$("#J_myorder_tab").removeClass("n2-on");
+			$("#J_center_tab").removeClass("n3-on");
+		}else if("myorder" == seltab){
+			$("#J_myorder_tab").addClass("n2-on");
+			$("#J_home_tab").removeClass("n1-on");
+			$("#J_center_tab").removeClass("n3-on");
+		}else if("center" == seltab){
+			$("#J_center_tab").addClass("n3-on");
+			$("#J_myorder_tab").removeClass("n2-on");
+			$("#J_home_tab").removeClass("n1-on");
+		}
+    })
+    </script>
+    
+   
+</head>
+<body>
+<div class="wrapper">
+    <div class="wx3 bott-box">
+         #parse("views/common/banner.html")
+           <div class="new-fw-box">
+            <ul class="fw-list">
+            #foreach($pro in $productlist)
+                <li>
+                    <a href="$!{pro.redurl}" class="link">
+                    <p class="ico"><img src="$!{pro.imgurl}"></p>
+                    <p class="name">$!{pro.namestr}</p>
+                    </a>
+                </li>
+               #end
+                
+            </ul>
+        </div>
+        <div class="new-sp-box">
+		#parse("views/common/content.html") 
+		</div>       
+        <div class="bot-nav">
+            <ul>
+                <li><a id="J_home_tab" class="n1" href="/m/index">首页</a></li>
+                <li><a id="J_myorder_tab" class="n2" href="/m/myorder/index.html">我的订单</a></li>
+                <li><a id="J_center_tab" class="n3" href="/m/usercenter/index.html">个人中心</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+	
+</div>
+<span style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fdfea9be52ba6e004afc970e9559e0150' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+</span>
+
+ <script src="/js/swipe.min.js" type="text/javascript"></script>
+	<script>
+	var bullets = document.getElementById('position').getElementsByTagName('li');
+	var banner = Swipe(document.getElementById('mySwipe'), {
+	    auto: 4000,
+	    continuous: true,
+	    disableScroll:false,
+	    callback: function(pos) {
+	        var i = bullets.length;
+	        while (i--) {
+	            bullets[i].className = ' ';
+	        }
+	        bullets[pos].className = 'cur';
+	    }
+	})
+	</script>
+</body>
+ 
+</html>

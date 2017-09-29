@@ -1,0 +1,62 @@
+﻿/* 代码整理：大头网 www.datouwang.com */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{color:#333; font-size:12px;font-family:"Microsoft YaHei";}
+html {
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    font-size: 62.5%;
+    font-family: "微软雅黑"
+}
+
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+input{ font-size:12px;}
+a{ text-decoration:none; color:#000;}
+a:hover{color:#c00; text-decoration:none;}
+.clear{clear:both;}
+
+/* 大转盘样式 */
+.banner{display:block;width:95%;margin-left:auto;margin-right:auto;margin-bottom: 20px; padding-top: 2rem;background: url(/images/zp/ct_bj.jpg) no-repeat;
+    background-size: 100% 100%; }
+.banner .turnplate{display:block;width:100%;position:relative;}
+.banner .turnplate canvas.item{width:100%;}
+.banner .turnplate img.pointer{position:absolute;width:31.5%;height:42.5%;left:34.6%;top:23%;}
+
+.prize_hd {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+
+.prize_hd img {
+    width: 100%;
+    background-size: 100% 100%;
+}
+.prize_foot {
+    width: 85%;
+    padding: 2rem 0;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.prize_foot h3 {
+    width: 10rem;
+    line-height: 2.5rem;
+    border: #fff solid 1px;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.prize_foot p {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.prize_ft_gz{width: 90%; margin: 0 auto;  height:40px; line-height: 40px; background:#000; border-radius: 5px; text-align: center;position: fixed; bottom: 0; left: 5%; display: none;}
+.prize_ft_gz p a{ width: 100%; margin: 0 auto; color: #fff; font-size: 1.4rem; display: block; } 

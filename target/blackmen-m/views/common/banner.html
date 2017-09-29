@@ -1,0 +1,21 @@
+ <div class="banner">
+            <div class="addWrap">
+                <div class="swipe" id="mySwipe">
+                    <div class="swipe-wrap">
+                        #foreach($banner in $bannerlist)
+                        <div><a href="$!{banner.redurl}?openId=$!{openId}"><img class="img-responsive" src="$!{banner.imgurl}"/></a></div>
+                        #end
+                    </div>
+                </div>
+                <ul id="position" class="dot-box">
+                #foreach($inde in [1..$!{bannerlist.size()}])
+                #if($inde == 0)
+                <li class="cur"></li>
+                #else
+                 <li></li>
+                #end
+                #end
+                    
+                </ul>
+            </div>
+        </div>

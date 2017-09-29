@@ -1,0 +1,66 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+
+
+
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*领取优惠券 M页面*/
+.wrapper{width: 640px; background: #f1f5f8; min-height: 1040px; margin:0 auto;overflow: hidden;}
+.mcoupon{width: 640px;background: #f1f5f8;padding-bottom: 40px}
+.coupon-box{width: 620px;min-height: 160px;overflow: hidden;padding: 10px 10px}
+.coupon-box ul.coupon{overflow: hidden;}
+.coupon-box ul.coupon a.link{display: block;}
+.coupon-box ul.coupon li.on:hover{border-top: 1px solid #f1363a;border-bottom: 1px solid #f1363a}
+.coupon-box ul.coupon li.on:hover{background: #fff url(/images/active/coupon/cou_pico_h.png) no-repeat center left;}
+
+.coupon-box ul.coupon li{width: 620px;height: 170px; padding: 14px 0; margin: 15px 0 10px;  border-top:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;position: relative; background: #fff url(/images/active/coupon/cou_pico.png) no-repeat center left;}
+.coupon-box ul.coupon li p.price{width: 175px;font-size: 40px;color: #f1363a;float: left;height: 170px;line-height: 170px;text-align: center; }
+.coupon-box ul.coupon li p.price span{font-size: 24px}
+.coupon-box ul.coupon li p.type{width: 280px; padding-left: 40px; height: 170px;float: left;border-left: 1px solid #e5e5e5}
+.coupon-box ul.coupon li p.type span.name{font-size: 30px;color: #000;height: 80px;line-height: 80px;display: block;}
+.coupon-box ul.coupon li p.type span.demand{font-size: 20px;color: #666;height: 40px;line-height: 40px;display: block;}
+.coupon-box ul.coupon li p.type span.time{font-size: 20px;color: #666;height: 40px;line-height: 40px;display: block;}
+.coupon-box ul.coupon li p.get{width: 30px;height: 160px;padding: 20px 20px;text-align: center;font-size: 30px;color: #fff;position: absolute;right: 0px; top:-1px; background: #f1363a url(/images/active/coupon/cou_rico.png) no-repeat center right;}
+.coupon-box ul.coupon li.off p.get{width: 30px;height: 120px;padding: 40px 20px;text-align: center;font-size: 30px;color: #fff;position: absolute;right: 0px; top:-1px; background: #f1363a url(/images/active/coupon/cou_rico.png) no-repeat center right;}
+.coupon-box ul.coupon li.off p.price{color: #666666}
+.coupon-box ul.coupon li.off p.get{background: #7f7f7f url(/images/active/coupon/cou_rico_off.png) no-repeat center right;}
+
+.cou-sp{width: 640px;min-height: 380px;background: #fff;margin-bottom: 50px}
+.cou-sp .title-box{height:30px;padding: 15px 0;border-bottom: 1px solid #e5e5e5 }
+.cou-sp .title-box .title{font-size: 24px;color: #000;height: 30px;line-height: 30px;padding-left: 10px;border-left: 6px solid #75b9e7;}
+.cou-sp ul.tj{overflow: hidden;margin-top: 45px}
+.cou-sp ul.tj li{width: 199px;padding: 0 60px;height: 230px; text-align: center;border-right: 1px solid #e5e5e5; float: left; position: relative;}
+.cou-sp ul.tj li:last-child{border-right: none}
+.cou-sp ul.tj li .tag{ width: 200px;height: 115px;position: relative;}
+.cou-sp ul.tj li .tag .plus{font-size: 26px;color: #fff; padding: 20px 0; height: 75px;line-height: 75px; display: block;float: left;;position: absolute;left: 90px}
+.cou-sp ul.tj li .tag .t1{width: 110px; padding: 20px 0; height: 75px; text-align: center; line-height: 36px; display: block;font-size: 26px;color: #fff;position: absolute;left: 0px}
+.cou-sp ul.tj li .tag .t2{width: 110px; padding: 20px 0; height: 75px; text-align: center; line-height: 36px; display: block;font-size: 26px;color: #fff;position: absolute;left: 90px}
+.cou-sp ul.tj li .price{font-size: 30px;color: #f00;text-align: center;height: 40px;line-height: 40px;margin-top: 10px}
+.cou-sp ul.tj li a.btn{width: 130px; margin-top: 10px; height: 40px;text-align: center;line-height: 38px;border: 1px solid #75b9e7; border-radius: 8px; font-size: 24px;color: #75b9e7;display: inline-block;}
+.cou-sp ul.tj li a.btn:hover{background: #17a5da;color: #fff}
+.cou-sp ul.tj li .ico1{background: url(/images/active/coupon/tj_ico1.png) no-repeat center;}
+.cou-sp ul.tj li .ico2{background: url(/images/active/coupon/tj_ico2.png) no-repeat center;}
+
+.get-ts{font-size: 24px;color: #fff;height: 30px;line-height: 30px;padding: 30px 0;width: 560px; text-align: center; background: #303132;border-radius: 8px;margin: 0 auto}
+
+.cbanner{width: 640px;height: 242px;}
+.fl-box{height: 80px;padding: 20px 0 10px;text-align: center;}
+.fl-box .fname{font-size: 24px;color: #f43333;height: 30px;line-height: 30px;;padding: 5px 0}
+.fl-box .ftext {font-size: 18px;color: #636e76;height: 30px;line-height: 30px;padding: 10px 0;background: url(/images/active/coupon/ftextbg.png) no-repeat center;}
+.coupon-box .cou-name{font-size: 24px;height: 30px;line-height: 30px;padding: 10px 0 0;color: #f43333}
+.coupon-box .cou-name span{font-size: 18px;color: #656c72}
+.coupon-box ul.coupon li p.price{position: relative;}
+.coupon-box ul.coupon li p.price .use-btn{display: inline-block;width: 115px;height: 26px;line-height: 26px;text-align: center;font-size: 18px;color: #f43333;border: 1px solid #f43333;border-radius: 20px;position: absolute;left: 30px;bottom: 20px}
+
+.coubar {height: 30px;line-height: 30px;width: 80%;margin: 0 auto 20px}
+.progressBar{height: 30px;line-height: 30px;display: inline-block;}
+.coubar label{height: 30px;line-height: 30px;display: inline-block;float: left;font-size: 24px;color: #656c72}
+#spaceused1_percentText{height: 30px;line-height: 30px;float: left;display: inline-block;margin-right: 30px; margin-left: 10px; font-size: 24px;color: #656c72}
+#spaceused1_percentImage{background: #eae5e5}

@@ -1,0 +1,81 @@
+#foreach( $elem in $cusEvalList)
+<li>
+	<dl class="f-clear">
+		<dt>
+			<img src="/images/product/tx.jpg">
+		</dt>
+		<dd>
+			<span class="spn1"><b>$DataFormat.phoneFormatHide($!{elem.phone})</b><em>(北京)$!{elem.product_name}</em></span> <span
+				class="spn2">
+				<ul class="show-numbers f-clear">
+					<li>
+						<div class="star-Shows">
+							<p tip="$DataFormat.doubleFormatInt($!{elem.zhpf})"></p>
+						</div> <span></span>
+					</li>
+				</ul>
+				<h4>$DataFormat.doubleFormatInt($!{elem.zhpf})</h4> <em>$DataFormat.dateFormat($!{elem.datetime})</em>
+			</span>
+
+		</dd>
+		<span class="spn3 f-clear">
+			<p>$!{elem.content}</p>
+		</span>
+		<div class="cont_pf">
+			<span class="spn4">
+				<h5>服务态度</h5>
+				<ul class="show-numbert f-clear">
+					<li>
+						<div class="star-Showt">
+							<p tip="$!{elem.fwtd}"></p>
+						</div> <span></span>
+					</li>
+				</ul>
+				<h4>$!{elem.fwtd}</h4>
+			</span> <span class="spn4">
+				<h5>专业程度</h5>
+				<ul class="show-numbert f-clear">
+					<li>
+						<div class="star-Showt">
+							<p tip="$!{elem.zycd}"></p>
+						</div> <span></span>
+					</li>
+				</ul>
+				<h4>$!{elem.zycd}</h4>
+			</span> <span class="spn4">
+				<h5>办事效率</h5>
+				<ul class="show-numbert f-clear">
+					<li>
+						<div class="star-Showt">
+							<p tip="$!{elem.bsxl}"></p>
+						</div> <span></span>
+					</li>
+				</ul>
+				<h4>$!{elem.bsxl}</h4>
+			</span> <span class="spn4">
+				<h5>响应速度</h5>
+				<ul class="show-numbert f-clear">
+					<li>
+						<div class="star-Showt">
+							<p tip="$!{elem.xysd}"></p>
+						</div> <span></span>
+					</li>
+				</ul>
+				<h4>$!{elem.xysd}</h4>
+			</span>
+		</div>
+		<div class="md_btn">
+            <p class="btn_jt"></p>
+        </div>
+	</dl>
+</li>
+#end
+#if($!{cusEvalList.size()} == 0)
+<div class="ts-show">
+   暂时还没有相关评价哟！
+</div>
+#end
+<script type="text/javascript">
+	var cusEvalParamValue = "$!{cusEvalParamValue}";//查询条件
+	var pingfenScopeCount = "$!{pingfenScopeCount}";//评分范围内的数据总数
+</script>

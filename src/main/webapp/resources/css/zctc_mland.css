@@ -1,0 +1,125 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*落地 M页面*/
+.mland-box{width: 640px; margin: 0 auto; min-height: 1500px; overflow: hidden;background: #f6f6f6;padding-bottom: 110px;}
+.mland-box .banner{width: 640px;height: 498px;background: url('/images/mtc_land/banner.jpg')  no-repeat center;}
+
+.md-box{width: 600px;padding: 20px;min-height: 150px;overflow: hidden;
+    background: #fff;}
+.md-box a{display: block;float: left;width: 160px;text-align: center;font-size:20px;color: #333;height: 30px;line-height: 30px;padding-top: 110px;margin: 20px}
+.md-box a.md1{background:  url('/images/mtc_land/n_ico1.png')  no-repeat center top; }
+.md-box a.md2{background:  url('/images/mtc_land/n_ico2.png')  no-repeat center top; }
+.md-box a.md3{background:  url('/images/mtc_land/n_ico3.png')  no-repeat center top; }
+.md-box a.md4{background:  url('/images/mtc_land/n_ico4.png')  no-repeat center top; }
+.md-box a.md5{background:  url('/images/mtc_land/n_ico5.png')  no-repeat center top; }
+.md-box a.md6{background:  url('/images/mtc_land/n_ico6.png')  no-repeat center top; }
+
+.mland-box .main-box{width: 640px; min-height: 1000px;}
+.main-box .cp-box{width: 640px;min-height: 200px;}
+.main-box .cp-box .sbox{min-height: 180px;padding: 15px 20px 20px 90px;background: #fff;position: relative;margin-top: 15px;overflow: hidden;}
+.main-box .cp-box .sbox p.num{font-size: 18px;width: 55px; height: 92px;line-height: 80px; font-size: 36px;color: #fff; text-align: center; background: url('/images/mtc_land/numbg.png')  no-repeat center;position: absolute;top: -5px;left: 15px}
+.main-box .cp-box .sbox p.name{font-size: 28px;color: #ee1a1a;font-weight: bold;height: 30px;line-height: 30px;padding: 5px 0}
+.main-box .cp-box .sbox p.text{font-size: 24px;color: #333;min-height: 35px;line-height: 35px;padding: 10px 0 20px}
+.main-box .cp-box .sbox p.text span{color: #f41f04}
+.main-box .cp-box .sbox p.list{width: 500px; height: 60px; text-align: center; margin-top: -1px; font-size: 24px;color: #ee363a; padding: 30px 10px;line-height: 30px;border: 1px solid #ff2b2b;float: left;}
+.main-box .cp-box .sbox p.list span{display: inline-block;font-size: 20px}
+.main-box .cp-box .sbox .cp-pic{text-align: center;padding: 20px 0}
+
+.main-box .fw-box{width: 640px;min-height: 200px;}
+.main-box .fw-box .fbox{min-height: 180px;background: #fff;margin-top: 15px;    }
+.main-box .fw-box .fbox .titlebox{height: 40px;line-height: 40px;padding: 10px 0;border-bottom: 1px solid #e5e5e5}
+.main-box .fw-box .fbox .titlebox p.title{padding-left: 20px;border-left: 8px solid #0982d5;font-size: 28px;color: #000;font-weight: bold;}
+.main-box .fw-box .fbox .conbox{padding: 20px;text-align: center;overflow: hidden;}
+.main-box .fw-box .fbox .conbox p.name{font-size: 26px;color: #f1231c;height: 40px;line-height: 40px;font-weight: bold;background: url('/images/mtc_land/star.png')  no-repeat center;}
+.main-box .fw-box .fbox .conbox p.info{font-size: 24px;color: #000;height: 30px;line-height: 30px}
+.main-box .fw-box .fbox .conbox p.text{font-size: 24px;color: #666;min-height: 30px;line-height: 30px;padding: 20px 0;text-align: left;}
+.main-box .fw-box .fbox .conbox .fw-pic{padding: 20px 0;position: relative;}
+.getzz{display: block; width:131px;height: 131px;background: url('/images/mtc_land/get.gif')  no-repeat center; position: absolute;top: 232px;left: 58px;}
+.main-box .fw-box .fbox .conbox p.remark{font-size: 20px;color: #ec373a;height: 30px;line-height: 30px;padding: 10px 0}
+
+.main-box .fw-box .fbox .conbox .cl-list{width: 600px;min-height: 100px;border:1px solid #cddddf; border-radius: 8px; padding: 30px 0; background: #f3f6fb;margin: 20px auto;position: relative;}
+.main-box .fw-box .fbox .conbox .cl-list:hover{border: 1px solid #ff8e8b;background: #fef7f6;}
+.main-box .fw-box .fbox .conbox .cl-list p.tag-ico{position: absolute;top: 35px;left: 55px}
+.main-box .fw-box .fbox .conbox .cl-list p.tag-ico span{display: block;font-size: 24px;color: #000}
+.main-box .fw-box .fbox .conbox .cl-list p.ctext{margin-left: 190px}
+.main-box .fw-box .fbox .conbox .cl-list p.ctext span{font-size: 24px;color: #666;min-height: 30px;line-height: 30px;padding: 6px 5px 6px 15px;display: block;text-align: left;width: 380px;background: url('/images/mtc_land/dot.png')  no-repeat left top;}
+.main-box .fw-box .fbox .conbox .cl-list p.cremark{font-size: 22px;color: #e91d1d;line-height: 30px; text-align: left;width: 380px;margin-left: 190px;padding: 6px 5px 6px 0;}
+.main-box .fw-box .fbox .add-box{min-height: 120px; padding: 20px 0 0 20px; position: relative;overflow: hidden;}
+.main-box .fw-box .fbox .add-box:hover{background: #fef7f6}
+.main-box .fw-box .fbox .add-box .ico{width: 120px;height: 100px;position: absolute;top: 50px;left: 20px}
+.main-box .fw-box .fbox .add-box .info-box{width: 430px; padding-right: 15px; padding-top: 10px; min-height: 110px; float: right; border-bottom: 1px solid #e5e5e5}
+.main-box .fw-box .fbox .add-box .info-box span.name{font-size: 28px;color: #000;height: 40px;line-height: 40px; font-weight: bold; display: block;text-align: left;}
+.main-box .fw-box .fbox .add-box .info-box span.text{font-size: 24px;color: #666;min-height: 40px;line-height: 40px; padding: 10px 0 20px; display: block;text-align: left;}
+.main-box .fw-box .fbox .add-box .info-box span.text b{color: #000;font-weight: normal;}
+.main-box .fw-box .fbox .add-box .info-box span.remark{font-size: 24px;color: #f32a2a;line-height: 40px}
+.main-box .fw-box .fbox .add-box .info-box a.abtn{font-size: 28px;color: #fff;background: #2ca6d3; margin: 20px 0; width: 190px;height: 55px;line-height: 55px;text-align: center;display: block;}
+.main-box .fw-box .fbox .conbox .flow-pic{padding: 20px 0;position: relative;}
+.main-box .fw-box .fbox .conbox .zxbtn{display: block;width: 140px;height: 42px;line-height: 42px;text-align: center;background: #ff8500;font-size: 24px;color: #fff;position: absolute;top: 115px;left: 260px;border-radius: 3px}
+.main-box .fw-box .fbox .conbox .bzbox{padding: 15px 20px; margin-bottom: 25px; border:1px solid #5591b6;border-radius: 10px}
+.main-box .fw-box .fbox .conbox .bzbox .bname{font-size: 28px;color: #5591b6;height: 40px;line-height: 40px;text-align: left;padding: 5px 0}
+.main-box .fw-box .fbox .conbox .bzbox .btext{font-size: 24px;color: #000;min-height: 40px;line-height: 40px; padding: 5px 0; text-align: left;}
+.main-box .fw-box .fbox .conbox .bzbox .btext span{color: #f12c26}
+.main-box .fw-box .fbox .conbox .bzbox .bz-pic{padding: 20px 0}
+
+
+.mland-box .bot-box{width: 640px;height: 70px; padding: 20px 0; background: #303030;text-align: center;position: fixed;bottom: 0px;z-index: 9000;display: block;}
+.mland-box .bot-box a.zxbtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #ff8500;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+.mland-box .bot-box a.buybtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #ff2d2d;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+
+.mland-box .backtop{width: 100px;height: 100px; background: url('/images/mtc_land/backtop.png')  no-repeat center;display: none;}
+.mland-box .backtop-xf {position: fixed;bottom: 200px; margin-left: 530px; z-index: 9000;display: block;}
+
+.conbox .hot-tab {width: 580px; height: 60px; border-bottom: 1px solid #fac1c1;margin-top: 15px}
+.conbox .hot-tab li a {display:block; height: 60px;line-height: 60px; width:180px;text-align:center;font-size:28px; color: #666; float: left; cursor:pointer;}
+.conbox .hot-tab li.current a {background:#5591b6;color:#fff;font-weight: 800;border-radius: 3px}
+.conbox .hot-con{padding: 10px 0;min-height: 200px;width: 580px; text-align: left; padding-bottom: 110px}
+.conbox .hot-con .sublist .list .hname{font-size: 26px;color: #222;min-height: 40px;line-height: 40px; margin: 8px 0; cursor: pointer; padding: 5px 0 5px 20px;background: url('/images/mtc_land/dot.png')  no-repeat left top 4px;}
+.conbox .hot-con .sublist .list:hover .hname{color: #5591b6}
+.conbox .hot-con .sublist .list .ans{padding: 15px; width: 570px; border: 1px solid #ecbc88; position: relative; border-radius: 6px;display: none;background: #fffdef;font-size: 24px;color: #666;}
+.conbox .hot-con .sublist .list .ts-arr{width: 27px;height: 13px;background: url('/images/mtc_land/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50px}
+
+em, i{ font-style: normal;}
+b{font-weight: 100;}
+.fbox_tclx{width: 90%; height: 425px;   margin:25px auto 5px auto; position: relative; z-index: 1; }
+.fbox_tclx_lt{  float: left; }
+.fbox_tclx_lt>p>img{padding: 20px  0;background-sise:100% 100%; width:68%; }
+.fbox_tclx_rt>p>img{padding: 20px  0; background-sise:100% 100%; width:68%; }
+.fbox_tclx_rt{ float:right;position: relative; z-index: 1;}
+.fbox_tclx_lt,.fbox_tclx_rt{width: 100%;height: 470px;  background: #d0ebfb;border-radius: 4px;text-align: center; margin: 10px 0;}
+
+.tclx_h3>em{font-size:26px;  padding-top: 20px;display: block; }
+.tclx_h3>i{font-size:21px;  padding-top: 5px;display: block; }
+.tclx_h4{width:100%;height: 30px;background: url('/images/mtc_land/tcjg2.png') 194px 6px  no-repeat;text-align: center;  }
+.tclx_h4>b{width: 130px;cursor: pointer;  font-weight: 100; height: 30px; line-height: 30px;border-bottom: #809ca1 dashed 1px; }
+.tclx_h5{width:100%;height: 30px;background: url('/images/mtc_land/dh.png') 100px 23px  no-repeat; padding-top: 19px;}
+.tclx_h5>b{width: 140px;cursor: pointer; font-weight: 100;margin-left: 125px; height: 30px; line-height: 30px; display: block;}
+.zx{width: 100px;height: 35px;line-height: 35px;display: block;background: #ff9600;border-radius: 4px;font-size: 14px;
+ color: #fff; margin: 25px auto  0 auto; }
+.zx:hover{color: #fff;}
+.fbox_psnbj{width:82px;height: 58px; background: url('/images/mtc_land/tcjg4.png')   no-repeat;position:absolute; z-index: 3;top:-12px; left: 375px;}
+.tclx_tc{width: 335px; height: 166px; background:url('/images/mtc_land/tcjg5.png')   no-repeat; position: absolute;top:460px; left: 133px;display: none;z-index: 4; }
+.tclx_h5s{width:100%;height: 30px;padding-top: 19px;font-size: 14px; background: url('/images/mtc_land/tcjg6.png') center no-repeat;}
+.tclx_tc_p{ padding: 5px 22px 0 20px; text-align: left; font-size: 14px;background: url('/images/mtc_land/dot.png') no-repeat 7px -5px;
+} 
+
+.tclx_tit{clear: left; width: 100%; height: 100px; background: #fff; display: block;}
+.tclx_tit>h6{font-size: 18px; padding-left: 30px; line-height: 40px;}
+.tclx_tit>p{font-size: 18px; padding-left: 30px; line-height: 33px;}
+.tclx_gg{clear: left;}
+.tclx_gg img{width: 100%; padding-top:20px; background-size: 100% 100%}
+.block{display: block;}
+.md-hover {height: 0px !important; }
+.splist-nav .spnav ul{border-left: none !important;background: none !important;}
+.hgt{height: 1205px; }

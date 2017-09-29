@@ -1,0 +1,47 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*优惠券 M页面*/
+.wrapper{width: 640px; background: #f1f5f8; min-height: 1040px; margin:0 auto;overflow: hidden;}
+.mbanner{width: 640px;height: 280px;background: url(http://static.lvzheng.com/blackM/images/gift/coupon/banner.jpg) no-repeat center;}
+.mcoupon{width: 640px;background: #f1f5f8;}
+.mcoupon .coupon-box{width: 600px;padding: 60px 20px;height: 1100px;background: #fed964 url(http://static.lvzheng.com/blackM/images/gift/coupon/cboxbg.png) no-repeat center;}
+.mcoupon .coupon-box .box{width: 560px; margin: 10px auto; height: 200px;background: url(http://static.lvzheng.com/blackM/images/gift/coupon/coubg.png) no-repeat center;position: relative;}
+.mcoupon .coupon-box .box .price{font-size: 60px;width: 190px;color: #ffff79;position: absolute;top: 25px;left: 30px}
+.mcoupon .coupon-box .box .price span{font-size: 30px;}
+.mcoupon .coupon-box .box .name{font-size: 30px;width: 250px;color: #fff;position: absolute;top: 30px;left: 220px}
+.mcoupon .coupon-box .box .btn{font-size: 26px;width: 120px; text-align: center; height: 34px;line-height: 34px; background: #ffff79; color: #ff3f64;position: absolute;top: 75px;left: 220px}
+.mcoupon .coupon-box .box .time{font-size: 26px;width: 420px;color: #8b031a;position: absolute;top: 130px;left: 40px}
+.mcoupon .par-bg{background: #ff544c url(http://static.lvzheng.com/blackM/images/gift/coupon/par-bg.png) no-repeat center top;;width: 640px;min-height: 1100px;padding-bottom: 20px;padding-top: 150px;}
+.mcoupon .par-bg .pbox{padding: 35px 0; width: 600px;margin: 0 auto; text-align: center;border-bottom: 1px solid #e5e5e5}
+.mcoupon .par-bg .pbox:last-child{border-bottom: none;}
+.mcoupon .par-bg .pbox .name1{font-size: 30px;height: 40px;line-height: 40px; text-align: center; padding-top: 80px; background: url(http://static.lvzheng.com/blackM/images/gift/coupon/p1.png) no-repeat center top;}
+.mcoupon .par-bg .pbox .name2{font-size: 30px;height: 40px;line-height: 40px; text-align: center; padding-top: 80px; background: url(http://static.lvzheng.com/blackM/images/gift/coupon/p2.png) no-repeat center top;}
+.mcoupon .par-bg .pbox .name3{font-size: 30px;height: 40px;line-height: 40px; text-align: center; padding-top: 80px; background: url(http://static.lvzheng.com/blackM/images/gift/coupon/p3.png) no-repeat center top;}
+.mcoupon .par-bg .pbox .text{font-size: 18px;color: #666;line-height: 30px;text-align: center;padding: 20px 0}
+.mcoupon .par-bg .pbox a.tel{display: inline-block; font-size: 24px;color: #009aff;height: 30px;line-height: 30px;padding: 10px 0 10px 60px;background: url(http://static.lvzheng.com/blackM/images/gift/coupon/tel.png) no-repeat center left; }
+
+#old-user{width: 360px;height: 60px;}
+#old-user .old-ts{width: 360px;height: 60px; line-height: 60px; font-size: 18px;color: #fff;text-align: center; background: #000;border-radius: 8px;}
+
+.getcou{background: #433a5f}
+.getbanner{width: 640px;height: 500px;background: url(http://static.lvzheng.com/blackM/images/gift/coupon/getbanner.jpg) no-repeat center;}
+.item-box {width: 608px;margin: 0 auto; padding-bottom: 50px; min-height: 200px; background: #ee424a;border-radius: 10px;margin-top: -10px}
+.item-box .item{padding: 25px 20px;width: 560px;min-height: 90px;}
+.item-box .item input.w-520{width: 520px;padding: 0 20px;height: 90px;line-height: 90px;font-size: 28px;border-radius: 8px;border: none;}
+.item-box .item input.w-320{width: 320px;padding: 0 20px;height: 90px;line-height: 90px;font-size: 28px;border-radius: 8px;border: none;float: left;}
+.item-box .item a.get-code{display: inline-block;width: 180px;text-align: center;height: 90px;line-height: 90px;font-size: 28px;color: #a94a1b;background: #e9e9e9;border-radius: 8px;margin-left: 20px}
+.item-box .item button.get-code{display: inline-block;border-width:0px;;width: 180px;text-align: center;height: 90px;line-height: 90px;font-size: 28px;color: #a94a1b;background: #e9e9e9;border-radius: 8px;margin-left: 20px}
+.item-box .item a.getbtn{display: inline-block;width: 560px;text-align: center;height: 93px;line-height: 93px; font-size: 30px; font-weight: bold; color: #b92128; background: url(http://static.lvzheng.com/blackM/images/gift/coupon/getbtn.png) no-repeat center;}
+.botlogo{height: 50px;padding: 10px 0;background:  url(http://static.lvzheng.com/blackM/images/gift/coupon/blogo.png) no-repeat center;}

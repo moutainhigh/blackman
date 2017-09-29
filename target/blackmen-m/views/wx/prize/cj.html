@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>小微促销领券中心</title>
+<script src="/js/jquery-1.7.2.min.js"></script>
+<script src="/js/jQueryRotate.2.2.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/zp/prize.css">
+<link rel="stylesheet" type="text/css" href="/css/zp/common.css">
+
+</head>
+<body>
+    <div class="ly_fxd"><img src="/images/zp/wx.png"></div>
+	<div class="ly_hd">
+       <img src="/images/zp/banner.jpg">
+    </div>
+	<div class="ly-plate">
+		<div class="rotate-bg">
+			<div class="lottery-star" ><p id="lotteryBtn" class="lottery-star-btn" ></p></div>
+		</div>
+		
+		<div class="ly_foot">
+	    	<h3>活动规则</h3>
+	    	<p>1、同一账号每天不可重复抽奖</p>
+	    	<p>2、本次活动时间截止到2016年7月31日</p>
+		</div>
+	</div>
+<script>
+$(function(){
+	var timeOut = function(){  //超时函数
+		$("#lotteryBtn").rotate({
+			angle:0, 
+			duration: 10000, 
+			animateTo: 2160, //这里是设置请求超时后返回的角度，所以应该还是回到最原始的位置，2160是因为我要让它转6圈，就是360*6得来的
+			callback:function(){
+				alert('在玩一次')
+			}
+		}); 
+	}; 
+	var rotateFunc = function(awards,angle,text){  //awards:奖项，angle:奖项对应的角度
+		$('#lotteryBtn').stopRotate();
+		$("#lotteryBtn").rotate({
+			angle:0, 
+			duration: 3000, 
+			animateTo: angle+1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+			callback:function(){
+				alert(text)
+			}
+		}); 
+	};
+	
+	$("#lotteryBtn").rotate({ 
+	   bind: 
+		 { 
+			click: function(){
+				var time = [0,1];
+					time = time[Math.floor(Math.random()*time.length)];
+				if(time==0){
+					timeOut(); //网络超时
+				}
+				if(time==1){
+					//var data = [1,2,3,4,5,6,7,0]; //返回的数组
+					//	data = data[Math.floor(Math.random()*data.length)];
+					var openId = "$!{openId}";
+					
+						$.ajax({
+
+		                     url:"/prize/getNo",
+
+		                     type:"post",
+
+		                     data:{"openId":openId},
+
+		                     success:function(datas){
+
+		                     	var data = datas.no; 		 //抽中的编号
+		                     	var prizeid = datas.prizeid; //抽中的奖品主键
+		                     	var todayed = datas.todayed; //判断抽奖人今天的抽奖状态
+		                     	var again = datas.again;     //再来一次
+		                     	var fans = datas.fans;       //判断用户是否关注了公众号
+		                     	var empty = datas.empty;     //是否领完
+		                     	
+		                     	//var
+		                     	
+		                     	//提示抽中的奖品
+		                     	alert('todayed--->'+todayed);
+		                     	if(todayed!="yes"){
+		                     		
+		                     		if(empty=="yes"){//已领完
+		                     			alert('该奖品已领完');
+		                     			return false;
+		                     		}
+		                     		
+		                     		
+		                     		if(data==1){
+			    						rotateFunc(1,22,'5元手机充值卡')
+			    					}
+			    					if(data==2){
+			    						rotateFunc(2,67,'50元手机充值卡')
+			    					}
+			    					if(data==3){
+			    						rotateFunc(3,112,'谢谢参与')
+			    					}
+			    					if(data==4){
+			    						rotateFunc(4,157,'10元手机充值卡')
+			    					}
+			    					if(data==5){
+			    						rotateFunc(5,202,'泰笛鲜花5元代金卷')
+			    					}
+			    					if(data==6){
+			    						rotateFunc(6,247,'20元手机充值卡')
+			    					}
+			    					if(data==7){
+			    						rotateFunc(7,292,'回家吃饭')
+			    					}
+			    					if(data==8){
+			    						rotateFunc(8,337,'在玩一次')
+			    					}
+		                     	}else{
+		                     		alert('您今天已经抽过奖了。');
+		                     		//TODO..禁用抽奖按钮
+		                     		return false;
+		                     	}
+		                     	
+		    					
+		                     	if(fans=="yes"){//是关注账号
+		                     		//跳转查看奖品页面	
+		                     		
+		                     		if(again =="yes"){//再来一次
+		                     			return false;
+		                     		}else{
+		                     			//跳转查看奖品页面	
+		                     			
+		                     			
+									var i = 5;
+									var intervalid;
+									intervalid = setInterval("fun()", 1000);
+									function fun() {
+										if (i == 0) {
+											window.location.href = "/prize/view?openId="+openId+"&prizeid="+prizeid;
+											clearInterval(intervalid);
+										}
+										i--;
+									} 
+									
+		                     			
+		                     			
+		                     			
+		                     		}
+		                     		
+		                     		
+		                     	}else{
+		                     		//跳转弹层提示先关注公众号
+		                     		$(".ly_fxd").toggle();
+		                     	}
+		                     }
+
+		                 });
+					
+					
+					
+					
+					
+					
+					
+					// if(data==0){
+					// 	var angle = [113,338];
+					// 		angle = angle[Math.floor(Math.random()*angle.length)]
+					// 	rotateFunc(0,angle,'很遗憾，这次您未抽中奖')
+					// }
+				}
+			}
+		 } 
+	   
+	});
+
+	
+})
+</script>
+</html>

@@ -1,0 +1,90 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*落地 M页面*/
+.mland-box{width: 640px; margin: 0 auto; min-height: 1500px; overflow: hidden;background: #f2f2f2;padding-bottom: 110px;}
+.mland-box .banner{width: 640px;height: 540px;background: url('http://static.lvzheng.com/blackM/images/mland/banner.jpg')  no-repeat center;}
+
+.md-box{width: 600px;padding: 20px;min-height: 150px;overflow: hidden;}
+.md-box a{display: block;float: left;width: 160px;text-align: center;font-size:20px;color: #333;height: 30px;line-height: 30px;padding-top: 110px;margin: 20px}
+.md-box a.md1{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico1.png')  no-repeat center top; }
+.md-box a.md2{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico2.png')  no-repeat center top; }
+.md-box a.md3{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico3.png')  no-repeat center top; }
+.md-box a.md4{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico4.png')  no-repeat center top; }
+.md-box a.md5{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico5.png')  no-repeat center top; }
+.md-box a.md6{background:  url('http://static.lvzheng.com/blackM/images/mland/n_ico6.png')  no-repeat center top; }
+
+.mland-box .main-box{width: 640px; min-height: 1000px;}
+.main-box .cp-box{width: 640px;min-height: 200px;}
+.main-box .cp-box .sbox{min-height: 180px;padding: 15px 20px 20px 90px;background: #fff;position: relative;margin-top: 15px;overflow: hidden;}
+.main-box .cp-box .sbox p.num{font-size: 18px;width: 55px; height: 92px;line-height: 80px; font-size: 36px;color: #fff; text-align: center; background: url('http://static.lvzheng.com/blackM/images/mland/numbg.png')  no-repeat center;position: absolute;top: -5px;left: 15px}
+.main-box .cp-box .sbox p.name{font-size: 28px;color: #ee1a1a;font-weight: bold;height: 30px;line-height: 30px;padding: 5px 0}
+.main-box .cp-box .sbox p.text{font-size: 24px;color: #333;min-height: 35px;line-height: 35px;padding: 10px 0 20px}
+.main-box .cp-box .sbox p.text span{color: #f41f04}
+.main-box .cp-box .sbox p.list{width: 500px; height: 60px; text-align: center; margin-top: -1px; font-size: 24px;color: #ee363a; padding: 30px 10px;line-height: 30px;border: 1px solid #ff2b2b;float: left;}
+.main-box .cp-box .sbox p.list span{display: inline-block;font-size: 20px}
+.main-box .cp-box .sbox .cp-pic{text-align: center;padding: 20px 0}
+
+.main-box .fw-box{width: 640px;min-height: 200px;}
+.main-box .fw-box .fbox{min-height: 180px;background: #fff;margin-top: 15px}
+.main-box .fw-box .fbox .titlebox{height: 40px;line-height: 40px;padding: 10px 0;border-bottom: 1px solid #e5e5e5}
+.main-box .fw-box .fbox .titlebox p.title{padding-left: 20px;border-left: 8px solid #ff433d;font-size: 28px;color: #000;font-weight: bold;}
+.main-box .fw-box .fbox .conbox{padding: 20px;text-align: center;overflow: hidden;}
+.main-box .fw-box .fbox .conbox p.name{font-size: 26px;color: #f1231c;height: 40px;line-height: 40px;font-weight: bold;background: url('http://static.lvzheng.com/blackM/images/mland/star.png')  no-repeat center;}
+.main-box .fw-box .fbox .conbox p.info{font-size: 24px;color: #000;height: 30px;line-height: 30px}
+.main-box .fw-box .fbox .conbox p.text{font-size: 24px;color: #666;min-height: 30px;line-height: 30px;padding: 20px 0;text-align: left;}
+.main-box .fw-box .fbox .conbox .fw-pic{padding: 20px 0;position: relative;}
+.getzz{display: block; width:131px;height: 131px;background: url('http://static.lvzheng.com/blackM/images/mland/get.gif')  no-repeat center; position: absolute;top: 232px;left: 58px;}
+.main-box .fw-box .fbox .conbox p.remark{font-size: 20px;color: #ec373a;height: 30px;line-height: 30px;padding: 10px 0}
+
+.main-box .fw-box .fbox .conbox .cl-list{width: 600px;min-height: 100px;border:1px solid #cddddf; border-radius: 8px; padding: 30px 0; background: #f3f6fb;margin: 20px auto;position: relative;}
+.main-box .fw-box .fbox .conbox .cl-list:hover{border: 1px solid #ff8e8b;background: #fef7f6;}
+.main-box .fw-box .fbox .conbox .cl-list p.tag-ico{position: absolute;top: 35px;left: 55px}
+.main-box .fw-box .fbox .conbox .cl-list p.tag-ico span{display: block;font-size: 24px;color: #000}
+.main-box .fw-box .fbox .conbox .cl-list p.ctext{margin-left: 190px}
+.main-box .fw-box .fbox .conbox .cl-list p.ctext span{font-size: 24px;color: #666;min-height: 30px;line-height: 30px;padding: 6px 5px 6px 15px;display: block;text-align: left;width: 380px;background: url('http://static.lvzheng.com/blackM/images/mland/dot.png')  no-repeat left top;}
+.main-box .fw-box .fbox .conbox .cl-list p.cremark{font-size: 22px;color: #e91d1d;line-height: 30px; text-align: left;width: 380px;margin-left: 190px;padding: 6px 5px 6px 0;}
+.main-box .fw-box .fbox .add-box{min-height: 120px; padding: 20px 0 0 20px; position: relative;overflow: hidden;}
+.main-box .fw-box .fbox .add-box:hover{background: #fef7f6}
+.main-box .fw-box .fbox .add-box .ico{width: 120px;height: 100px;position: absolute;top: 50px;left: 20px}
+.main-box .fw-box .fbox .add-box .info-box{width: 430px; padding-right: 15px; padding-top: 10px; min-height: 110px; float: right; border-bottom: 1px solid #e5e5e5}
+.main-box .fw-box .fbox .add-box .info-box span.name{font-size: 28px;color: #000;height: 40px;line-height: 40px; font-weight: bold; display: block;text-align: left;}
+.main-box .fw-box .fbox .add-box .info-box span.text{font-size: 24px;color: #666;min-height: 40px;line-height: 40px; padding: 10px 0 20px; display: block;text-align: left;}
+.main-box .fw-box .fbox .add-box .info-box span.text b{color: #000;font-weight: normal;}
+.main-box .fw-box .fbox .add-box .info-box span.remark{font-size: 24px;color: #f32a2a;line-height: 40px}
+.main-box .fw-box .fbox .add-box .info-box a.abtn{font-size: 28px;color: #fff;background: #2ca6d3; margin: 20px 0; width: 190px;height: 55px;line-height: 55px;text-align: center;display: block;}
+.main-box .fw-box .fbox .conbox .flow-pic{padding: 20px 0;position: relative;}
+.main-box .fw-box .fbox .conbox .zxbtn{display: block;width: 140px;height: 42px;line-height: 42px;text-align: center;background: #2ca6d3;font-size: 24px;color: #fff;position: absolute;top: 115px;left: 260px;border-radius: 3px}
+.main-box .fw-box .fbox .conbox .bzbox{padding: 15px 20px; margin-bottom: 25px; border:1px solid #f6a2a4;border-radius: 10px}
+.main-box .fw-box .fbox .conbox .bzbox .bname{font-size: 28px;color: #f12c26;height: 40px;line-height: 40px;text-align: left;padding: 5px 0}
+.main-box .fw-box .fbox .conbox .bzbox .btext{font-size: 24px;color: #000;min-height: 40px;line-height: 40px; padding: 5px 0; text-align: left;}
+.main-box .fw-box .fbox .conbox .bzbox .btext span{color: #f12c26}
+.main-box .fw-box .fbox .conbox .bzbox .bz-pic{padding: 20px 0}
+
+
+.mland-box .bot-box{width: 640px;height: 70px; padding: 20px 0; background: #303030;text-align: center;position: fixed;bottom: 0px;z-index: 9000;display: block;}
+.mland-box .bot-box a.zxbtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #2ca6d3;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+.mland-box .bot-box a.buybtn{display: inline-block; width: 280px;text-align: center; margin: 0 7px; height: 70px;line-height: 70px;background: #ff2d2d;font-size: 30px;color: #fff; font-weight: bold;border-radius: 5px}
+
+.mland-box .backtop{width: 100px;height: 100px; background: url('http://static.lvzheng.com/blackM/images/mland/backtop.png')  no-repeat center;display: none;}
+.mland-box .backtop-xf {position: fixed;bottom: 200px; margin-left: 530px; z-index: 9000;display: block;}
+
+.conbox .hot-tab {width: 580px; height: 60px; border-bottom: 1px solid #fac1c1;margin-top: 15px}
+.conbox .hot-tab li a {display:block; height: 60px;line-height: 60px; width:180px;text-align:center;font-size:28px; color: #666; float: left; cursor:pointer;}
+.conbox .hot-tab li.current a {background:#ff7468;color:#fff;font-weight: 800;border-radius: 3px}
+.conbox .hot-con{padding: 10px 0;min-height: 200px;width: 580px; text-align: left; padding-bottom: 110px}
+.conbox .hot-con .sublist .list .hname{font-size: 26px;color: #222;min-height: 40px;line-height: 40px; margin: 8px 0; cursor: pointer; padding: 5px 0 5px 20px;background: url('http://static.lvzheng.com/blackM/images/mland/dot.png')  no-repeat left top 4px;}
+.conbox .hot-con .sublist .list:hover .hname{color: #ee3332}
+.conbox .hot-con .sublist .list .ans{padding: 15px; width: 570px; border: 1px solid #ecbc88; position: relative; border-radius: 6px;display: none;background: #fffdef;font-size: 24px;color: #666;}
+.conbox .hot-con .sublist .list .ts-arr{width: 27px;height: 13px;background: url('http://static.lvzheng.com/blackM/images/mland/ts_arr.png')  no-repeat center;position: absolute;top: -13px;left: 50px}

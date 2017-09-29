@@ -1,0 +1,30 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+::-webkit-input-placeholder { /* WebKit browsers */color: #ccc;}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #ccc;}
+::-moz-placeholder { /* Mozilla Firefox 19+ */color: #ccc;}
+:-ms-input-placeholder { /* Internet Explorer 10+ */color: #ccc;}
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+.wrapper{width: 640px; margin: 0 auto; min-height: 1500px;background: #fff url(../images/mmerge/bg.jpg) no-repeat center top;}
+.section{width: 500px;padding: 15px 70px;}
+.name-tag{width:500px;height:200px; background: url(../images/mmerge/name.png) no-repeat center;}
+.zz-tag{width:500px;height:460px; background: url(../images/mmerge/zz.png) no-repeat center;}
+.price-tag{width:500px;height:110px; background: url(../images/mmerge/price.png) no-repeat center;}
+.tel-tag{width:500px;height:140px; background: url(../images/mmerge/tel.png) no-repeat center;display: block;}
+
+.time-tag{width:500px;height:80px; background: url(../images/mmerge/timetext.png) no-repeat center;}
+.flow-tag{width:500px;height:240px; background: url(../images/mmerge/flow.png) no-repeat center;}
+
+.text-tag{width:500px;height:450px; background: url(../images/mmerge/cltext.png) no-repeat center;}
+.logo{width:500px;height:100px; background: url(../images/mmerge/logo.png) no-repeat center;}
+
+
+
+

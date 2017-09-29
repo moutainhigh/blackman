@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/xw.css"/>
+		<script src="http://static.lvzheng.com/blackM/js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(
+				function(){
+					function zoom() {
+							var zoom = $(window).width() / 350;
+							$("body").css("zoom", zoom).show();
+						}
+						zoom();
+						window.onresize = zoom;
+						
+				}
+			);
+		</script>
+	</head>
+	<body>
+		<div class="xw_top">
+			<p> 一张图告诉你为什么注销公司比注册公司要贵</p>
+			<img class="xw_top_img" src="/images/xw_02.png"/>
+		</div>
+		<div class="xw_moddle">
+			<div class="contianer">
+				<img src="/images/xw_05.png"/>
+				<div class="xw_moddle_bottom">
+					<p>看完这张图，大家是不是心里就清楚了为什么注销比注册要贵</p>
+				</div>
+			</div>
+		</div>
+		<div class="xw_tow">
+			<div class="xw_tow_top">
+				<p><img class="xw_tow_top_img" src="/images/xwp_03.png"/>第二个问题</p>
+			</div>
+			<div class="xw_tow_top1">
+				<p>如果嫌公司注销麻烦，能不能不注销，让公司自生自灭？</p>
+			</div>
+			<div class="xw_tow_top2">
+				<p>让公司自生自灭，几个月之后公司就会被吊销，被吊销后，法定代表人会进入两个黑名单，一个是工商的黑名单，三年内都不得担任任何其他公司的董事、监事、经理；另一个是税务的黑名单，税务的黑名单是终生制的，下次注册公司时，即使工商黑名单抹去了，在税务这也需要叫罚款，走完复杂的手续后才可以再担任公司的高管。其次被吊销后的法定代表人会有失信记录，这个对以后的贷款买房、出国签证都会有影响。</p>
+				<p>说了这么多，只是想告诉你，做公司就像养孩子，过程中间难免会磕磕绊绊，如果实在做不下去了，也一定要善始善终才好。</p>
+				<p>好啦，各位小伙伴加油，创业路上，小微一路相伴！</p>
+			</div>
+		</div>
+		<div class="xw_bottom">
+			<div class="xw_bottom_con">
+				<img src="/images/xw_09.png"/>
+			</div>
+		</div>
+		
+<script type="text/javascript">
+wx.config({
+	debug:false,
+	appId:"$!appid",
+	timestamp:"$!timestamp",
+	nonceStr:"$!nonceStr",
+	signature:"$!signature",
+	jsApiList:['onMenuShareTimeline','onMenuShareAppMessage']
+}); 
+wx.ready(function(){
+	wx.onMenuShareTimeline({
+		title:"一张图告诉你为什么注销公司比注册公司要贵",
+		link:"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx76ec5c98f567d0e1&redirect_uri=http%3A%2F%2Fm.lvzheng.com%2Fprize%2Farticle.html&response_type=code&scope=snsapi_base&state=123&connect_redirect=1#wechat_redirect",
+		imgUrl:"http://o8a5h1k2v.bkt.clouddn.com/16-7-4/97061315.jpg",
+		success:function(){
+			window.location.href = "/prize/cj?openId=$!{openId}";  //去抽奖页面
+		},
+		cancel:function(){
+			
+		}
+	});
+	wx.onMenuShareAppMessage({
+		title:"一张图告诉你为什么注销公司比注册公司要贵",
+		desc:"一张图告诉你为什么注销公司比注册公司要贵",
+		link:"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx76ec5c98f567d0e1&redirect_uri=http%3A%2F%2Fm.lvzheng.com%2Fprize%2Farticle.html&response_type=code&scope=snsapi_base&state=123&connect_redirect=1#wechat_redirect",
+		imgUrl:"http://o8a5h1k2v.bkt.clouddn.com/16-7-4/97061315.jpg",
+		success:function(){
+			//window.location.href = "";
+			// alert('zzz');
+			//window.location.href = "/prize/cj?openId=$!{openId}";  //去抽奖页面
+		},
+		cancel:function(){
+			
+		}
+	});
+});
+
+/* //再来一张
+function againOne(){
+	var userid = $("#userid").val();
+	var isShare = $("#isShare").val();
+	//alert(userid+"====="+isShare);
+	if(isShare == ""){
+		$.post("/weixin/againOne",{'userid':userid,'couponsid':'100002','coupontypeid':'0005'});	
+	}
+} */
+</script>		
+	</body>
+</html>

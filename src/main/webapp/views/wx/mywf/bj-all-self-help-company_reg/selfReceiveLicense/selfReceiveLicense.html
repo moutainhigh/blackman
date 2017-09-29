@@ -1,0 +1,304 @@
+
+<div class="named-box">
+	#if(${gov-appointStatus} == "2" || ${gov-appointStatus} == "3" || ${gov-appointStatus} == "12" || ${gov-appointStatus} == "13")
+	<div class="wrapper hmbg">
+	    <div class="hm-title">
+	        <p class="t1">$!{name}</p>
+	    </div>
+	    <div class="ts-yyz">
+	        <p class="yyz">小象正在预约中...</p>
+	        <p class="yyz-text">由于工商系统每天会有固定的放票时间，<br>最早今天最晚明天就能帮您预约成功请耐心等待<br>小微会以短信和微信的方式通知您预约时间。</p>
+	    </div>
+	    <div class="btn-box">
+	        <a class="chbtn appointBack" href="javascript:void(0)">返回</a>
+	    </div>
+	
+	</div>
+	#elseif(${gov-appointStatus} == "20")
+	<div class="wrapper hmbg">
+	    <div class="hm-title">
+	        <p class="t1">$!{name}</p>
+	    </div>
+	    <div class="ts-succ">
+	        <p class="succ">恭喜您，预约成功</p>
+	    </div>
+	    <div class="hm-info">
+	        <p class="list"><label>预约时间：</label><span class="text red">$!{gov-appDate}</span></p>
+	        <p class="list"><label>预约号码：</label><span class="text">$!{gov-appNo}</span></p>
+	        <p class="list"><label>受理机关：</label><span class="text">$!{gov-regOrg}</span></p>
+	        <p class="list"><label>预约手机号：</label><span class="text">$!{mobilePhoneNo}</span></p>
+	        <p class="list"><label>注册号：</label><span class="text">$!{checkedNameCode}</span></p>
+	    </div>
+	    <div class="ts-box">
+	        <p class="ts-text">
+	        * 预约号与您通过网上登记服务系统申报的企业注册号关联，是您到登记注册大厅提交登记材料的唯一凭证，请您妥善保存。
+	        </p>
+	    </div>
+	
+	    <div class="btn-box">
+	        <a class="chbtn appointSuccNext" href="javascript:void(0)">下一步</a>
+	    </div>
+	
+	</div>
+	#elseif(${gov-appointStatus} == "4")
+	<div class="wrapper hmbg">
+	    <div class="hm-title">
+	        <p class="t1">$!{name}</p>
+	    </div>
+	    <div class="ts-fail">
+	        <p class="fail">预约失败</p>
+	        <p class="fail-text">这段时间的号码已经被抢光啦，请重新预约</p>
+	    </div>
+	    <div class="hts-box">
+	        <p class="t1">选择您想要预约的时间段，我们会尽量帮您预约到这段时间的号码</p>
+	    </div>
+	
+	    <div class="date-box re_appointDataDiv">
+	        <p class="begin">
+	            <span class="name">开始时间</span>
+	            <span class="time"><input type="text" name="re_begin_time" id="re_begin_time" readonly class="input re_begin_time" data-validate="required:true;" placeholder="请选择开始时间" /></span>
+	        </p>
+	        <p class="end">
+	            <span class="name">结束时间</span>
+	            <span class="time"><input type="text" name="re_end_time" id="re_end_time" readonly class="input re_end_time" data-validate="required:true;" placeholder="请选择结束时间" /></span>
+	        </p>
+	    </div>
+	    
+	    <div class="w-text-box re_appointPhoneDiv" style="display: none">
+			<input type="text" class="w-text" id="re_appointPhone" value="$!{mobilePhoneNo}" data-validate="required:true;mobilePhone:true" placeholder="请输入预约手机号" >
+		</div>
+	
+	    <div class="btn-box">
+	        <a class="mbtn1 re_cancelAppoint" href="javascript:void(0)">放弃预约</a>
+	        <a class="mbtn1 re_appointBtn" href="javascript:void(0)">重新预约</a>
+	    </div>
+	
+	</div>
+	#else
+	<div class="yy-style">
+		<!-- <p class="title">预约方式 </p> -->
+		<div class="list-box">
+		#set($govAppoint=$EnterpriseUtils.getWxGovAppointList("$!{gov-regOrgCode}"))
+			#if($!{govAppoint.orgCode} == "110106000")    
+					<div class="wrapper hmbg">
+					    <div class="hm-title">
+					        <p class="t1">$!{name}</p>
+					    </div>
+					    <div class="tel-yy">
+					        <p class="tel-text">电话预约</p>
+					        <a class="tel" href="tel:$!{govAppoint.getAppointInfo()}">$!{govAppoint.getAppointInfo()}</a>
+					    </div>
+					    <div class="xwts">
+					        <p class="ts">小微提示</p>
+					        <p class="ts-text">预约时间确定后无法按时提交的应提前取消预约，如未按预约时间提交的需要终结此次申请业务，重新申请通过后再次预约。</p>
+					    </div>
+					    <div class="btn-box">
+					        <a class="chbtn telAppointNext" href="javascript:void(0)">下一步</a>
+					    </div>
+					</div>
+				#else      
+					#if($!{govAppoint.appointType}  == "1")
+					<div class="wrapper hmbg">
+					    <div class="hm-title">
+					        <p class="t1">$!{name}</p>
+					    </div>
+					    <div class="tel-yy">
+					        <p class="tel-text">电话预约</p>
+					        <a class="tel" href="tel:$!{govAppoint.getAppointInfo()}">$!{govAppoint.getAppointInfo()}</a>
+					    </div>
+					    <div class="xwts">
+					        <p class="ts">小微提示</p>
+					        <p class="ts-text">预约时间确定后无法按时提交的应提前取消预约，如未按预约时间提交的需要终结此次申请业务，重新申请通过后再次预约。</p>
+					    </div>
+					    <div class="btn-box">
+					        <a class="chbtn telAppointNext" href="javascript:void(0)">下一步</a>
+					    </div>
+					</div>
+					#elseif($!{govAppoint.appointType}  == "2")
+					<div class="wrapper hmbg">
+						<div class="hm-title">
+							<p class="t1">$!{name}</p>
+						</div>
+						<div class="online-yy">
+							<p class="online">网上预约</p>
+						</div>
+						<div class="hts-box">
+							<p class="t1">选择您想要预约的时间段，我们会尽量帮您预约到这段时间的号码</p>
+						</div>
+		
+						<div class="date-box appointDataDiv">
+							<p class="begin">
+								<span class="name">开始时间</span> <span class="time"><input 
+									type="text" name="begin_time" id="begin_time" readonly data-validate="required:true;"
+									class="input begin_time" placeholder="请选择开始时间" /></span>
+							</p>
+							<p class="end">
+								<span class="name">结束时间</span> <span class="time"><input data-validate="required:true;"
+									type="text" name="end_time" id="end_time" readonly class="input begin_time"
+									placeholder="请选择结束时间" /></span>
+							</p>
+						</div>
+		
+						<div class="w-text-box appointPhoneDiv">
+							<input type="text" class="w-text" id="appointPhone" value="#if($mobilePhoneNo)$!{mobilePhoneNo}#else$!{loginVo.getUserphone()}#end" data-validate="required:true;mobilePhone:true" placeholder="请输入预约手机号" >
+						</div>
+		
+						<div class="btn-box">
+							<a class="chbtn appointBtn" href="javascript:void(0)">一键预约</a>
+						</div>
+		
+					</div>
+					#elseif($!{govAppoint.appointType} == "3")
+					<div class="wrapper hmbg">
+					    <div class="hm-title">
+					        <p class="t1">$!{name}</p>
+					    </div>
+					    <!-- <div class="wx-yy">
+					        <p class="wx-text">微信预约</p>
+					    </div> -->
+					    <!-- <p class="pic"><img src="$!{govAppoint.getAppointInfo()}"></p> -->
+		                
+		                <div class="wx-yy" style="background: url('$!{govAppoint.getAppointInfo()}') no-repeat center top;">
+					        <p class="wx-text">微信预约</p>
+					    </div>
+					    <div class="xwts">
+					        <p class="ts">小微提示</p>
+					        <p class="ts-text">预约时间确定后无法按时提交的应提前取消预约，如未按预约时间提交的需要终结此次申请业务，重新申请通过后再次预约。</p>
+					    </div>
+					    <div class="btn-box">
+					        <a class="chbtn wxAppointNext" href="javascript:void(0)">下一步</a>
+					    </div>
+					</div>
+					#end
+				#end
+		</div>
+	</div>
+	#end
+	
+	<div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01080697544">010-80697544</a>
+    </div>
+</div>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+<input type="hidden" id="gov-appointStatus" value="1" data-info="enterprise:main" >
+<input type="hidden" id="gov-appointNum" value="$!{gov-appointNum}" data-info="enterprise:main" >
+<input type="hidden" id="govAppointStartDate" data-info="enterprise:main" >
+<input type="hidden" id="govAppointEndDate" data-info="enterprise:main" >
+<input type="hidden" id="mobilePhoneNo" data-info="enterprise:main">
+
+
+
+<link href="/css/mobiscroll_date.css" rel="stylesheet" />
+<script src="/js/mobiscroll_date.js" charset="gb2312"></script> 
+<script src="/js/mobiscroll.js"></script> 
+<script type="text/javascript">
+$(function () {
+    var currYear = (new Date()).getFullYear();  
+    var opt={};
+    opt.date = {preset : 'date'};
+    opt.datetime = {preset : 'datetime'};
+    opt.time = {preset : 'time'};
+    opt.default = {
+        theme: 'android-ics light', //皮肤样式
+        
+        mode: 'scroller', //日期选择模式
+        dateFormat: 'yyyy-mm-dd',
+        lang: 'zh',
+        showNow: false,
+        nowText: "今天",
+        startYear: currYear - 50, //开始年份
+        endYear: currYear + 10 //结束年份
+    };
+
+    $("#begin_time,#end_time").mobiscroll($.extend(opt['date'], opt['default']));
+    $("#re_begin_time,#re_end_time").mobiscroll($.extend(opt['date'], opt['default']));
+
+  //微信预约下一步、电话预约下一步--跳转到刻章静态页
+    $('.wxAppointNext,.telAppointNext').click(function(){
+    	LV.enterpriseSubmit();
+    	window.location.href = "/weixin/mywf/company/detail/"+procInstId+"/"+taskId;
+    	return true;
+    });
+
+    /* //电话预约下一步--跳转到刻章静态页
+    $('.telAppointNext').click(function(){
+    	
+    }); */
+    
+    
+    $('.appointBack').unbind('click').bind('click',function(){
+    	//列表页
+    	window.location.href = "/wx/myservice/free.html?openId=" + openId;
+    	return true;
+    });
+
+    //一键预约
+    $('.appointBtn').click(function(){
+    	var validateArray = new Array();
+    	validateArray.push($(".appointDataDiv"));
+    	validateArray.push($(".appointPhoneDiv"));
+    	if(!JX.validateArray(validateArray)){
+    		return;
+    	}
+    	var beginTime = $('#begin_time').val();
+    	var endTime = $('#end_time').val();
+    	var appointPhone = $("#appointPhone").val();
+    	
+    	comm_appointFun(beginTime,endTime,appointPhone);
+    	
+    	return true;
+    });
+    
+    //重新预约
+    $('.re_appointBtn').unbind('click').bind('click',function(){
+    	var validateArray = new Array();
+    	validateArray.push($(".re_appointDataDiv"));
+    	if(!JX.validateArray(validateArray)){
+    		return;
+    	}
+    	var re_beginTime = $('#re_begin_time').val();
+    	var re_endTime = $('#re_end_time').val();
+    	var re_appointPhone = $('#re_appointPhone').val();
+    	
+    	if(re_appointPhone == ""){
+    		alert("未获取到预约手机号码，请刷新重试！！");
+    		return false;
+    	}
+    	
+    	comm_appointFun(re_beginTime,re_endTime,re_appointPhone);
+    	
+    	return true; 
+    });
+    
+    //预约公共部分
+    function comm_appointFun(bTime,eTime,phone){
+    	$("#govAppointStartDate").val(bTime);
+    	$("#govAppointEndDate").val(eTime);
+    	$("#mobilePhoneNo").val(phone);
+    	LV.enterpriseSave();
+    	var registFlag = GOV.postRegistAppointUser();
+    	if(registFlag){
+    		$("#gov-appointStatus").val("2"); // 预约中
+    		LV.enterpriseSave();
+    		window.location.reload();
+    	}else{
+    		alert('该身份证号已经在工商局注册过..');
+    		return false;
+    	}
+    }
+    
+    //取消预约
+    $('.re_cancelAppoint').unbind('click').bind('click',function(){
+    	//列表页
+    	window.location.href = "/wx/myservice/free.html?openId=" + openId;
+    	return true;
+    });
+    
+    //预约成功--下一步 -- 跳转的材料列表页
+    $('.appointSuccNext').click(function(){
+    	LV.enterpriseSubmit();
+    	window.location.href = "/weixin/mywf/company/detail/$!{procInstId}/$!{taskId}?openId=$!{openId}";
+   		return true;
+    });
+});
+</script>

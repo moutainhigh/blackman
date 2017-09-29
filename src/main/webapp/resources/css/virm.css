@@ -1,0 +1,32 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a:link,a:visited{text-decoration: none;}
+a{outline:none;}
+a img{border: 0;}
+ul li{list-style: none;}
+/*兼容性解决 安卓原生浏览器在加了bg后才渲染为block*/
+
+
+
+body{margin: 0;padding: 0;font-family:"微软雅黑",Arial;background: #1b253b;}
+
+/*虚拟地址 M页面*/
+.wrapper{width: 640px; background: #f1f5f8; min-height: 1040px; margin:0 auto;overflow: hidden;}
+.w-text{width: 640px; height: 80px; position: relative;}
+.n-select {float: left; border-right: 1px solid #ebebeb; border-bottom: 1px solid #e5e5e5; padding: 20px 44px 20px 20px;height: 40px; width: 148px;  background: #fcfcfc url('http://static.lvzheng.com/blackM/images/virtual/arr.png') no-repeat right center;cursor:pointer; }
+.n-select:last-child{border-right: none}
+.n-select input.n-val {display: block;width: 100%;height: 40px;line-height: 40px; color: #000; font-size: 26px;color: #1889e1; text-align: center;  border: 0;outline: 0;background: none;cursor:pointer;}
+.n-select ul {width: 100%;display: none;position: absolute;left: 0px;top: 85px;overflow: hidden;background-color: #fff;max-height: 280px;overflow-y: auto;z-index:9999999;}
+.n-select ul li {height: 69px;line-height: 69px;overflow: hidden; color: #000; border-bottom: 1px solid #e5e5e5; cursor: pointer; text-align: center; font-size: 26px;color: #333}
+.n-select ul li.on {background-color: #c1d8e4;}
+
+
+.vir-main .box{width: 600px;min-height: 135px;background: #fff;padding: 30px 20px;cursor: pointer;border-top: 1px solid #e1e1e2;border-bottom: 1px solid #e1e1e2;margin-bottom: 20px;}
+.vir-main .box .pic{width: 200px;height: 135px;float: left;margin-right: 30px;}
+.vir-main .box .text{width: 370px;min-height: 135px;float: left;}
+.vir-main .box .text .t1{font-size: 28px;color: #333;height: 40px;line-height: 40px;}
+.vir-main .box .text .t2{font-size: 22px;color: #bbb;height: 30px;line-height: 30px;padding: 10px 0}
+.vir-main .box .text .t3{font-size: 30px;color: #ef1717;height: 45px;line-height: 45px}
+.vir-main .box .text .t3 span.fh{ display: inline-block; font-size: 30px;}
+.vir-main .box .text .t3 span.yj{ display: inline-block; padding-left: 20px; font-size: 22px;color: #999;text-decoration: line-through;}

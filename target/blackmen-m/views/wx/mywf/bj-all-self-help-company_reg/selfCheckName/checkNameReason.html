@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>免费核名</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" href="/css/mywf/style.css">
+    <link rel="stylesheet" href="/css/mywf/box.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/box.js"></script>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="/js/common/lvTrackLog.js" id="lvzhengLog" data="blackmantrace"></script>  
+    
+    <script type="text/javascript">
+    // 选择
+    $(function(){
+        $(".chek_bg li").each(function(){
+            $(this).click(function(){
+                $(".chek_bg li").addClass("b1").removeClass("checkon");
+                $(this).addClass("checkon").removeClass("b1");
+            })
+        });
+    });
+    </script>
+</head>
+<body>
+<div class="wrapper hmbg">
+    <div class="hm-title">
+        <p class="t1">$!{name}</p>
+    </div>
+
+    <div class="hm-show">
+        <ul>
+            <li class="m3">
+                <span class="t1">业务类型：</span>
+                <span class="show">名称预先核准</span>
+            </li>
+            <li class="m3">
+                <span class="t1">名称核准文号：</span>
+                <span class="show">$!{checkedNameCode}</span>
+            </li>
+        </ul>
+    </div>
+
+	#if($!{checkNameStatusKey} == "4")
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag2">退回修改</span></p>
+        <p class="list"><label>审查意见：</label><span class="text">$!{gov-checkMemo}</span></p>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn" id="backEditBtn">退回修改</a>
+    </div>
+    #elseif($!{checkNameStatusKey} == "1")
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag1">已核准</span></p>
+        <p class="list"><label>有效日期：</label><span class="text">$!{gov-savePerTo}</span></p>
+        <div class="text-box">
+            <p class="text">您申请的名称已经审核通过</p>
+            <p class="text">您可以登陆小微官网<a id="staticPageLink">在电脑上继续申请设立登记</a></p>
+        </div>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn" id="nextBtn">下一步</a>
+    </div>
+	#else
+    <div class="hm-info">
+        <p class="list"><label>审批状态：</label><span class="tag">已提交待审核</span></p>
+        <p class="list"><label>审批时间：</label><span class="text">1〜3个工作日出审核结果</span></p>
+        <p class="list"><label>通知方式：</label><span class="text">短信、微信</span></p>
+        <p class="list"><label>查询方式：</label><span class="text">手机端"个人中心"－"我的服务"<br/>电脑端"用户中心"－"全部服务"</span></p>
+    </div>
+
+    <div class="btn-box">
+        <a class="chbtn backBtn">返回</a>
+    </div>
+	#end
+	
+	
+	<div class="xw-copy">
+       	 该工具由小微律政提供<br/>如有疑问请拨打客服热线<a href="tel:01057891402">010-57891402</a>
+    </div>
+    
+</div>
+<span style="display: none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script>
+</span>
+</body>
+<script type="text/javascript">
+$(function(){
+	$("#backEditBtn").click(function(){
+		//**跳转核名页面
+		window.location.href = "/weixin/mywf/company/detail/"+procInstId+"/"+taskId+"/selfCheckName?openId="+openId;
+		return true;
+	});
+	
+	$(".backBtn").click(function(){
+		//window.location.href = "/weixin/mywf/business/companyRegTask?openId="+openId;
+		window.location.href = "/wx/myservice/free.html?openId=" + openId;
+		return true;
+	});
+	
+	//前往设立静态页
+	$("#staticPageLink").click(function(){
+		window.location.href="/weixin/mywf/pageReg?toPage=wx/mywf/bj-all-self-help-company_reg/selfInternetInfo/internetNav"
+	});
+	
+	$("#nextBtn").click(function(){
+		window.location.href="/weixin/mywf/pageReg?toPage=wx/mywf/bj-all-self-help-company_reg/selfInternetInfo/internetNav"
+	});
+	
+});
+
+ 
+ 
+</script>
+#parse("views/wx/mywf/common/wx-share-checkName.html")
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>我的订单-国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link id="common_css" rel="stylesheet" href="css/style.css">
+    <script src="http://static.lvzheng.com/blackM/js/viewport.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function($){
+ 
+
+		$(".paych div").click(function(){
+			if($(this).hasClass("off")){
+				$(this).removeClass("off").addClass("on");
+			}else{
+				$(this).addClass("off").removeClass("on");    
+			}
+		});
+
+    });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="pay-box">
+        <div class="pro-list">
+            <div class="name-box">
+                <p class="name">商品列表 <span>（共计1件商品）</span></p>
+            </div>
+            #foreach($order in $orderlist)
+            <div class="list">
+                <p class="p1">$!{servername}</p>
+                <p class="p2">$!{order.localstr}</p>
+                <p class="p3">x1</p>
+                <p class="p4">￥$!{order.paycount}</p>
+            </div>
+            #end
+        </div>
+
+        <div class="pro-list">
+            <div class="name-box">
+                <p class="name">支付金额</p>
+                <p class="price">￥$!{payorder.paycount}</p>
+            </div>
+            <div class="paych">
+                <div class="list on">
+                    <p class="payico"><img src="/images/ico/wx_ico.png"></p>
+                    <p class="info">
+                        <span class="s1"><a href="$!{deeplinkstr}">微信支付</a>
+                        <br/>
+                        $!{deeplinkstr}
+                        </span>
+                        <span class="s2">推荐已安装微信客户端的用户使用</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a href="/pay1.html" class="paybtn">确认支付</a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

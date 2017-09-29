@@ -1,0 +1,429 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (qzl)
+ * @date    2016-06-18 15:17:13
+ * @version $Id$
+ */
+
+html {
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    font-size: 62.5%;
+    font-family: "微软雅黑"
+}
+
+body {
+    min-width: 320px;
+    max-width: 640px;
+    box-sizing: border-box;
+    background: #15a2fc;
+    margin: 0 auto;
+}
+
+
+
+
+/*index*/
+.ly-plate {
+    width: 100%;
+    height: 740px;
+    margin: 0px auto;
+    background: url(/images/zp/ct_bj.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.prize_hd {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+}
+
+.prize_hd img {
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+.rotate-bg {
+    width: 100%;
+    height: 100%;
+    background: url(/images/zp/ly-plates.png) 2.4rem 2.5rem  no-repeat;
+    background-size: 90%;
+}
+
+.ly-plate .lottery-star {
+    width: 30%;
+    height: 30%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    text-indent: -999em;
+	/*background:url(/images/zp/rotate-static.png) no-repeat;*/
+    -webkit-transform: rotate(0deg);
+}
+
+.lottery-star-btn {
+   
+    cursor: pointer;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    *left: -107px;
+    background: url(/images/zp/rotate-statics.png) no-repeat;
+    background-size: 90%;
+   
+}
+
+.ly_foot {
+    width: 85%;
+    padding: 2rem 0;
+    color: #fff;
+    margin: 0 auto;
+}
+
+.ly_foot h3 {
+    width: 10rem;
+    line-height: 2.5rem;
+    border: #fff solid 1px;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ly_foot p {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+
+
+
+
+ /*prize qzl*/
+
+.prize_mian {
+    width: 100%;
+	/*height: 199px;*/
+    height: auto;
+    margin: 0 auto;
+    background: url(/images/zp/prize_2.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+
+.prize_mian h6 {
+    width: 90%;
+    margin: 0 auto;
+    height: 10px;
+    background: #584e5e;
+    border-radius: 45px;
+}
+
+.prize_mian .pre_m_ct {
+    width: 85%;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: -2px;
+}
+
+.pre_m_bj {
+    width: 85%;
+    height: 2rem;
+    margin: 0 auto;
+    background: url(/images/zp/jiao.png) no-repeat;
+}
+
+.pre_m_ct_nbm {
+    width: 97%;
+    background: #fff;
+    margin: 0px 1%;
+    height: 7.3rem;
+    border: 1px solid #50a2ee;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.pre_m_ct_nbm .nbm_left {
+    background: #50a2ee;
+    width: 50%;
+    float: left;
+    height: 7.3rem;
+    line-height: 7.3rem;
+    display: block;
+    border-radius: 4px 0 0 4px;
+    color: #fff;
+}
+
+.pre_m_ct_nbm .nbm_left i {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.pre_m_ct_nbm .nbm_left em {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.pre_m_ct_nbm .nbm_right {
+    width: 50%;
+    float: right;
+    display: block;
+}
+
+.pre_m_ct_nbm .nbm_right h4 {
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 7.3rem;
+    border-left: #ccc dashed 1px;
+}
+
+.pre_m_ct_ipt {
+    width: 95%;
+    margin: 0px 1%;
+}
+
+.pre_m_ct_ipt .ipt_list {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.pre_m_ct_ipt .ipt_list h5 {
+    width: 30%;
+    float: left;
+    height: 2.9rem;
+    line-height: 2.9rem;
+    font-size: 1.2rem;
+}
+
+.pre_m_ct_ipt .ipt_list input {
+    width: 60%;
+    border: #ccc solid 1px;
+    height: 2.3rem;
+    line-height: 2.5rem;
+}
+
+.pre_m_ct_ipt .ipt_list b {
+    font-size: 1rem;
+    float: left;
+    width: 28%;
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.pre_m_ct_ipt .ipt_list p {
+    font-size: 1rem;
+    float: left;
+    width: 72%;
+    height: 2rem;
+    line-height: 1.5rem;
+    text-align: left;
+}
+
+.prize_ft {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: url(/images/zp/prize_3.jpg) no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.prize_ft .ft_btn a {
+    width: 40%;
+    margin: 0 auto;
+    color: #fff;
+    display: block;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    background: #ff5174;
+    border-radius: 4px;
+    font-size: 1.8rem;
+}
+
+.prize_ft p {
+    color: #fff;
+    font-size: 2.2rem;
+    padding-top: 23rem;
+    padding-bottom: 2rem;
+}
+
+.prize_ft h2 {
+    height: 2rem;
+}
+
+
+
+.ly_fxd {height:100%; width: 100%; background: #0b1c26; position:fixed; top: 0%； left:0; z-index: 99999; opacity:.80; display: none ; }
+
+.ly_fxd img{width: 60%;height: 40%;background-size: 100% 100%; position: absolute; top:30%; left: 20%;  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*5*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    .ly-plate {
+        height:380px;
+    }
+
+    .lottery-star-btn {
+        /*top: 11rem;
+        left: 12.2rem;
+        position: absolute;*/
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-left: 72px;
+        margin-top: 58px;
+
+
+    }
+
+    .ly_foot {
+        width: 90%;
+        padding-top: 0rem;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .rotate-bg {
+        background: url(/images/zp/ly-plates.png)  1.5rem 2.5rem no-repeat;
+        background-size: 90%;
+    }
+
+    .lottery-star-btn {
+        background: url(/images/zp/rotate-statics.png) no-repeat;
+        background-size: 80%;
+    }
+}
+
+
+
+
+
+
+
+/*6*/
+/*@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
+    .ly-plate {
+        height: 450px;
+    }
+
+    .lottery-star-btn {
+        top: 13rem;
+        left: 14.8rem;
+        position: absolute;
+        width: 100%;
+        height: 100%
+    }
+
+    .ly_foot {
+        width: 90%;
+        padding-top: 2rem;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .rotate-bg {
+        background: url(/images/zp/ly-plate.png)  1.7rem 2.5rem no-repeat;
+        background-size: 90%;
+    }
+} */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) {
+    .ly-plate {
+        height: 400px;
+    }
+
+    .lottery-star-btn {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-left: 72%;
+        margin-top: 60%;
+
+
+       
+    }
+
+    .ly_foot {
+        width: 90%;
+        padding-top: 2rem;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .rotate-bg {
+
+        background: url(/images/zp/ly-plates.png)  1.7rem 2.5rem no-repeat;
+        background-size: 90%;
+    }
+} 
+
+
+
+
+/*6+*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {
+    .ly-plate {
+        height: 440px;
+    }
+
+    .lottery-star-btn {
+      
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        margin-left: 90px;
+        margin-top: 77px;
+
+
+    }
+
+    .ly_foot {
+        width: 90%;
+        padding-top: 2em;
+        color: #fff;
+        margin: 0 auto;
+    }
+
+    .rotate-bg {
+        background: url(/images/zp/ly-plates.png)  1.7rem 2.5rem no-repeat;
+        background-size: 90%;
+    }
+} 
+
+
+
+  
+

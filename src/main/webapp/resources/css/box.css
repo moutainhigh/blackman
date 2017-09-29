@@ -1,0 +1,131 @@
+
+.img-replace {display: inline-block;overflow: hidden;text-indent: 100%;color: transparent;white-space: nowrap;}
+.cd-popup {position: fixed;left: 0;top: 0;height: 100%;width: 100%;background-color: rgba(51, 51, 51, 0.9);z-index: 99999;opacity: 0;visibility: hidden;-webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;-moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;transition: opacity 0.3s 0s, visibility 0s 0.3s;}
+.cd-popup.is-visible {opacity: 1;visibility: visible;-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;-moz-transition: opacity 0.3s 0s, visibility 0s 0s;transition: opacity 0.3s 0s, visibility 0s 0s;}
+.cd-popup-container {position: relative;width: 90%; height: 100%; max-width: 735px;margin: 0 auto ;border-radius: 8px;box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);-webkit-transform: translateY(-40px);-moz-transform: translateY(-40px);-ms-transform: translateY(-40px);-o-transform: translateY(-40px);transform: translateY(-40px);-webkit-backface-visibility: hidden;-webkit-transition-property: -webkit-transform;-moz-transition-property: -moz-transform;transition-property: transform;-webkit-transition-duration: 0.3s;-moz-transition-duration: 0.3s;transition-duration: 0.3s;}
+.is-visible .cd-popup-container {-webkit-transform: translateY(0);-moz-transform: translateY(0);-ms-transform: translateY(0);-o-transform: translateY(0);transform: translateY(0);}
+
+.cd-popup-container .cd-popup-close {position: absolute;top: 8px;right: 8px;width: 30px;height: 30px;}
+.cd-popup-container .cd-popup-close::before, .cd-popup-container .cd-popup-close::after {content: '';position: absolute;top: 12px;width: 14px;height: 3px;background-color: #8f9cb5;}
+.cd-popup-container .cd-popup-close::before {-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);left: 8px;}
+.cd-popup-container .cd-popup-close::after {-webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate(-45deg);right: 8px;}
+
+/*首页搜索加载*/
+.img-replace {display: inline-block;overflow: hidden;text-indent: 100%;color: transparent;white-space: nowrap;}
+.cd-popup1 {position: fixed;left: 0;top: 0;height: 100%;width: 100%;background-color: rgba(51, 51, 51, 0.9);z-index: 99999;opacity: 0;visibility: hidden;-webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;-moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;transition: opacity 0.3s 0s, visibility 0s 0.3s;}
+.cd-popup1.is-visible {opacity: 0.99;visibility: visible;-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;-moz-transition: opacity 0.3s 0s, visibility 0s 0s;transition: opacity 0.3s 0s, visibility 0s 0s;}
+.cd-popup-container1 {position: relative;width: 50%;max-width: 400px;margin: 10% auto;}
+.is-visible .cd-popup-container1 {-webkit-transform: translateY(0);-moz-transform: translateY(0);-ms-transform: translateY(0);-o-transform: translateY(0);transform: translateY(0);}
+.bgno p.sf-loading{text-align: left; font-size: 22px; padding-left: 140px; height: 130px;line-height: 130px; color: #fff;background: url('http://static.lvzheng.com/blackM/images/product/hm-ts.gif')  no-repeat left center;background-size: 120px;}
+
+
+/*请付款 弹层*/
+.p-pay-box{width: 485px;}
+.p-pay h4{font-size: 18px;color: #fff;text-align: left;height: 50px;line-height: 50px; font-weight: normal; padding: 0 20px;border-bottom: 2px solid #ffffff;background: #4c5c77;border-radius: 8px 8px 0 0;}
+.p-pay p.pay_tx{width: 320px;margin: 20px auto 5px; font-size: 18px;color: #333; height: 50px;line-height: 50px; padding-left: 60px;background: url(http://static.lvzheng.com/blackM/images/user/online/pay_ico2.png) no-repeat left center;}
+.p-pay ul.pay_c{width: 320px;margin: 0 auto}
+.p-pay ul.pay_c li{height: 25px;line-height: 25px;font-size: 14px;color: #999;list-style-type: square; ;margin-left: 40px}
+.p-pay .pay_btn{width: 260px;margin: 20px auto;overflow: hidden;}
+.p-pay .pay_btn a{width: 115px;height: 30px;line-height: 30px;text-align: center;border: 1px solid #cbcbcb;background: #f1f2f7; color: #333; cursor: pointer;  float: left;-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;}
+.p-pay .pay_btn a:hover{background: #fff;}
+.p-pay .padding_r{margin-right: 20px; }
+.p-pay p.pay_back{text-align: center;color: #4ba7d8;font-size: 14px;padding: 10px 0 30px;cursor: pointer;}
+.p-pay p.pay_back a{color:#4ba7d8 }
+
+/*登录办理 PC 弹层*/
+.login-box{width: 430px;}
+.login h4{font-size: 18px;color: #333;text-align: left;height: 40px;line-height: 40px; font-weight: normal; padding: 0 20px;border-bottom: 1px solid #e5e5e5;border-radius: 8px 8px 0 0;}
+.login .item{padding: 20px 30px 20px 40px}
+.login .item p{padding: 5px 0}
+.login .item p label{display: inline-block;width: 60px;text-align: right;padding-right: 20px;height: 35px;line-height: 35px;font-size: 14px;color: #666}
+.login .item p input{ padding: 0 10px; height: 33px;line-height: 33px;border: 1px solid #e5e5e5;border-radius: 3px}
+.login .item p input.w-180{width: 180px;}
+.login .item p input.w-100{width: 100px;}
+.login .item p .get-code{display: inline-block;color: #3F98DB;padding-left: 10px;font-size: 14px}
+.login .item p .time{font-size: 14px;display: inline-block;padding-left: 5px}
+.login .item p .time a{color: #ff3333}
+.login .btn{text-align: center;padding: 0 0 20px}
+.login .btn a{display: inline-block; width: 95px; text-align: center; height: 35px;line-height: 35px;font-size: 14px; color: #fff; background: #259bdb;border-radius: 3px}
+
+.bl-box{width: 420px;padding: 10px 0}
+.bl .item{padding: 20px 30px 20px 60px}
+.bl .item p{font-size: 14px;color: #333;line-height: 25px;width: 230px;padding: 15px 10px 15px 80px;background: url(http://static.lvzheng.com/blackM/images/zt/regcom/tx_ico1.png) no-repeat left center;}
+.bl .btn{text-align: center;padding: 0 0 20px}
+.bl .btn a{display: inline-block; min-width: 65px; padding: 0 10px; margin: 0 10px; text-align: center; height: 35px;line-height: 35px;font-size: 14px; color: #fff; background: #259bdb;border-radius: 3px}
+.bl .item div.w-text{width:200px; min-height: 100px; margin-left: 50px;}
+.bl .item div.w-text input{width: 180px; padding: 5px 10px; margin-bottom: 10px; height: 30px;border: 1px solid #dedede;font-size: 16px;line-height: 30px;border-radius: 6px}
+.bl .item div.w-text .imgcode{width: 90px;height: 35px;float: left;}
+.bl .item div.w-text .codebtn{width: 70px;float: left;display: block;height: 35px;line-height: 35px;padding-left: 10px;color: #259BDB;font-size: 16px;}
+
+.bl .item div.in-text{width:270px; min-height: 40px; margin-left: 10px;position: relative;}
+.bl .item div.in-text input{width: 250px; padding: 2px 10px; margin-bottom: 10px; height: 30px;border: 1px solid #dedede;font-size: 16px;line-height: 30px;border-radius: 6px}
+.bl .item div.in-text a.pcode{position: absolute;right: 5px;top: 8px;font-size: 14px;color: #3A99D8}
+.bl .item div.in-text a.mcode{position: absolute;right: 2px;top: 3px;width: 78px;height: 30px;}
+.bl .item div.in-text a.mcode img{width: 78px;height: 30px;}
+.bl .item .sytime{text-align: right;font-size: 14px;color: 333;padding-right: 50px}
+.bl .item .sytime span{color: #ff3333}
+
+/*登录办理 M 弹层*/
+.mlogin-box{width: 580px;}
+.mlogin .item{padding: 40px 50px 10px}
+.mlogin .item p{margin: 0 0 15px;position: relative;}
+.mlogin .item p input{ padding: 0 20px; height: 85px; font-size: 24px; line-height: 85px;border: 1px solid #e5e5e5;border-radius: 3px}
+.mlogin .item p input.w-480{width: 440px;}
+.mlogin .item p .get-code{display: inline-block;color: #4eb4e5;position: absolute;right: 0px;top: 1px;height: 85px;line-height: 85px;width: 188px;text-align: center;font-size: 24px;background: #f2f2f2}
+.mlogin .item p .time{font-size: 24px;display: block; height: 30px;line-height: 30px; padding-top: 10px; text-align: right;}
+.mlogin .item p .time a{color: #ff3333}
+.mlogin .btn{border-top: 1px solid #e5e5e5;height: 85px;overflow: hidden;}
+.mlogin .btn a{display: inline-block; width: 289px; color: #4eb4e5; float: left;  text-align: center; height: 85px;line-height: 85px;font-size: 26px; border-right: 1px solid #e5e5e5 }
+.mlogin .btn a:hover{background: #f3f9fa}
+.mlogin .btn a:last-child {border-right: none}
+
+.mbl-box{width: 580px;}
+.mbl .item{padding: 50px 60px}
+.mbl .item p{font-size: 26px;color: #333;line-height: 40px;width: 360px;padding: 20px 10px 20px 80px;background: url(http://static.lvzheng.com/blackM/images/zt/regcom/tx_ico1.png) no-repeat left center;}
+.mbl .item div.num{font-size: 36px;color: #333;line-height: 40px;padding: 20px 10px;text-align: center;}
+.mbl .btn{border-top: 1px solid #e5e5e5;height: 85px;overflow: hidden;}
+.mbl .btn a{display: inline-block; width: 289px; color: #4eb4e5; float: left;  text-align: center; height: 85px;line-height: 85px;font-size: 26px; border-right: 1px solid #e5e5e5 }
+.mbl .btn a:hover{background: #f3f9fa}
+.mbl .btn a:last-child {border-right: none}
+
+
+/*弹出层*/
+.ch-area{width: 640px;  min-height: 200px;  }
+.boxname{position: absolute;width: 640px;bottom: 0px}
+
+
+/*弹出层*/
+.virshow{width: 640px;  min-height: 300px;}
+.virt-box{position: absolute;width: 640px; bottom: 0px;background: #fff }
+.virt-box .box-t{height: 90px;line-height: 90px;background: #eeeeee;padding: 0 30px;border-bottom: 1px solid #ddd;position: relative;}
+.virt-box .box-t p.title{font-size: 22px;color: #999;text-align: center;}
+.virt-box .box-t a.qxbtn{display: inline-block;font-size: 26px;color: #18b4ed;width: 100px;position: absolute;right: 0px;top: 0px;}
+.virt-box .vircon{padding: 30px 20px}
+.virt-box .vircon .vbox1{min-height: 40px;line-height: 40px;width: 600px;overflow: hidden;}
+.virt-box .vircon .name{font-size: 30px;color: #333;width: 340px;float: left;}
+.virt-box .vircon .price{font-size: 30px;color: #ef1717;height: 45px;line-height: 40px;float: left;width: 250px}
+.virt-box .vircon .price span.fh{ display: inline-block; font-size: 28px;}
+.virt-box .vircon .price span.yj{ display: inline-block; padding-right: 10px; font-size: 22px;color: #999;text-decoration: line-through;}
+.virt-box .vtag{min-height: 80px;margin: 20px 0}
+.virt-box .vtag ul{overflow: hidden;}
+.virt-box .vtag ul li{border-radius: 3px;color: #fff;cursor: pointer;float: left;font-size: 22px;height: 30px;line-height: 30px;margin: 5px 10px 5px 0;min-width: 60px;padding: 0 10px;text-align: center;background: #ffc065}
+.virt-box .vbtn{display: inline-block; width: 600px;text-align: center;height: 90px;line-height: 90px;font-size: 30px;color: #fff;background: #29b5ea;border-radius: 6px}
+.virt-box .vbtn1{display: inline-block; width: 290px; cursor: pointer; margin-right: 20px; float: left; text-align: center;height: 90px;line-height: 90px;font-size: 30px;color: #fff;background: #303032;border-radius: 6px}
+.virt-box .vbtn1:hover{background: #030406}
+.virt-box .vbtn2{display: inline-block; width: 290px; cursor: pointer; float: left; text-align: center;height: 90px;line-height: 90px;font-size: 30px;color: #fff;background: #FF5A5A;border-radius: 6px}
+.virt-box .vbtn2:hover{background:#FC3434 }
+
+
+/*优惠券弹出层*/
+.coupon-cbox{height: 325px;left: 150px;overflow-y: auto;}
+.coupon-cbox ul{overflow: hidden;}
+.coupon-cbox ul li{min-height: 40px;line-height: 40px; padding: 20px 0; font-size: 26px;color: #333;text-align: center;border-bottom: 1px solid #ccc}
+.coupon-cbox ul li span{color: #ff3333}
+.coupon-cbox ul li.off{min-height: 40px;line-height: 40px; padding: 20px 0; font-size: 26px;color: #333;text-align: center;border-bottom: 1px solid #ccc;cursor: pointer; }
+.coupon-cbox ul li.on{min-height: 40px;line-height: 40px; padding: 20px 0; font-size: 26px;color: #333;text-align: center;border-bottom: 1px solid #ccc;cursor: pointer; background: #f0fafc}
+
+/*分享弹出层*/
+.coushow{width: 640px;  min-height: 480px;}
+.cou-box{position: absolute;width: 640px; height: 100%; top: 0px;}
+
+

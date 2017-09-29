@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>贺中秋迎国庆，小微律政创业套餐直降610，机会难得，速来抢购！--国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link id="common_css" rel="stylesheet" href="http://static.lvzheng.com/blackM/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/ldy/mid_land.css">
+    <link href="/css/box.css" type="text/css"  rel="stylesheet"/>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/box.js"></script>
+    <script src="/js/iscroll.js"></script>
+    <script src="/js/goodslistdown.js"></script> 
+	<script type="text/javascript">
+    $(document).ready(function($){
+
+		$(window).scroll(function(){
+			var b=parseInt($(window).scrollTop());
+			if(b<800){
+				$(".backtop").removeClass("backtop-xf")
+			}
+			if(b>800){
+				$(".backtop").addClass("backtop-xf")
+			}
+		});
+		
+		 $(window).scroll(function(){
+	          var a=parseInt($(window).scrollTop());
+	          if(a<1000){
+	              $(".m-com-names").removeClass("mnew-spnavxf")
+	          }
+	          if(a>1000)
+	          {
+	          $(".m-com-names").addClass("mnew-spnavxf")
+	          }
+	       });
+
+        // 返回顶部
+		$("#returnTop").click(function () {
+			var speed=200;//滑动的速度
+			$('body,html').animate({ scrollTop: 0 }, speed);
+			return false;
+		}); 
+        
+		$('#wrapper-ul').on("click","dl",function(event) {
+			if (t1 == null){
+						t1 = new Date().getTime();
+					}else{
+						var t2 = new Date().getTime();
+						if(t2 - t1 < 500){
+							t1 = t2;
+							return;
+						}else{
+							t1 = t2;
+						}
+					}
+		  $(this).find('.cont_pf').stop().slideToggle();
+		  var a=$(this).find('.md_btn p');
+		   // a.stop();
+		   // console.log(a);
+		   if(a.attr('class') == 'btn_jt_down'){
+		      a.attr('class','btn_jt');
+		   }else{
+		    a.attr('class','btn_jt_down');
+		   }
+		});
+
+	    loadCusEvaluation("all");
+	    reInitEvent();
+	});
+    
+    
+    function loadCusEvaluation(scope){
+		//异步加载客户问答
+	    $.ajax({
+	    	url:"/common/getPageListCusEvalByPrdtId",
+	    	type:"post",
+	    	dataType:"html",
+	    	async:false,
+	    	data:{"productId":"38229817543169","scope":scope},
+	    	success:function(data){
+	    		$('#wrapper-ul').children().remove();
+	    		$("#wrapper-ul").append(data);
+	    		
+	    		reInitEvent();
+	    	},
+	    	error:function(){
+	    		alert("未响应");
+	    	}
+	    });
+	}
+    
+    
+    /*分页加载*/
+	function loadPageCusEvaluation(pageIndex){
+		if(typeof(cusEvalParamValue) == "undefined"){//查询条件
+			return;
+		}else{
+			$.ajax({
+				url:"/common/getPageListByPage/"+pageIndex+"?"+cusEvalParamValue,
+				type:"post",
+				dataType:"html",
+				async:false,
+				success:function(data){
+		    		$("#wrapper-ul").append(data);
+		    		
+		    		reInitEvent();
+				},
+				error:function(){
+		    		
+		    	}
+			})
+		}
+	}
+	
+	/*客户评价-重新初始化相关元素事件*/
+	function reInitEvent(){
+		//显示分数
+		$(".show-numbers li p").each(function(index, element) {
+		  var num=$(this).attr("tip");
+		  var www=num*2*10;
+		  $(this).css("width",www);
+		  $(this).parent(".star-Shows").siblings("h4").text(num);
+		});
+		
+		//显示分数2
+		$(".show-numbert li p").each(function(index, element) {
+		  var num=$(this).attr("tip");
+		  var www=num*2*8;
+		  $(this).css("width",www);
+		  $(this).parent(".star-Showt").siblings("h4").text(num);
+		});
+	}
+	
+ 
+	</script>
+
+
+</head>
+<body>
+<div class="wrapper">
+
+	<div class="mmid-box">
+	    <div class="banner">
+            <p class="bcp"></p>
+            <p class="btext"></p>   
+        </div>
+
+        <div class="main-box">
+            <div class="titlebox">
+                <p class="name">服务<span>价格</span></p>
+            </div>
+            <div class="price-tab">
+                <table>
+                    <tr>
+                        <th>服务套餐</th>
+                        <th>同行甲</th>
+                        <th>同行乙</th>
+                        <th class="xw">小微律政</th>
+                    </tr>
+                    <tr>
+                        <td class="tc">注册+刻章</td>
+                        <td>998元</td>
+                        <td>588元</td>
+                        <td class="xwprice">598元</td>
+                    </tr>
+                    <tr>
+                        <td class="tc">注册地址</td>
+                        <td>4000元</td>
+                        <td>4000元</td>
+                        <td class="xwprice">4000元</td>
+                    </tr>
+                    <tr>
+                        <td class="tc">代理记账</td>
+                        <td>2400元</td>
+                        <td>2000元</td>
+                        <td class="xwprice">2000元</td>
+                    </tr>
+                    <tr class="tcp">
+                        <td class="tc">活动套餐价格</td>
+                        <td class="tag1">6998元</td>
+                        <td class="tag2">6188元</td>
+                        <td class="xwprice tag3">5988元</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="titlebox">
+                <p class="name">服务<span>流程</span></p>
+            </div>
+            <div class="serflow"></div>
+            
+            <div class="titlebox">
+                <p class="name long">办完之后会拿到哪些<span>材料</span></p>
+            </div>
+            <div class="clbox">
+                <div class="nav">
+                    <span class="nav1">营业执照（正副本）</span>
+                    <span class="nav2">公司章程</span>
+                    <span class="nav3">公司印章</span>
+                    <span class="nav4">留鉴留存卡</span>
+                </div>
+            </div>
+            
+            <div class="eval-box">
+                <div class="titlebox">
+                    <p class="name">用户<span>评价</span></p>
+                </div>
+                <div class="eval">
+
+                    <div class="md-tab-conts">
+						<div class="tab-conts-h show pingjiaShowDiv" id="wrapper">
+							<ul id="wrapper-ul">
+								
+							</ul>
+							<div id="pullUp">
+				              <span class="pullUpLabel">上拉加载更多...</span>
+				           </div>
+						</div>
+					</div>
+
+                </div>
+            </div>
+
+        </div>
+
+		<div class="bot-box">
+			<a href="tel:01080697544" class="zxbtn">电话咨询</a>
+            <a href="http://m.lvzheng.com/m/buyPackage/41331626193921" class="zxbtn">立即购买</a>
+		</div>
+		
+		<div class="backtop" id="returnTop"></div>
+
+	</div>
+
+</div>
+
+<span style="display:none">
+	    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254054374'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254054374' type='text/javascript'%3E%3C/script%3E"));</script>
+	    <script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fff07fd1b4594615ee70a3e2ece1c28c1' type='text/javascript'%3E%3C/script%3E")) </script>
+   	</span>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
+    <title>虚拟地址--国内领先的O2O自营法律服务提供商</title>
+    <meta name="description" content="注册公司找小微律政,小微律政拥有专业的律师和会计团队,小微律政专注为创业公司及中小微企业提供代办公司注册,商标注册,代理记账,社保公积金开户,公司变更,合同拟定,公司章程等一站式企业服务，小微律政服务流程每一步都无微不至。">
+    <meta name="keywords" content="小微律政,代办注册公司,公司注册,商标注册费用和流程" />
+    <link rel="stylesheet" type="text/css" href="/css/mvir.css">
+    <link href="/css/box.css" type="text/css"  rel="stylesheet"/>
+    <script src="/js/viewport.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/box.js"></script> 
+	<script type="text/javascript">
+    $(document).ready(function($){
+		$(window).scroll(function(){
+			var b=parseInt($(window).scrollTop());
+			if(b<800){
+				$(".backtop").removeClass("backtop-xf")
+			}
+			if(b>800){
+				$(".backtop").addClass("backtop-xf")
+			}
+		});
+        // 返回顶部
+		$("#returnTop").click(function () {
+			var speed=200;//滑动的速度
+			$('body,html').animate({ scrollTop: 0 }, speed);
+			return false;
+		}); 
+	});
+ 
+	</script>
+
+
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="mvir">
+        
+        <div class="vbox1">
+            <div class="pic"><img src="/images/mvir/mcp_pic.png"></div>
+            <div class="info">
+                <p class="name">$!{conf.address_name}</p>
+                <p class="text">$!{conf.descpation}</p>
+                <p class="price">
+                    <span class="xj">￥$!{sellM.sell_overprice}</span>
+                    <span class="yj">￥$!{sellM.sell_markprice}</span>
+                </p>
+            </div>
+        </div>
+        <div class="vbox2">
+            <table>
+                <tr>
+                    <th><span class="ico1">适用经营范围</span></th>
+                    <td>
+                    #set ($i=0)
+                     #foreach($o in $!seltags)
+                            #set($i=$i+1)
+                            #if($i < 7)
+	                        $!{o.titlename}#if($i!=6)、#end
+	                        #end
+                     #end
+                     </td>
+                </tr>
+                <tr>
+                    <th><span class="ico2">适用公司类型</span></th>
+                    <td>$!{conf.com_type}</td>
+                </tr>
+                <tr>
+                    <th><span class="ico3">适用注册资本</span></th>
+                    <td>$!{conf.reg_money}</td>
+                </tr>
+                <tr>
+                    <th><span class="ico4">适用税务信息</span></th>
+                    <td>$!{conf.sw_info}</td>
+                </tr>
+                <tr>
+                    <th><span class="ico5">适用发票信息</span></th>
+                    <td>#if($!{conf.invoice}==1)可#else不可#end开具发票</td>
+                </tr>
+                <tr>
+                    <th><span class="ico6">地址使用期限</span></th>
+                    <td>1年</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="vbox2 mtop">
+            <table>
+                <tr>
+                    <th><span class="ico7">所在位置</span></th>
+                    <td><a  target="_blank" href="$!{conf.pic_url}" class="check">$!{conf.address_desc}</a></td>
+                </tr>
+            </table>
+        </div> 
+		 #if($packets || $!{packageCount})
+        <div class="vbox2 mtop">
+            <table>
+                #if($packets)
+                <tr>
+                    <th><span class="ico8">优惠券</span></th>
+                    <td><a class="check show_coupon">
+                    
+                    #foreach($p in $packets) <span class="mj">$!{p.unitName}</span> #end
+                    
+                    </a></td>
+                </tr>
+                #end
+                 #if($!{packageCount})
+                <tr>
+                    <th><span class="tz-name">优惠套装</span></th>
+                    <td><a href="/m/packageSellList/$!{productid}/$!{cityid}/$!{areaid}" class="check">超值优惠，共$!{packageCount}款</a></td>
+                </tr>
+                #end
+            </table>
+        </div>
+        #end
+
+        <div class="vbox3 mtop">
+            <div class="title-box">
+                <p class="title">$!{conf.area_name}经营范围</p>
+            </div>
+            <div class="text-box">
+                <div class="text">
+					$!{conf.m_fwbz}
+				</div>
+                <a href="/m/address/more/$!{conf.address_conf_id}" class="more">查看全部>></a>
+            </div>
+        </div>
+
+        <div class="vbox3 mtop">
+            <div class="title-box">
+                <p class="title">购买后您会得到</p>
+            </div>
+            <div class="pic-box"><img src="/images/mvir/get_pic.jpg"></div>
+        </div>
+
+        <div class="vbox3 mtop">
+            <div class="title-box">
+                <p class="title">服务流程</p>
+            </div>
+            <div class="pic-box"><img src="/images/mvir/flow_pic.jpg"></div>
+        </div>
+
+        <div class="vbox3 mtop">
+            <div class="title-box">
+                <p class="title">您需要准备的材料</p>
+            </div>
+            <div class="pic-box"><img src="/images/mvir/cl_pic.jpg"></div>
+        </div>
+
+        <div class="pro-btn">
+            <ul>
+                <li class="m3">
+                    <a href="tel:010-80697544" class="t3"><span class="tel">电话咨询</span></a>
+                    <a href="/m/myorder/buyNow?sellid=$!{conf.address_id}" class="t2">立即购买</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 领券弹层 -->
+			<div class="cd-popup cd-box3" role="alert">
+				<div class="cd-popup-container ch-area">
+					<div class="boxname">
+						<div class="box-t">
+							<p class="btn1">领取优惠券</p>
+							<p class="btn2 qxbtn">取消</p>
+						</div>
+						<div class="getcoubox">
+							<p class="title available_title">可领取优惠券</p>
+							<ul id="available_coupons">
+
+							</ul>
+							<p class="title hold_tital">
+								可用优惠券<span>以下是您账户里可用于该商品的优惠券</span>
+							</p>
+							<ul id="hold_coupons">
+
+							</ul>
+							<p class="get-ts">您已领取过此券〜</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<!-- 登录和优惠券领取相关的JS    JS引用后置，在页面最后加载 -->
+<script type="text/javascript" src="/js/coupon/preferential.js"></script>
+<script type="text/javascript" src="/js/common/m_login_float.js"></script>
+
+</body>
+</html>
